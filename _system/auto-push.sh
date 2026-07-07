@@ -5,5 +5,6 @@ cd "/Users/mzahn/bitcoin beacon" || exit 1
 /usr/bin/git add -A
 if ! /usr/bin/git diff --cached --quiet; then
   /usr/bin/git commit -m "Daily edition $(date +%Y-%m-%d)"
-  /usr/bin/git push origin main >> /tmp/bitcoinbeacon-push.log 2>&1
 fi
+# Always push — catches commits made earlier that haven't gone out yet.
+/usr/bin/git push origin main >> /tmp/bitcoinbeacon-push.log 2>&1
