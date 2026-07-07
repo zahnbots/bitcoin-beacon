@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 4, 2026</title>
+<style>
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  /* Masthead */
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  /* Lead */
+  .lead-head{ text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  /* Columns */
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  /* keep a subhead glued to the paragraph that follows it */
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+
+  /* Markets box — full-width banner */
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:25%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  /* The Take — opinion box */
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  /* Voices / from the timeline */
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 2</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>Saturday, July 4, 2026</span>
+  </div>
+
+  <h1 class="lead-head">In Nairobi&rsquo;s Kibera, Bitcoin Is<br>Already the Money That Works</h1>
+  <p class="deck">A new bridge turns 40 million Kenyan phone numbers into Lightning addresses &mdash; no bank, no app, settling in under a second for a fraction of a cent</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; On the Ground</div>
+
+  <div class="marketbox">
+    <div class="hd">Adoption at a Glance</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">Holders (&ge; $100)</div><div class="val">~24M</div></div>
+      <div class="cell"><div class="lbl">Merchants &middot; BTC Map</div><div class="val">25,300+</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">~1.1 ZH/s</div></div>
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$61,900</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap d"><span class="kick">NAIROBI &mdash;</span> In Kibera, the city&rsquo;s largest informal settlement, roughly 200 residents now buy vegetables, water and boda-boda rides with bitcoin over the Lightning Network &mdash; each payment settling in under a second for a fraction of a cent, no bank account required. The grassroots group Afribit Africa has onboarded 150-plus merchants and logged more than 2,000 transactions since 2022.</p>
+    <p>What turns a pilot into a market is reach. In May, the Tando app began converting Kenyans&rsquo; M-Pesa phone numbers directly into Lightning addresses &mdash; meaning roughly <b>40 million people</b>, effectively the country&rsquo;s entire adult population, can now receive a bitcoin payment without downloading anything new. Feature-phone users aren&rsquo;t left behind either: Machankura&rsquo;s USSD service already spans ten African countries and 39,000-plus handsets, no smartphone or internet needed.</p>
+    <p>This is the adoption that actually matters &mdash; and it looks nothing like the version the West measures. While New York argues over ETF flows and treasury discounts, a fruit seller in Kibera closing a sale over Lightning is the product working exactly as designed. Money is a network, and networks grow from the edges inward, not from a Wall Street press release outward.</p>
+    <p>The Global South is bitcoin&rsquo;s real total addressable market: high inflation, thin banking, mobile-first, punishing remittance fees. That is precisely where a bearer asset that settles instantly for almost nothing stops being a speculation and becomes an upgrade. <span class="kick">WHY IT MATTERS.</span> The number worth tracking isn&rsquo;t the price &mdash; it&rsquo;s that, as of May, &ldquo;can someone without a bank receive value instantly for almost nothing?&rdquo; quietly became yes for 40 million Kenyans. That is the monetary-network thesis being proven in real time.</p>
+
+    <span class="sub">On the Ground</span>
+    <p><span class="kick">SAN SALVADOR &mdash;</span> El Zonte&rsquo;s original circular economy grinds on: residents pay utilities, medical care, food and haircuts over Lightning, and new businesses opt in each month &mdash; now entirely bottom-up and voluntary as the government sunsets the state Chivo wallet under its IMF pact. Adoption here no longer needs a mandate.</p>
+    <p><span class="kick">REMITTANCES.</span> El Salvador&rsquo;s crypto-linked remittances jumped ~50% year-over-year in Q1 to $17.38M &mdash; real growth, but still just 0.71% of the country&rsquo;s $2.43B total. The rail is far cheaper (Lightning under a cent vs. 6&ndash;10% legacy fees); habit and cash-out points are what still gate it. An honest picture beats a triumphant one.</p>
+
+    <div class="take">
+      <div class="tag">The Take &middot; Opinion</div>
+      <h3>In the Global South, bitcoin&rsquo;s real rival isn&rsquo;t the dollar &mdash; it&rsquo;s the CBDC</h3>
+      <p>Every central bank watching grassroots bitcoin spread through its economy is reaching for the same counter: a central bank digital currency, marketed as &ldquo;financial inclusion&rdquo; with the state&rsquo;s hand left firmly on the switch.</p>
+      <p>But the two offer opposite bargains. A CBDC is programmable, surveillable and freezable by design &mdash; inclusion on a leash. Bitcoin is a bearer instrument that answers to no issuer. For populations scarred by devaluation and capital controls, that gap isn&rsquo;t academic; it&rsquo;s the entire point &mdash; and it is why top-down digital-currency pilots keep stalling while bottom-up bitcoin quietly compounds.</p>
+      <p>The developing world&rsquo;s real monetary contest this decade won&rsquo;t be bitcoin versus the dollar. It&rsquo;ll be open money versus programmable money &mdash; and on the street, the side that respects the person holding it tends to win.</p>
+      <p class="sig">&mdash; The Bitcoin Beacon</p>
+    </div>
+
+    <span class="sub">Network &amp; Mining</span>
+    <p><span class="kick">LIGHTNING.</span> On current growth, Lightning could carry more than 30% of all bitcoin payment and remittance volume by year-end &mdash; the rail scaling to meet the demand the ground is generating.</p>
+    <p><span class="kick">INSTITUTIONAL RAIL.</span> Custodian BitGo switched on Lightning across its Crypto-as-a-Service platform via a Voltage partnership &mdash; the same rail Kibera uses, now wrapped for banks, neobanks and fintechs. Grassroots and institutional adoption converging on one network.</p>
+    <p><span class="kick">S&Atilde;O PAULO &mdash;</span> Agribusiness giant Adecoagro, with Tether a major shareholder, is bringing a sugarcane-bagasse-powered bitcoin mine online in Brazil (~10 MW, ~1,280 machines) &mdash; turning milling waste into hashrate, and stranded energy into a monetary export. <a href="../public/stories/2026-07-04/sao-paulo-sugarcane-mining.html" style="color:#c87a12;font-weight:700;">Read the full story &rarr;</a></p>
+
+    <span class="sub">Markets &amp; Institutions</span>
+    <p><span class="kick">GOLDMAN.</span> Goldman Sachs filed with the SEC for a new bitcoin ETF, and the agency&rsquo;s new generic listing standards now cut ETP approvals from as long as 240 days to as little as 75 &mdash; Western financialization proceeding in parallel to Southern adoption, on entirely different clocks.</p>
+    <span class="sub">Voices From the Timeline</span>
+    <div class="voice">
+      <div class="q">Africa&rsquo;s bitcoin sector is entering its &ldquo;pay the milkman&rdquo; era &mdash; the shift from trading and speculation to simply buying everyday things.</div>
+      <div class="who">TechCabal <span>&middot; reporting from Lagos &amp; Nairobi</span></div>
+    </div>
+    <p style="font-size:10px;color:#8a8578;font-family:'Helvetica Neue',Arial,sans-serif;margin-top:2px;">Adoption-first sourcing; verify datelines before send. Bitcoin only &mdash; no altcoin/crypto-industry items.</p>
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p><span class="kick">BHUTAN.</span> Whether the kingdom keeps quietly selling its hydro-mined stack or shifts to holding &mdash; a tell for whether sovereign miners treat bitcoin as a trading asset or a reserve. <span class="kick">FUNDED OR NOT.</span> Which of the several announced &ldquo;strategic reserves&rdquo; actually gets a balance sheet behind the press release. <span class="kick">HASHRATE.</span> Where the ~20 EH/s orphaned by SBI Crypto&rsquo;s pool shutdown on July 31 ends up landing &mdash; and whether it further concentrates the top pools.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="#">Unsubscribe</a> &bull; <a href="#">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>

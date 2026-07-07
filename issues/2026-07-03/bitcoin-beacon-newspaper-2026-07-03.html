@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 3, 2026</title>
+<style>
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  /* Masthead */
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  /* Lead */
+  .lead-head{ text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  /* Columns */
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+
+  /* Markets box — full-width banner */
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:25%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  /* Voices / from the timeline */
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 2</span>
+    <span class="c">Bitcoin &amp; Macro &middot; Daily Edition</span>
+    <span>Saturday, July 4, 2026</span>
+  </div>
+
+  <h1 class="lead-head">Treasury Race Splits Winners<br>From Losers as Metaplanet Hits No. 3</h1>
+  <p class="deck">Corporate accumulation grinds on &mdash; new European and SPAC entrants pile in &mdash; even as the speculative &ldquo;premium era&rdquo; collapses and weaker names trade below the value of their coins</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Institutions &amp; Adoption Desk</div>
+
+  <div class="marketbox">
+    <div class="hd">Markets at a Glance</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$62,050</div></div>
+      <div class="cell"><div class="lbl">24h</div><div class="val up">&#9650; 2.0%</div></div>
+      <div class="cell"><div class="lbl">June ETF Net</div><div class="val down">&minus;$4.06B</div></div>
+      <div class="cell"><div class="lbl">Public Co. BTC</div><div class="val">1.268M</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap d">Tokyo&rsquo;s <b>Metaplanet</b> (3350) added another $170M in bitcoin this week, lifting its stack to <b>43,000 BTC</b> and cementing it as the world&rsquo;s third-largest corporate holder &mdash; behind only Strategy and Twenty One Capital (XXI). Notably, its bitcoin-options desk booked roughly $11M in Q2 operating revenue, a model that subsidizes accumulation rather than relying purely on share issuance.</p>
+    <p>But the fresh buying lands in a brutally reordered market. Some 198 public companies now hold a combined <b>1.268M BTC</b> (~$77.5B) &mdash; yet the easy-money &ldquo;premium era&rdquo; that let treasury firms trade far above the value of their coins is over. <b>Nakamoto</b>, the self-styled &ldquo;treasury for treasuries,&rdquo; trades at a ~63% discount; a growing cohort of smaller entrants is exiting entirely, selling coins to repay debt or pivoting toward AI infrastructure.</p>
+    <p>Even the pioneer is adapting. Michael Saylor&rsquo;s <b>Strategy</b> (847,363 BTC, avg. ~$66,385) rolled out a Digital Credit Capital Framework that formally breaks from its old &ldquo;never sell&rdquo; dogma &mdash; adding a USD reserve policy (~$3.8B liquidity coverage), up to $1B in MSTR buybacks, and selective bitcoin monetization.</p>
+    <p>New entrants keep coming anyway. Sweden&rsquo;s <b>H100 Group</b> won shareholder approval to absorb two Norwegian treasuries, tripling holdings to ~3,500 BTC and taking Europe&rsquo;s No. 2 spot behind Germany&rsquo;s Bitcoin Group SE. Adam Back&rsquo;s <b>Bitcoin Standard Treasury (BSTR)</b> debuts via SPAC with 30,021 BTC and a path toward ~53,500.</p>
+
+    <span class="sub">Banks &amp; Custody</span>
+    <p><span class="kick">CITI.</span> Citigroup confirmed plans to launch institutional <b>bitcoin custody</b> later this year, folding BTC into the same custody, reporting and tax rails it uses for securities and cash &mdash; and enabling cross-margining between digital and traditional assets.</p>
+    <p><span class="kick">MORGAN STANLEY.</span> The $8T manager is rolling out spot crypto trading, has filed for spot BTC, ETH and SOL ETFs, and plans a proprietary digital wallet later in 2026.</p>
+    <p><span class="kick">STABLECOIN BLOC.</span> Santander, BofA, Barclays, BNP Paribas, Citi, Deutsche Bank, Goldman Sachs, MUFG, TD and UBS are jointly exploring a 1:1 reserve-backed digital money &mdash; a rare show of collective big-bank interest in on-chain settlement.</p>
+    <p><span class="kick">FUNDS.</span> BlackRock&rsquo;s new covered-call iShares Bitcoin Premium Income ETF (BITA) is live; JPMorgan filed IBIT-linked structured notes (due 2028&ndash;2029) and now lets clients pledge spot BTC ETF shares as loan collateral. On flows, ETFs took in <b>$222M</b> Thursday &mdash; the best day in two months, ending a ten-day outflow streak &mdash; though YTD net remains &minus;$5.4B.</p>
+    <p><span class="kick">MSTR.</span> Benchmark&rsquo;s Mark Palmer reiterated a Street-high <b>$570</b> price target on Strategy, arguing the market is mispricing its bitcoin-per-share accretion even as treasury-stock premiums compress industry-wide.</p>
+    <p><span class="kick">CITI, CAUTIOUS.</span> Citi cut its 12-month bitcoin target to <b>$82K</b> from $112K, citing June&rsquo;s record ETF outflows, soft investor demand and slow crypto-legislation progress &mdash; while 10x Research&rsquo;s Markus Thielen warned the cycle low could still be $46K&ndash;$47K.</p>
+
+    <span class="sub">Sovereign &amp; State Reserves</span>
+    <p><span class="kick">FEDERAL.</span> The Trump administration is finalizing the <b>Strategic Bitcoin Reserve</b> blueprint &mdash; Executive Director Bo Hines says the design is circulating among inter-agency groups and is slated for release <b>before July 22</b>. In parallel, the <b>ARMA</b> bill (Begich&ndash;Golden) would authorize up to 200,000 BTC/yr for five years on a 20-year hold, with quarterly Proof-of-Reserve audits, and would bar Washington from impairing Americans&rsquo; right to <b>self-custody</b>. The U.S. already holds ~328,000 BTC.</p>
+    <p><span class="kick">TEXAS.</span> The Comptroller named a Strategic Bitcoin Reserve Advisory Committee and issued an RFP for custody and liquidity services &mdash; the state moving from statute to actual implementation.</p>
+    <p><span class="kick">WORLD.</span> El Salvador holds ~7,500 BTC (purchases paused under its IMF deal); Bhutan has sold ~$1B in mined BTC over 18 months; Pakistan&rsquo;s announced reserve still has no funded balance sheet, per its own central bank &mdash; a reminder to separate press releases from on-chain reality.</p>
+
+    <span class="sub">Self-Custody &amp; Collaborative Custody</span>
+    <p><span class="kick">FOUNDATION.</span> The Passport maker raised <b>$6.4M</b> (led by Fulgur Ventures; ~$16.5M total) and moved Passport Prime to general availability &mdash; pushing beyond a bitcoin wallet into a trademarked &ldquo;Human Authority Hardware&rdquo; category spanning identity, MFA and AI-agent authorization, all American-manufactured.</p>
+    <p><span class="kick">UNCHAINED &times; BITBOX.</span> BitBox hardware wallets are now supported inside Unchained&rsquo;s collaborative multisig vaults &mdash; widening key-device choice for its 2-of-3 model, concierge service, bitcoin-backed loans and IRA.</p>
+
+    <span class="sub">Governments &amp; Regulation</span>
+    <p><span class="kick">GENIUS ACT.</span> U.S. regulators must issue final stablecoin rules by <b>July 18</b> &mdash; licensing, capital, custody and AML standards.</p>
+    <p><span class="kick">CALIFORNIA.</span> AB 1052 took effect July 1, letting state and local agencies accept crypto as payment.</p>
+    <p><span class="kick">SOVEREIGNS.</span> A new Bitcoin Policy Institute report counts <b>27 countries</b> with BTC exposure, with 13 more advancing legislation.</p>
+
+    <span class="sub">Inside the Community</span>
+    <p><span class="kick">MINING.</span> SBI Crypto will permanently shut its public pool on <b>July 31</b>, forcing ~20.9 EH/s (2.2% of hashrate) to relocate amid scrutiny over a flagged ~$21M in suspicious 2025 outflows.</p>
+    <p><span class="kick">DIFFICULTY.</span> Fell ~9% in mid-June as listed miners redirect capacity toward AI/HPC; hashrate has recovered to ~1 ZH/s.</p>
+    <p><span class="kick">CONCENTRATION.</span> Foundry USA (~24%), AntPool (~19%) and F2Pool (~14%) &mdash; the top five pools now direct more than 75% of block production.</p>
+
+    <span class="sub">Voices From the Timeline</span>
+    <div class="voice">
+      <div class="q">&ldquo;Metaplanet now holds 43,000 BTC. Total debt and prefs at 23% of BTC NAV. The balance sheet is robust, the capital channels are being built, and the asset we exist to accumulate is on sale. Forward.&rdquo;</div>
+      <div class="who">Dylan LeClair <span>@DylanLeClair_ &middot; Metaplanet</span></div>
+    </div>
+    <div class="voice">
+      <div class="q">&ldquo;We&rsquo;re here for the long haul to keep you abreast of fiat&rsquo;s demise, bitcoin&rsquo;s rise, and our acceleration into the Digital Age. If you aren&rsquo;t paying attention, you probably should be.&rdquo;</div>
+      <div class="who">Marty Bent <span>@MartyBent &middot; TFTC &mdash; whose latest asks whether the &lsquo;debasement trade&rsquo; is being tested as Fed liquidity turns</span></div>
+    </div>
+    <div class="voice">
+      <div class="q">&ldquo;Only ~50% of Bitcoin is in profit right now. How long will BTC stay stuck in this blue zone? It could take a couple more months &mdash; but once this metric flips green, a new bull cycle begins.&rdquo;</div>
+      <div class="who">PlanB <span>@100trillionUSD &middot; on-chain / stock-to-flow</span></div>
+    </div>
+    <div class="voice">
+      <div class="q">Metaplanet&rsquo;s Q2 came in near the high end &mdash; revenue ~&yen;1.7B and 2,823 BTC added, just ahead of estimates &mdash; because they drew a bit more from the credit facility into June&rsquo;s vol spike.</div>
+      <div class="who">The Bitcoin Pharaoh <span>@thebtcpharaoh &middot; treasury analyst</span></div>
+    </div>
+    <div class="voice">
+      <div class="q">&ldquo;It doesn&rsquo;t matter what anyone says or whatever policy position a government might take. Bitcoin is currency. That is the economic reality. Water moves downhill.&rdquo;</div>
+      <div class="who">Parker Lewis <span>@parkeralewis &middot; author, &lsquo;Gradually, Then Suddenly&rsquo;</span></div>
+    </div>
+    <p style="font-size:10px;color:#8a8578;font-family:'Helvetica Neue',Arial,sans-serif;margin-top:2px;">Sourced from your X feed (Following &amp; &lsquo;Metaplanet Madness&rsquo;), lightly edited for length &mdash; quotes reflect their authors, not The Bitcoin Beacon.</p>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>The Strategic Bitcoin Reserve blueprint due before July 22, the July 18 GENIUS Act deadline, whether ETF inflows can string together a trend after June&rsquo;s record $4.06B bleed, Citi&rsquo;s custody launch, and whether the treasury-premium washout claims more listed names.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; A daily read on Bitcoin and the macro forces moving it &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="#">Unsubscribe</a> &bull; <a href="#">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>

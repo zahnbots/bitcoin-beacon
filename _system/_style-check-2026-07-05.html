@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Style consistency check</title>
+<style>
+  body{margin:0;font-family:'Helvetica Neue',Arial,sans-serif;background:#1c1a17;color:#e8e2d6;padding:26px;}
+  h1{font-size:18px;font-weight:800;margin:0 0 4px;}
+  p.sub{color:#9a9488;margin:0 0 22px;font-size:13px;}
+  .grid{display:grid;grid-template-columns:1fr;gap:22px;max-width:1000px;}
+  .item{border:1px solid #3a352d;border-radius:12px;overflow:hidden;background:#241f19;}
+  .item img{width:100%;display:block;}
+  .cap{padding:10px 14px;font-size:12px;}
+  .cap b{color:#f7931a;letter-spacing:1px;text-transform:uppercase;font-size:10px;}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  @media(max-width:720px){.row{grid-template-columns:1fr;}}
+</style></head><body>
+  <h1>House-style consistency check &mdash; July 5</h1>
+  <p class="sub">Reference (yesterday) vs. two new heroes generated with it as the style anchor. Same palette + rendering = the pipeline works.</p>
+  <div class="grid">
+    <div class="item">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260704_184750_857117b0-4f2e-47b8-b324-7f9caf0d72ce.png">
+      <div class="cap"><b>Style reference</b> &mdash; Nairobi market (yesterday's website hero)</div>
+    </div>
+    <div class="row">
+      <div class="item">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260705_183839_a14cf368-c5aa-444b-b39b-d0295b984c1d.png">
+        <div class="cap"><b>New &mdash; Option A</b> &mdash; El Zonte, El Salvador (Lightning at a beachside pupuser&iacute;a)</div>
+      </div>
+      <div class="item">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260705_183839_2bf048f3-e67d-4a47-824f-f3869d40293b.png">
+        <div class="cap"><b>New &mdash; Option B</b> &mdash; same scene, second candidate</div>
+      </div>
+    </div>
+  </div>
+</body></html>

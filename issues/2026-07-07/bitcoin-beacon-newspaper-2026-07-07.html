@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 7, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  /* Masthead */
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  /* Lead */
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  /* shared lead hero — same illustration used on the website article */
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  /* Columns */
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  /* keep a subhead glued to the paragraph that follows it */
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+  .cols a{ color:var(--accent); }
+
+  /* Markets box — full-width banner */
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  /* The Take — opinion box */
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  /* Voices / from the timeline */
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 5</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>TUESDAY, JULY 7, 2026</span>
+  </div>
+
+  <h1 class="lead-head">South Africa Put Bitcoin at 650,000 Checkouts</h1>
+  <p class="deck">No mandate, no ministry &mdash; payment processors wired bitcoin into the QR code South Africans already scan at the till.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Cape Town Desk</div>
+
+  <!-- HERO: the SAME house-style illustration used on the website article for the lead story. -->
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260707_131406_074627c6-967c-41b3-b8f8-719b3e259482.png" alt="A spaza-shop counter in Cape Town: a shopkeeper holds up a QR code as a customer pays by phone, Table Mountain beyond">
+    <div class="cap">The till learned bitcoin before the shopper did. &mdash; Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$63,290</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">957,039</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">&asymp;920 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap"><span class="kick">CAPE TOWN &mdash;</span> The biggest bitcoin checkout network on earth wasn&rsquo;t decreed; it shipped as a software update. MoneyBadger, a Stellenbosch payments firm, wired bitcoin into Scan to Pay &mdash; the QR code already taped to more than 650,000 South African tills. The customer scans the same code as everyone else in line; Lightning settles in seconds; the merchant receives rand and never touches a coin.</p>
+    <p>Pick n Pay proved the plumbing first, taking bitcoin at 1,500-plus supermarkets since 2023. Then the processors stacked up &mdash; Zapper&rsquo;s 31,000 locations, Ozow, Peach Payments, Ecentric &mdash; until spending bitcoin in South Africa stopped requiring a map. Down the coast in Mossel Bay, Bitcoin Ekasi pays township surf coaches their whole salary in it.</p>
+    <p><em>Why it matters: adoption stops being a destination you visit and becomes a default you inherit &mdash; bitcoin riding rails people already trust.</em></p>
+    <p><a href="https://thebitcoinbeacon.com/stories/2026-07-07/south-africa-650k-checkouts">Read the full dispatch &rarr;</a></p>
+
+    <span class="sub">Markets &amp; Institutions</span>
+    <p><span class="kick">TYSONS CORNER, VA.</span> <strong>Strategy sells bitcoin to pay its dividends.</strong> An SEC filing shows the biggest corporate holder sold 3,588 BTC over seven days &mdash; $216 million to fund preferred dividends and rebuild cash to $2.55 billion &mdash; and flagged an $8.32 billion Q2 loss. The buyer of last resort is now, some weeks, a seller. <a href="https://thebitcoinbeacon.com/stories/2026-07-07/strategy-sells-bitcoin">Full story &rarr;</a></p>
+
+    <span class="sub">Network &amp; Mining</span>
+    <p><strong>An August deadline splits bitcoin&rsquo;s developers.</strong> BIP-110, a soft fork that would filter data inscriptions, hits its forced-activation window in early August with a sliver of hashrate signaling &mdash; and critics like Adam Back and Jameson Lopp warning of a chain split. The fight is over what blockspace is for. <a href="https://thebitcoinbeacon.com/stories/2026-07-07/bip110-august-deadline">Full story &rarr;</a></p>
+
+    <span class="sub">Policy &amp; Nation-States</span>
+    <p><span class="kick">ABU DHABI.</span> <strong>Abu Dhabi keeps buying the bitcoin dip.</strong> While US spot ETFs bled for an eighth straight week, filings show sovereign fund Mubadala lifted its IBIT stake 16% to roughly $566 million &mdash; putting the emirate&rsquo;s disclosed exposure above $1 billion. Patient state money is buying what retail wrappers sell. <a href="https://thebitcoinbeacon.com/stories/2026-07-07/abu-dhabi-buys-dip">Full story &rarr;</a></p>
+
+    <span class="sub">On the Ground</span>
+    <p><strong>Rolex dealers now take bitcoin.</strong> Fifteen of the biggest watch-trading firms &mdash; Watches of Switzerland, WatchBox and Bob&rsquo;s Watches among them &mdash; switched on bitcoin checkout, courting the 241,700 people holding seven figures in coin, up 40% in a year. One bearer asset, pricing another. <a href="https://thebitcoinbeacon.com/stories/2026-07-07/rolex-dealers-bitcoin">Full story &rarr;</a></p>
+
+    <div class="take">
+      <span class="tag">The Take &middot; Opinion</span>
+      <h3>Europe Just Hired Bitcoin as a Notary</h3>
+      <p>A standard launched Monday anchors the EU&rsquo;s mandated AI-content watermarks into bitcoin blocks: a hash, a timestamp, a record nobody can rewind. No coin changes hands. The dullest use case may outlast the loud ones.</p>
+      <p><a href="https://thebitcoinbeacon.com/stories/2026-07-07/eu-bitcoin-notary">Read the argument &rarr;</a></p>
+      <div class="sig">&mdash; The Bitcoin Beacon, opinion</div>
+    </div>
+
+    <span class="sub">Voices</span>
+    <div class="voice">
+      <div class="q">&ldquo;We have an economic war with China, and we have to prepare.&rdquo;</div>
+      <div class="who">Cynthia Lummis <span>&mdash; US senator (R-Wyo.), telling CNBC the military now backs her 1-million-coin reserve plan</span></div>
+    </div>
+    <div class="voice">
+      <div class="q">Bitcoin&rsquo;s next decade will be set by corporate, institutional and sovereign capital flows &mdash; not halving cycles.</div>
+      <div class="who">Michael Saylor <span>&mdash; Strategy executive chairman, paraphrased from remarks this week</span></div>
+    </div>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>&#9632; Pakistan&rsquo;s Phase-2 mining licences &mdash; the first domestic approvals under the 100 PH/s floor, against the 2,000 MW allocation. &#9632; Whether US reserve codification rides the fall NDAA markup. &#9632; The Fed&rsquo;s next meeting after a 57,000-payroll print. &#9632; Nigeria&rsquo;s new 25% crypto capital-gains regime &mdash; and whether P2P volume migrates offshore.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="#">Unsubscribe</a> &bull; <a href="#">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>

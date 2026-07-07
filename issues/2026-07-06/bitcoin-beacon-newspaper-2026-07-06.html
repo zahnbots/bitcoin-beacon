@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 6, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  /* Masthead */
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  /* Lead */
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  /* Columns */
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+
+  /* Markets box */
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  /* The Take */
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  /* Voices */
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+
+  .sources{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#6b6459; line-height:1.5; margin:4px 0 0; }
+  .sources a{ color:#6b6459; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 4</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>Monday, July 6, 2026</span>
+  </div>
+
+  <h1 class="lead-head">Bitcoin Island Goes National</h1>
+  <p class="deck">Boracay proved tourists would pay in bitcoin. Now 400-plus Philippine merchants take it &mdash; and the real prize is a $35-billion remittance market.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Boracay &middot; Thimphu &middot; Buenos Aires Desk</div>
+
+  <!-- HERO: same house-style illustration used on the website article for the lead story -->
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260706_212842_af8df1da-3056-46c7-89bd-25320ef638a4.png" alt="A beachfront cafe on a Philippine island at golden hour, a vendor taking a phone payment from a traveler">
+    <div class="cap">Boracay, Aklan &mdash; a beachfront vendor settles a Lightning payment in seconds. <em>Illustration: The Bitcoin Beacon.</em></div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$62,500</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">~903,300</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">~945 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+
+    <p class="first dropcap"><span class="kick">BORACAY, PHILIPPINES &mdash;</span> Four years ago a single wallet company decided this four-kilometre resort island would learn to spend bitcoin. Today the experiment has outgrown its beach. Pouch.ph, the firm behind the &ldquo;Bitcoin Island&rdquo; project, says more than 400 merchants across the country now accept bitcoin payments &mdash; upward of 250 of them on Boracay itself, with the rest spreading into Cebu City, Iloilo, Dumaguete and Bacolod. Convenience stores, dive shops, hotels and carinderias take a phone tap and settle in seconds over the Lightning Network for a fraction of a cent.</p>
+
+    <p>What makes the Philippine story different from El Salvador&rsquo;s is that nobody legislated it. There is no legal-tender mandate, no state wallet, no top-down decree. Adoption arrived through two of the most practical doors imaginable: tourism and remittances. Foreign visitors who already hold bitcoin can spend it directly; merchants who want that traffic learn to accept it. The rails did the persuading.</p>
+
+    <p>The bigger prize sits offshore. The Philippines is one of the largest remittance markets on earth, leaning on more than $35&nbsp;billion a year sent home from abroad &mdash; over $12&nbsp;billion of it from the United States alone. Strike&rsquo;s &ldquo;Send Globally&rdquo; product, built with Pouch as its local partner, converts a sender&rsquo;s dollars into bitcoin, moves them over Lightning, and drops pesos into a recipient&rsquo;s bank or mobile-money account. Neither side ever has to think about custody or price. By April 2026 Strike said it was clearing more than two million Lightning transactions a month.</p>
+
+    <p>That is the quiet mechanism reshaping cross-border money: Lightning can cut the 6&ndash;10% that legacy remittance firms charge down to rounding-error territory, beating even the UN&rsquo;s 3% target by a wide margin. For a family receiving a monthly transfer, the difference is a week of groceries.</p>
+
+    <p><span class="kick">WHY IT MATTERS.</span> The Philippines is quietly writing the playbook other remittance economies will copy: you don&rsquo;t need citizens to hold bitcoin, only to let it travel underneath the money they already use. Adoption that arrives as cheaper plumbing, not ideology, is the kind that sticks.</p>
+
+    <div class="take">
+      <div class="tag">The Take &middot; Opinion</div>
+      <h3>A Bitcoin Miner Keeps the Lights On in Malawi</h3>
+      <p>The tired argument about bitcoin&rsquo;s energy use assumes mining competes with people for power. In much of the Global South the opposite is true: mining is the reason new power gets built at all. Gridless, the Block-backed miner, now runs seven sites across Kenya, Malawi and Zambia, parking containers of machines next to small run-of-river hydro plants that no utility would finance on their own.</p>
+      <p>In Bondo, Malawi, that arrangement now keeps the lights on for more than 1,800 households far from any national grid. The miner is the anchor tenant &mdash; the guaranteed buyer that makes a village micro-hydro station bankable &mdash; and the surplus electrifies homes, clinics and phone chargers. Gridless is now raising to build its own run-of-river projects with mining baked in from day one.</p>
+      <p>Strip away the price charts and this is what &ldquo;bitcoin adoption&rdquo; looks like at the frontier: not a speculative wallet, but a child reading after dark. Any energy debate that ignores that is having the wrong argument.</p>
+      <div class="sig">&mdash; The Bitcoin Beacon, opinion</div>
+    </div>
+
+    <span class="sub">On the Ground &middot; India</span>
+    <p><span class="kick">MUMBAI.</span> India keeps buying bitcoin the hard way. Despite a punishing 30% tax on gains and a 1% withholding levy on every transfer, the country again ranks first in grassroots crypto activity in the latest global adoption index, with tier-2, -3 and -4 cities driving roughly 75% of the volume. From April&nbsp;1, exchanges must report user transactions straight to the Income Tax Department &mdash; a clampdown that has pushed some traders offshore but has not dented demand. Officials have also floated exploring a national bitcoin reserve held &ldquo;like gold,&rdquo; short of legal tender.</p>
+
+    <span class="sub">Money &amp; Macro &middot; Reserves</span>
+    <p><span class="kick">WASHINGTON.</span> The United States is moving to put its bitcoin reserve in writing. The American Reserve Modernization Act of 2026 (H.R.&nbsp;8957), from Reps. Nick Begich and Jared Golden, was published in full in May: it would house a Strategic Bitcoin Reserve inside the Treasury, seeded from coins forfeited to the government, with a 20-year lock-up, quarterly cryptographic &ldquo;proof-of-reserve&rdquo; attestations and independent audits. Patrick Witt, executive director of the President&rsquo;s Council of Advisers for Digital Assets, told a Miami audience that a reserve announcement is coming &ldquo;in the next few weeks.&rdquo;</p>
+
+    <span class="sub">Policy &amp; Nation-States &middot; Bhutan</span>
+    <p><span class="kick">THIMPHU.</span> Bhutan, long celebrated for quietly mining a sovereign bitcoin fortune on hydropower, is now quietly spending it. On-chain trackers flagged a 738-BTC transfer worth about $44.9&nbsp;million on June&nbsp;6; by analysts&rsquo; count the kingdom has now sold roughly 70% of the ~13,000&nbsp;BTC it held in late 2024, down to about 3,954&nbsp;BTC (~$280&nbsp;million), with its mining apparently halted since around November&nbsp;2024. The proceeds are widely tied to funding the Gelephu Mindfulness City megaproject. State fund DHI disputes the reads: chief executive Ujjwal Deep Dahal says he &ldquo;doesn&rsquo;t recall&rdquo; recent sales.</p>
+
+    <span class="sub">Markets &amp; Institutions</span>
+    <p><span class="kick">NEW YORK.</span> The two big pools of institutional bitcoin are pulling in opposite directions. Public companies now hold a record of more than 750,000&nbsp;BTC between them &mdash; Strategy alone sits above 580,000 &mdash; as the treasury playbook spreads. Yet US spot bitcoin ETFs just logged a sixth straight week of net outflows, roughly $5.94&nbsp;billion drained cumulatively. Read together, it is long-horizon balance-sheet buyers accumulating while faster ETF money rotates out &mdash; the same coin, two very different clocks.</p>
+
+    <span class="sub">On the Ground &middot; Argentina</span>
+    <p><span class="kick">BUENOS AIRES.</span> Argentina&rsquo;s central bank is clearing the country&rsquo;s banks to offer bitcoin and crypto services this year, a policy reversal that would put custody and trading in front of ordinary savers who have spent a decade fleeing a collapsing peso. Adoption already runs near 20% of the population &mdash; the highest in Latin America &mdash; and pre-loaded cards let holders spend while merchants still receive pesos. For a country where inflation has repeatedly topped triple digits, bank-grade bitcoin access is less a novelty than a life raft.</p>
+
+    <span class="sub">Voices</span>
+    <div class="voice">
+      <div class="q">&ldquo;Remittances are a broken system, and Strike delivers an incredibly empowering experience for people to send money around the world in nearly an instant.&rdquo;</div>
+      <div class="who">Jack Mallers <span>&mdash; Founder &amp; CEO, Strike, on the Philippines corridor</span></div>
+    </div>
+    <div class="voice">
+      <div class="q">&ldquo;I don&rsquo;t recall the last time we sold any BTC.&rdquo;</div>
+      <div class="who">Ujjwal Deep Dahal <span>&mdash; CEO, Druk Holding &amp; Investments, disputing Bhutan&rsquo;s tracked drawdown</span></div>
+    </div>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>Whether India moves from &ldquo;exploring&rdquo; a national bitcoin reserve to actually funding one. &bull; Pakistan&rsquo;s pledged 2,000&nbsp;MW for mining &mdash; does the surplus power actually come online? &bull; Where Bhutan&rsquo;s remaining ~3,954&nbsp;BTC goes next. &bull; Whether Argentina&rsquo;s bank-crypto rules translate into real bitcoin custody demand once they take effect.</p>
+
+    <span class="sub">Sources</span>
+    <p class="sources">
+      Philippines / Pouch &amp; Strike: <a href="https://bitpinas.com/news/ph-merchants-bitcoin-payments/">BitPinas</a>, <a href="https://strike.me/en/blog/strike-expands-send-globally-to-the-philippines/">Strike</a>, <a href="https://bitcoinmagazine.com/culture/bitcoin-lightning-network-will-transform-the-philippines">Bitcoin Magazine</a>.
+      Gridless / Malawi: <a href="https://gridlesscompute.com/">Gridless</a>, <a href="https://bitcoinmagazine.com/business/gridless-is-mining-bitcoin-while-fostering-human-flourishing-in-africa">Bitcoin Magazine</a>.
+      India: <a href="https://www.coinreporter.io/2026/07/indias-crypto-leadership-grassroots-adoption-fuels-apac-dominance/">CoinReporter</a>, <a href="https://coindcx.com/blog/cryptocurrency/crypto-tax-guide-india/">CoinDCX</a>.
+      ARMA / US reserve: <a href="https://www.congress.gov/bill/119th-congress/house-bill/6180/text">Congress.gov</a>, <a href="https://begich.house.gov/media/press-releases/congressman-nick-begich-leads-legislation-establish-strategic-bitcoin-reserve">Rep. Begich</a>, <a href="https://bitcoinmagazine.com/news/full-of-strategic-bitcoin-reserve-bill">Bitcoin Magazine</a>.
+      Bhutan: <a href="https://news.bitcoin.com/bhutan-moves-738-btc-sovereign-drawdown/">Bitcoin.com</a>, <a href="https://www.coindesk.com/markets/2026/05/16/bhutan-doesn-t-recall-selling-any-bitcoin-disputing-widely-tracked-usd1-billion-btc-drawdown">CoinDesk</a>.
+      Markets: <a href="https://bitcoinmagazine.com/news/corporate-bitcoin-holdings-hit-record-high">Bitcoin Magazine</a>, <a href="https://valueaddvc.com/blog/bitcoin-at-100k-what-the-etf-approval-and-institutional-adoption-actually-changed">ValueAdd</a>.
+      Argentina: <a href="https://www.coindesk.com/policy/2025/12/08/argentina-s-central-bank-to-allow-banks-to-provide-crypto-services-in-2026">CoinDesk</a>, <a href="https://news.bitcoin.com/argentina-enters-2026-with-cryptocurrency-adoption-levels-reaching-20/">Bitcoin.com</a>.
+      Metrics: BTC price/hashrate <a href="https://www.coinwarz.com/mining/bitcoin/hashrate-chart">CoinWarz</a>; merchants <a href="https://btcmap.org">BTC Map</a>.
+    </p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="#">Unsubscribe</a> &bull; <a href="#">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Bitcoin Beacon is a daily micro-newspaper on Bitcoin&#x27;s global adoption — merchants, Lightning payments, remittances, mining and nation-states, reported from the ground up. Free every morning.">
+<link rel="canonical" href="https://thebitcoinbeacon.com/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#15130f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta property="og:site_name" content="The Bitcoin Beacon">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Bitcoin Beacon — Bitcoin&#x27;s Global Adoption, Daily">
+<meta property="og:description" content="The Bitcoin Beacon is a daily micro-newspaper on Bitcoin&#x27;s global adoption — merchants, Lightning payments, remittances, mining and nation-states, reported from the ground up. Free every morning.">
+<meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260707_131406_074627c6-967c-41b3-b8f8-719b3e259482.png">
+<meta property="og:url" content="https://thebitcoinbeacon.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Bitcoin Beacon — Bitcoin&#x27;s Global Adoption, Daily">
+<meta name="twitter:description" content="The Bitcoin Beacon is a daily micro-newspaper on Bitcoin&#x27;s global adoption — merchants, Lightning payments, remittances, mining and nation-states, reported from the ground up. Free every morning.">
+<meta name="twitter:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260707_131406_074627c6-967c-41b3-b8f8-719b3e259482.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "name": "The Bitcoin Beacon", "url": "https://thebitcoinbeacon.com"}, {"@type": "NewsMediaOrganization", "name": "The Bitcoin Beacon", "url": "https://thebitcoinbeacon.com", "logo": {"@type": "ImageObject", "url": "https://thebitcoinbeacon.com/assets/masthead-ink.png"}, "description": "The Bitcoin Beacon is a daily micro-newspaper on Bitcoin's global adoption — merchants, Lightning payments, remittances, mining and nation-states, reported from the ground up. Free every morning."}]}</script>
+<title>The Bitcoin Beacon — Bitcoin's Global Adoption, Daily</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700&display=swap');
+  :root{ --ink:#15130f; --muted:#6b6459; --line:#e7e3da; --accent:#e8820c; --paper:#ffffff; --wash:#faf7f1; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',system-ui,Arial,sans-serif; line-height:1.55; }
+  a{ color:inherit; text-decoration:none; }
+  .tag{ display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:1.3px; text-transform:uppercase; color:var(--accent); }
+  .tag.ground{ color:#127a5b; } .tag.macro{ color:#8a5a12; } .tag.markets{ color:#7a4dd1; } .tag.opinion{ color:#c0392b; }
+
+  /* nav */
+  .nav{ position:sticky; top:0; z-index:20; background:rgba(255,255,255,.94); backdrop-filter:blur(6px); border-bottom:1px solid var(--line); }
+  .nav .in{ max-width:1180px; margin:0 auto; display:flex; align-items:center; gap:24px; padding:14px 24px; }
+  .nav img{ height:56px; }
+  .nav .links{ display:flex; gap:20px; font-size:13px; font-weight:600; color:#4a463f; margin-left:8px; }
+  .nav .links a:hover{ color:var(--accent); }
+  .nav .bh{ margin-left:auto; display:inline-flex; align-items:center; gap:7px; font-size:12px; font-weight:600; color:#4a463f; background:var(--wash); border:1px solid var(--line); padding:6px 11px; border-radius:999px; }
+  .nav .bh .dot{ width:7px; height:7px; border-radius:50%; background:#2f9e44; box-shadow:0 0 0 3px rgba(47,158,68,.18); }
+  .nav .bh b{ color:var(--ink); font-weight:800; font-variant-numeric:tabular-nums; }
+  .nav .sub{ background:var(--ink); color:#fff; font-size:12px; font-weight:700; padding:9px 15px; border-radius:999px; }
+  .nav .menu-btn{ display:none; background:none; border:0; font-size:22px; line-height:1; cursor:pointer; color:var(--ink); padding:4px 8px; -webkit-tap-highlight-color:transparent; }
+
+  /* dateline bar */
+  .strap{ max-width:1180px; margin:0 auto; padding:14px 24px 0; display:flex; justify-content:space-between; align-items:baseline; }
+  .strap .k{ font-family:'Fraunces',serif; font-weight:600; font-size:15px; }
+  .strap .d{ font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; }
+
+  .grid{ max-width:1180px; margin:18px auto 0; padding:0 24px; display:grid; grid-template-columns:1fr 320px; gap:34px; }
+
+  /* hero */
+  .hero{ display:block; }
+  .heroart{ height:300px; border-radius:14px; position:relative; overflow:hidden;
+    background:radial-gradient(120% 130% at 15% 20%, #2aa37a 0%, #0f6b4c 55%, #073a2a 100%); }
+  .heroart .mesh{ position:absolute; inset:0; opacity:.18; background-image:linear-gradient(#000 1px,transparent 1px),linear-gradient(90deg,#000 1px,transparent 1px); background-size:36px 36px; }
+  .heroart .big{ position:absolute; right:20px; bottom:-40px; font-family:'Fraunces',serif; font-weight:700; font-size:240px; color:rgba(255,255,255,.12); }
+  .hero h1{ font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:38px; line-height:1.08; letter-spacing:-.5px; margin:14px 0 8px; }
+  .hero p{ font-size:17px; color:#3b382f; margin:0 0 8px; max-width:44em; }
+  .hero .by{ font-size:12.5px; color:var(--muted); }
+
+  .lede-grid{ margin-top:28px; border-top:2px solid var(--ink); padding-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+  .story h3{ font-family:'Fraunces',serif; font-weight:600; font-size:21px; line-height:1.18; margin:7px 0 6px; }
+  .story h3 a:hover{ color:var(--accent); }
+  .story p{ font-size:14px; color:var(--muted); margin:0; }
+  .story .place{ font-weight:700; color:var(--ink); }
+
+  .row{ margin-top:26px; border-top:1px solid var(--line); padding-top:18px; }
+  .row .cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:6px; }
+  .row .rowhd{ font-size:12px; letter-spacing:1.3px; text-transform:uppercase; color:var(--muted); font-weight:700; }
+
+  /* opinion strip */
+  .opinion{ margin-top:28px; background:var(--ink); color:#fff; border-radius:14px; padding:24px 26px; }
+  .opinion .tag{ color:#f6a94a; }
+  .opinion h3{ font-family:'Fraunces',serif; font-weight:600; font-size:24px; line-height:1.2; margin:8px 0 8px; }
+  .opinion p{ color:#c9c3b8; font-size:14px; margin:0; max-width:52em; }
+
+  /* right rail */
+  .rail>div{ margin-bottom:26px; }
+  .panel{ border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+  .panel .h{ background:var(--wash); border-bottom:1px solid var(--line); padding:11px 16px; font-size:11px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; color:var(--ink); }
+  .glance .m{ display:flex; justify-content:space-between; align-items:center; padding:12px 16px; border-bottom:1px solid var(--line); }
+  .glance .m:last-child{ border-bottom:0; }
+  .glance .lbl{ font-size:12.5px; color:var(--muted); } .glance .v{ font-size:19px; font-weight:800; }
+  .glance .up{ color:#127a5b; font-size:11px; font-weight:700; margin-left:6px; }
+  .mostread ol{ margin:0; padding:6px 16px 12px 34px; } .mostread li{ margin:10px 0; font-family:'Fraunces',serif; font-size:15px; line-height:1.25; }
+  .mostread li a:hover{ color:var(--accent); }
+
+  footer{ border-top:1px solid var(--line); margin-top:40px; padding:26px 24px; text-align:center; color:var(--muted); font-size:12px; }
+  @media(max-width:900px){ .grid{ grid-template-columns:1fr; } .lede-grid,.row .cards{ grid-template-columns:1fr; } .hero h1{ font-size:30px; } }
+  @media(max-width:768px){
+    html,body{ max-width:100%; overflow-x:hidden; }
+    .nav .in{ flex-wrap:nowrap; gap:8px 10px; padding:10px 14px; }
+    .nav .menu-btn{ display:inline-flex; align-items:center; }
+    .nav img{ height:34px; }
+    .nav .links{ display:none; }
+    .nav .bh{ display:none; }
+    .nav .sub{ margin-left:auto; padding:8px 12px; white-space:nowrap; }
+    .nav.open .links{ display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0;
+      background:#fff; border-bottom:1px solid var(--line); padding:6px 16px 10px; margin:0;
+      box-shadow:0 10px 20px rgba(0,0,0,.08); }
+    .nav.open .links a{ padding:12px 2px; border-top:1px solid var(--line); font-size:15px; font-weight:600; }
+    .nav.open .links a:first-child{ border-top:0; }
+    .strap{ flex-direction:column; align-items:flex-start; gap:2px; padding:14px 16px 0; }
+    .strap .k{ font-size:14px; }
+    .strap .d{ font-size:11px; }
+    .grid{ padding:0 16px; gap:24px; }
+    .heroart{ height:200px; }
+    .heroart .big{ font-size:140px; bottom:-24px; }
+    .hero h1{ font-size:25px; }
+    .hero p{ font-size:15px; }
+  }
+
+  /* two-tier masthead (2026-07-06) */
+  .mast{ background:var(--paper); border-bottom:1px solid var(--line); }
+  .mast a{ display:flex; align-items:center; justify-content:center; gap:18px; padding:20px 24px 16px; }
+  .mast img{ height:119px; width:119px; border-radius:50%; }
+  .mast span{ font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:42px; letter-spacing:-.5px; color:var(--ink); }
+  .nav .in{ position:relative; justify-content:center; }
+  .nav .sub{ position:absolute; right:24px; top:50%; transform:translateY(-50%); margin-left:0; }
+  .nav .menu-btn{ position:absolute; left:14px; top:50%; transform:translateY(-50%); }
+  @media(max-width:768px){
+    .mast a{ gap:10px; padding:12px 14px 10px; }
+    .mast img{ height:74px; width:74px; }
+    .mast span{ font-size:23px; }
+    .nav .sub{ position:absolute; right:14px; }
+  }
+
+  /* mobile polish (2026-07-06b): consistent swipeable nav, tighter masthead */
+  html{ -webkit-text-size-adjust:100%; }
+  @media(max-width:768px){
+    .mast a{ gap:10px; padding:10px 14px 8px; }
+    .mast img{ height:56px; width:56px; }
+    .mast span{ font-size:21px; letter-spacing:-.3px; }
+    .nav .in{ padding:0; gap:0; }
+    .nav .links{ display:flex !important; flex-direction:row !important; flex-wrap:nowrap !important; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; gap:18px; padding:12px 104px 12px 16px; margin:0; width:100%; font-size:13px; position:static !important; box-shadow:none !important; background:transparent !important; border:0 !important; }
+    .nav .links::-webkit-scrollbar{ display:none; }
+    .nav .links a{ white-space:nowrap; border-top:0 !important; padding:0 !important; font-size:13px !important; }
+    .nav .sub{ display:inline-block !important; position:absolute !important; right:8px; top:50%; transform:translateY(-50%); margin:0 !important; padding:7px 13px; box-shadow:-14px 0 14px 2px rgba(255,255,255,.92); }
+    .nav .menu-btn{ display:none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="mast"><a href="/">
+    <img src="/assets/beacon-badge-400.png" alt="The Bitcoin Beacon" width="400" height="400">
+    <span>The Bitcoin Beacon</span>
+  </a></div>
+  <div class="nav"><div class="in">
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <div class="links"><a href="/archive.html#on-the-ground">On the Ground</a><a href="/archive.html#money-macro">Money &amp; Macro</a><a href="/archive.html#markets">Markets</a><a href="/archive.html#network-mining">Network &amp; Mining</a><a href="/archive.html#opinion">Opinion</a><a href="/archive.html#policy-nation-states">Nation-States</a><a href="/custody/">Custody</a></div>
+    <a class="sub" href="/subscribe.html">Subscribe</a>
+  </div></div>
+  <script>
+  // Mobile menu toggle
+  (function(){var b=document.querySelector('.nav .menu-btn');if(!b)return;
+    b.addEventListener('click',function(){var n=b.closest('.nav');var open=n.classList.toggle('open');
+      b.setAttribute('aria-expanded',open?'true':'false');});})();
+  // Live vital stats (mempool.space)
+  (function(){
+    function setText(id,t){var e=document.getElementById(id);if(e)e.textContent=t;}
+    function loadBlock(){fetch('https://mempool.space/api/blocks/tip/height').then(function(r){return r.text();})
+      .then(function(h){h=(h||'').trim();if(/^\d+$/.test(h)){var t=Number(h).toLocaleString();setText('vs-block',t);}}).catch(function(){});}
+    function loadPrice(){fetch('https://mempool.space/api/v1/prices').then(function(r){return r.json();})
+      .then(function(d){if(d&&d.USD){setText('vs-price','$'+Math.round(d.USD).toLocaleString());}}).catch(function(){});}
+    function loadHash(){fetch('https://mempool.space/api/v1/mining/hashrate/3d').then(function(r){return r.json();})
+      .then(function(d){if(d&&d.currentHashrate){setText('vs-hash','~'+(d.currentHashrate/1e18).toFixed(0)+' EH/s');}}).catch(function(){});}
+    loadBlock();loadPrice();loadHash();
+    setInterval(loadBlock,30000);setInterval(loadPrice,30000);
+  })();
+  </script>
+
+  <div class="strap"><div class="k">Bitcoin's global adoption, every morning.</div><div class="d">Tuesday, July 7, 2026</div></div>
+
+  <div class="grid">
+    <!-- main column -->
+    <div>
+      <a class="hero" href="stories/2026-07-07/south-africa-650k-checkouts.html">
+        <div class="heroart"><img fetchpriority="high" width="1376" height="768" src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260707_131406_074627c6-967c-41b3-b8f8-719b3e259482.png" style="width:100%;height:100%;object-fit:cover;display:block;" alt="A Cape Town spaza-shop counter: a shopkeeper holds up a QR code as a customer pays by phone"></div>
+        <span class="tag ground" style="margin-top:14px;">On the Ground &middot; Cape Town</span>
+        <h1>South Africa Put Bitcoin at 650,000 Checkouts</h1>
+        <p>No mandate, no ministry — payment processors wired bitcoin into the QR code South Africans already scan at the till.</p>
+        <div class="by">By The Bitcoin Beacon &middot; 5 min read</div>
+      </a>
+
+      <div class="lede-grid">
+        <div class="story"><span class="tag markets">Markets &middot; Virginia</span>
+          <h3><a href="stories/2026-07-07/strategy-sells-bitcoin.html">Strategy Sells Bitcoin to Pay Its Dividends</a></h3>
+          <p>The company that swore it would never sell moved 3,588 coins in a week — to service the paper it sold to buy them.</p></div>
+        <div class="story"><span class="tag" style="color:#8a5a12;">Network &amp; Mining &middot; Global</span>
+          <h3><a href="stories/2026-07-07/bip110-august-deadline.html">An August Deadline Splits Bitcoin's Developers</a></h3>
+          <p>BIP-110 would filter data inscriptions from blocks. Its forced-activation clock runs out in weeks — with almost no miners aboard.</p></div>
+      </div>
+
+      <div class="row">
+        <div class="rowhd">Money, Markets &amp; Nation-States</div>
+        <div class="cards">
+          <a class="story" href="stories/2026-07-07/abu-dhabi-buys-dip.html">
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260707_131152_e15c8461-2dcc-4a55-99b2-8ae71b206440.png" loading="lazy" decoding="async" width="1376" height="768" style="width:100%;height:130px;object-fit:cover;border-radius:9px;margin-bottom:10px;display:block;" alt="A falconer above the Abu Dhabi corniche releases a falcon toward a coin-like sun">
+            <span class="tag" style="color:#7a4dd1;">Nation-States &middot; Abu Dhabi</span>
+            <h3>Abu Dhabi Keeps Buying the Bitcoin Dip</h3>
+            <p>Mubadala lifted its ETF stake 16% while US funds bled for an eighth straight week.</p></a>
+          <a class="story" href="stories/2026-07-07/rolex-dealers-bitcoin.html">
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260707_131156_f70c9dd3-2eb8-4152-918f-7a5245906036.png" loading="lazy" decoding="async" width="1376" height="768" style="width:100%;height:130px;object-fit:cover;border-radius:9px;margin-bottom:10px;display:block;" alt="A watchmaker at his bench as a customer holds out a phone to pay">
+            <span class="tag ground">On the Ground &middot; Luxury</span>
+            <h3>Rolex Dealers Now Take Bitcoin</h3>
+            <p>Fifteen major watch-trading firms switched on bitcoin checkout for a quarter-million crypto millionaires.</p></a>
+          <a class="story" href="stories/2026-07-06/bhutan-bitcoin-drawdown.html">
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260706_212903_545c53b5-4d0d-46be-8a32-5c1c904f6748.png" loading="lazy" decoding="async" width="1376" height="768" style="width:100%;height:130px;object-fit:cover;border-radius:9px;margin-bottom:10px;display:block;" alt="A Bhutan Himalayan valley with a dzong above a river">
+            <span class="tag" style="color:#7a4dd1;">Nation-States &middot; Thimphu</span>
+            <h3>Bhutan Is Spending Its Bitcoin</h3>
+            <p>The kingdom that quietly mined a fortune has now sold ~70% of it — to build a city.</p></a>
+        </div>
+      </div>
+
+      <a class="opinion" href="stories/2026-07-07/eu-bitcoin-notary.html" style="display:block;">
+        <span class="tag opinion">The Take &middot; Opinion</span>
+        <h3>Europe Just Hired Bitcoin as a Notary</h3>
+        <p>A new standard anchors the EU's mandated AI-content watermarks into bitcoin blocks: a hash, a timestamp, a record nobody can rewind. The dullest use case may be the stickiest.</p>
+      </a>
+    </div>
+
+    <!-- right rail -->
+    <aside class="rail">
+      <div class="panel glance">
+        <div class="h">Vital Stats</div>
+        <div class="m"><span class="lbl">BTC / USD</span><span class="v" id="vs-price">$63,290</span></div>
+        <div class="m"><span class="lbl">Block height</span><span class="v" id="vs-block">957,039</span></div>
+        <div class="m"><span class="lbl">Network hashrate</span><span class="v" id="vs-hash">~920 EH/s</span></div>
+      </div>
+
+      <div class="panel mostread">
+        <div class="h">Most Read</div>
+        <ol>
+          <li><a href="stories/2026-07-07/south-africa-650k-checkouts.html">South Africa Put Bitcoin at 650,000 Checkouts</a></li>
+          <li><a href="stories/2026-07-07/strategy-sells-bitcoin.html">Strategy Sells Bitcoin to Pay Its Dividends</a></li>
+          <li><a href="stories/2026-07-06/philippines-bitcoin-island.html">Bitcoin Island Goes National</a></li>
+          <li><a href="stories/2026-07-07/bip110-august-deadline.html">An August Deadline Splits Bitcoin's Developers</a></li>
+        </ol>
+      </div>
+
+      <div class="panel">
+        <div class="h">Custody Corner</div>
+        <div style="padding:12px 16px; font-size:13.5px;">
+          <div style="margin-bottom:8px;">Holding bitcoin so it stays yours — five plain-language guides.</div>
+          <div style="display:flex;flex-direction:column;gap:7px; font-family:'Fraunces',serif; font-size:14.5px; font-weight:600;">
+            <a href="/custody/why-self-custody" style="color:var(--ink);">Why self-custody</a>
+            <a href="/custody/hardware-wallets" style="color:var(--ink);">Hardware wallets, explained</a>
+            <a href="/custody/seed-phrase-hygiene" style="color:var(--ink);">Seed phrase hygiene</a>
+            <a href="/custody/multisig-collaborative-custody" style="color:var(--ink);">Multisig &amp; collaborative custody</a>
+            <a href="/custody/inheritance-planning" style="color:var(--ink);">Inheritance planning</a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="panel">
+        <div class="h">From the Timeline</div>
+        <div style="padding:14px 16px; font-family:'Fraunces',serif; font-size:15px; line-height:1.35;">
+          &ldquo;We have an economic war with China, and we have to prepare.&rdquo;
+          <div style="font-family:'Inter',sans-serif; font-size:11.5px; color:var(--muted); margin-top:8px;">Cynthia Lummis &middot; US senator (R-Wyo.), on her 1-million-coin reserve plan, via CNBC</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer>THE BITCOIN BEACON &bull; The daily record of Bitcoin's global adoption &bull; Informational only — not financial advice</footer>
+
+
+<!-- subscribe modal (site-wide) -->
+<style>
+.bb-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(21,19,15,.62);padding:20px;}
+.bb-modal.open{display:flex;}
+.bb-modal .bb-card{background:#faf7f1;border-radius:16px;max-width:620px;width:100%;padding:16px 16px 8px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.35);}
+.bb-modal .bb-x{position:absolute;top:6px;right:12px;background:none;border:0;font-size:28px;color:#6b6459;cursor:pointer;line-height:1;}
+.bb-modal iframe{width:100%;height:340px;border:0;border-radius:10px;background:#fff;}
+</style>
+<div class="bb-modal" id="bb-modal" role="dialog" aria-modal="true" aria-label="Subscribe to The Bitcoin Beacon">
+  <div class="bb-card">
+    <button class="bb-x" aria-label="Close">&times;</button>
+    <iframe data-src="https://subscribe-forms.beehiiv.com/2c9c948c-bcee-4d82-ad46-d31816c72af4" title="Subscribe to The Bitcoin Beacon"></iframe>
+  </div>
+</div>
+<script>
+(function(){
+  var m=document.getElementById('bb-modal');if(!m)return;
+  var f=m.querySelector('iframe');
+  function open(e){if(e)e.preventDefault();if(!f.src)f.src=f.getAttribute('data-src');m.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){m.classList.remove('open');document.body.style.overflow='';}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a');if(!a)return;
+    var h=a.getAttribute('href')||'';
+    if(/subscribe\.html$/.test(h)||h==='#subscribe'){open(e);}
+  });
+  m.addEventListener('click',function(e){if(e.target===m)close();});
+  m.querySelector('.bb-x').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
+
+</body>
+</html>
