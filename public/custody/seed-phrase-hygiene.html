@@ -54,17 +54,17 @@
     h1{ font-size:28px; } .standfirst{ font-size:16px; }
   }
 
-  /* mobile polish (2026-07-06b): consistent swipeable nav, tighter masthead */
+  /* mobile polish (2026-07-06c): deep stacked header, no slide bar */
   html{ -webkit-text-size-adjust:100%; }
   @media(max-width:768px){
-    .mast a{ gap:10px; padding:10px 14px 8px; }
-    .mast img{ height:56px; width:56px; }
-    .mast span{ font-size:21px; letter-spacing:-.3px; }
-    .nav .in{ padding:0; gap:0; }
-    .nav .links{ display:flex !important; flex-direction:row !important; flex-wrap:nowrap !important; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; gap:18px; padding:12px 104px 12px 16px; margin:0; width:100%; font-size:13px; position:static !important; box-shadow:none !important; background:transparent !important; border:0 !important; }
-    .nav .links::-webkit-scrollbar{ display:none; }
-    .nav .links a{ white-space:nowrap; border-top:0 !important; padding:0 !important; font-size:13px !important; }
-    .nav .sub{ display:inline-block !important; position:absolute !important; right:8px; top:50%; transform:translateY(-50%); margin:0 !important; padding:7px 13px; box-shadow:-14px 0 14px 2px rgba(255,255,255,.92); }
+    .mast a{ gap:12px; padding:18px 14px 12px; }
+    .mast img{ height:64px; width:64px; }
+    .mast span{ font-size:24px; letter-spacing:-.3px; }
+    .nav{ position:static !important; background:var(--paper) !important; backdrop-filter:none !important; }
+    .nav .in{ flex-direction:column !important; align-items:center; padding:12px 14px 16px !important; gap:0 !important; }
+    .nav .links{ display:flex !important; flex-direction:row !important; flex-wrap:wrap !important; justify-content:center; overflow:visible !important; gap:9px 18px; padding:0 !important; margin:0; width:100%; font-size:13.5px; position:static !important; box-shadow:none !important; background:transparent !important; border:0 !important; }
+    .nav .links a{ white-space:nowrap; border-top:0 !important; padding:0 !important; font-size:13.5px !important; }
+    .nav .sub{ display:inline-block !important; position:static !important; transform:none !important; margin:14px auto 0 !important; padding:9px 26px; box-shadow:none !important; font-size:13px; }
     .nav .menu-btn{ display:none !important; }
   }
 </style>
