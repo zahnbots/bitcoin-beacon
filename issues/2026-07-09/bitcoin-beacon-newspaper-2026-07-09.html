@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 9, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  /* Masthead */
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  /* Lead */
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  /* shared lead hero — same illustration used on the website article */
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  /* Columns */
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  /* keep a subhead glued to the paragraph that follows it */
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+
+  /* Markets box — full-width banner */
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  /* The Take — opinion box */
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  /* Voices / from the timeline */
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 7</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>Thursday, July 9, 2026</span>
+  </div>
+
+  <h1 class="lead-head">Paraguay Earns More From Half as Many Bitcoin Miners</h1>
+  <p class="deck">The state utility will collect a record $350 million from miners this year &mdash; while it plans to hand their electricity to AI.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Network &amp; Mining Desk</div>
+
+  <!-- HERO: the SAME house-style illustration used on the website article for the lead story. -->
+  <div class="lead-hero"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260709_115215_d2bd535a-2427-4156-a0c4-fe692cdc3855.png" alt="A technician wheels a rack of mining machines out of a warehouse beneath the Itaipu dam"><div class="cap">The dam stays; the tenants change. &mdash; Illustration: The Bitcoin Beacon</div></div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$62,587</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">957,302</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">~901 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <!-- BUILD FRESH. Read _bitcoin-beacon-MEMORY.md first; use ONLY net-new, BITCOIN-ONLY stories (no altcoins/crypto-industry).
+         LEAD adoption story: place dateline in the first line, e.g. <span class="kick">NAIROBI &mdash;</span>, and END the lead on a one-line "why it matters."
+         Lead para: class="first dropcap d". Section headers: <span class="sub">TITLE</span>. Inline tags/datelines: <span class="kick">LABEL.</span>.
+         ONE <div class="take"> opinion piece. Voices: <div class="voice"><div class="q">...</div><div class="who">Name <span>@handle - context</span></div></div>.
+         Beats (use only when there's fresh news; adoption leads): On the Ground / Money & Macro / Markets & Institutions / Policy & Nation-States / Network & Mining / Voices. Drop empty sections. -->
+    <p class="first dropcap"><span class="kick">ASUNCI&Oacute;N &mdash;</span> Paraguay&rsquo;s state utility ANDE expects a record $350 million in bitcoin-mining tariffs this year &mdash; up from $100 million two years ago &mdash; while its licensed miners fell from 71 to 41. The survivors are giants: four firms reserve 730 MW of hydro power, more than one Itaip&uacute; turbine produces. Multi-million-dollar deposits and higher rates cleared out the small farms; the tax authority chases gains at 10%; the first mining criminal case is in court in Villarrica.</p>
+<p>Behind it all sits a date. Every mining contract expires December 31, 2027 &mdash; &ldquo;non-negotiable,&rdquo; says ANDE, which wants the electricity back for the AI data centers President Pe&ntilde;a is courting. New money arrives anyway: Korea&rsquo;s Bitplanet switched on machines at Paraguayan sites this month.</p>
+<p><em>Why it matters: mining&rsquo;s edge is renting stranded power. Paraguay is the test of what happens when a richer tenant shows up.</em></p>
+<p><a href="https://thebitcoinbeacon.com/stories/2026-07-09/paraguay-fewer-miners-more-money">Read the full dispatch &rarr;</a></p>
+    <div class="take">
+  <div class="tag">The Take &middot; Opinion</div>
+  <h3>Morocco Licensed What It Couldn&rsquo;t Ban</h3>
+  <p>Morocco banned crypto in 2017; Moroccans used bitcoin anyway, all eight years. The new licensing law &mdash; AMMC licenses, central-bank supervision, a 15% capital gains tax &mdash; is not a change of heart. It is an admission that the choice was never bitcoin or no bitcoin; it was taxed bitcoin or invisible bitcoin.</p>
+  <p class="sig"><a href="https://thebitcoinbeacon.com/stories/2026-07-09/morocco-licensed-what-it-couldnt-ban">Read the argument &rarr;</a></p>
+</div>
+    <span class="sub">Policy &amp; Nation-States</span>
+<p><span class="kick">MUSCAT.</span> Oman made its national mining pool, OmanHash, mandatory for every licensed miner &mdash; about 3% of the entire network, routed through one government pipe built by the same firm that runs Kazakhstan&rsquo;s. Not a ban; a ledger. <a href="https://thebitcoinbeacon.com/stories/2026-07-09/oman-state-mining-pool">Full story &rarr;</a></p>
+<p><span class="kick">PARIS.</span> Bull Bitcoin asked France&rsquo;s top administrative court to annul the decree transposing DAC8 &mdash; the rule that auto-reports every crypto holder to the tax grid. Its sharpest exhibit: 41 crypto kidnappings in France this year. A holder database, it argues, is a target list. <a href="https://thebitcoinbeacon.com/stories/2026-07-09/bull-bitcoin-sues-france">Full story &rarr;</a></p>
+<span class="sub">Markets &amp; Institutions</span>
+<p><span class="kick">HAWTHORNE.</span> SpaceX joined the Nasdaq-100 with 18,712 BTC on its balance sheet. JPMorgan pegs the forced passive inflows near $4.3 billion &mdash; index funds now buy a bitcoin treasury without holding a view on bitcoin. <a href="https://thebitcoinbeacon.com/stories/2026-07-09/spacex-nasdaq-100-bitcoin">Full story &rarr;</a></p>
+<span class="sub">Money &amp; Macro</span>
+<p><span class="kick">CONCORD.</span> New Hampshire&rsquo;s Executive Council rejected, 3&ndash;2, the first attempt to put bitcoin inside a $100 million municipal bond. One vote short, in a state of 1.4 million &mdash; a schedule, not a verdict. <a href="https://thebitcoinbeacon.com/stories/2026-07-09/new-hampshire-rejects-bitcoin-bond">Full story &rarr;</a></p>
+<span class="sub">On the Ground</span>
+<p><span class="kick">AUSTIN.</span> Bitcoin Depot&rsquo;s 9,000 kiosks &mdash; the largest bitcoin ATM network anywhere &mdash; are being liquidated in a Texas courtroom. Texans lost $56.8 million to kiosk scams last year; Iowa found 98% of the machines&rsquo; transactions were fraud. The cash on-ramp died of its users&rsquo; enemies. <a href="https://thebitcoinbeacon.com/stories/2026-07-09/bitcoin-atm-network-goes-dark">Full story &rarr;</a></p>
+    <span class="sub">Voices</span>
+<div class="voice"><div class="q">&ldquo;This is our second sovereign mandate, and it validates the model we have been building since Kazakhstan.&rdquo;</div><div class="who">Olzhas Amirov <span>&mdash; Enegix Global, on Oman&rsquo;s mandatory pool</span></div></div>
+<div class="voice"><div class="q">&ldquo;Kiosks serve no useful purpose&hellip; except for the purpose of hiding illicit funds.&rdquo;</div><div class="who">Adam Colby <span>&mdash; Texas Financial Crimes Intelligence Center, to lawmakers</span></div></div>
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>Metaplanet completes its Siiibo Securities acquisition July 13 and launches Metaplanet Securities &mdash; a bitcoin treasury growing a brokerage arm. Vanguard, long crypto&rsquo;s loudest holdout, is hiring its first head of digital assets. And Russia&rsquo;s Alfa Bank is reportedly building a digital depository to offer crypto services &mdash; watch what that means for sanctioned-economy bitcoin rails.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="#">Unsubscribe</a> &bull; <a href="#">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>
