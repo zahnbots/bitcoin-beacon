@@ -1,7 +1,7 @@
 # The Bitcoin Beacon — Folder & Cataloging System
 
 ## Folders
-- **_system/** — the operating docs: `_bitcoin-beacon-CHARTER.md` (rules), `_bitcoin-beacon-MEMORY.md` (no-repeat ledger), `_bitcoin-beacon-TEMPLATE.html` (issue skeleton), `_bitcoin-beacon-ART-STYLE.md` (house art), `catalog.csv` (the index), this README.
+- **_system/** — the operating docs: `_bitcoin-beacon-CHARTER.md` (rules), `_bitcoin-beacon-MEMORY.md` (no-repeat ledger), `_bitcoin-beacon-TEMPLATE.html` (issue skeleton), `_bitcoin-beacon-ART-STYLE.md` (house art), `_bitcoin-beacon-STORY-SPEC.md` (full-article depth/length standard), `catalog.csv` (the index), this README.
 - **issues/** — the daily newsletter editions: `bitcoin-beacon-newspaper-YYYY-MM-DD.html` (+ optional .pdf). These are the EMAIL; they go to beehiiv (not part of the static web root).
 - **public/** — THE WEBSITE = the static deploy root (Cloudflare Pages serves this folder):
   - `index.html` (home), `brand-kit.html`
@@ -43,7 +43,7 @@ Every new story: append a row to `catalog.csv` AND log it in `MEMORY.md`.
 Grow free subscribers until the list supports **paid sponsorships**. Every page, email, and image serves that: every artifact carries a subscribe path (`/subscribe.html`), every page has share-ready OG tags (shares are the growth loop), and the archive + sitemap keep the back catalog indexable (search is the compounding channel). When choosing between options, pick the one that gains or keeps subscribers.
 
 ## Daily flow
-Read _system docs (**including _bitcoin-beacon-VOICE.md — headline test + mandatory 25% cut pass on all copy**) → gather → filter vs MEMORY (and the 5-day topic cooldown via catalog) → build issue in `issues/` from TEMPLATE → write each story to `public/stories/YYYY-MM-DD/slug.html` **with the head template below** → refresh `public/index.html` with today's stories → **append today's stories to `public/archive.html`** (right beat section, newest first) → **append today's clean URLs to `public/sitemap.xml`** (lastmod = today) → append rows to `catalog.csv` + MEMORY → try beehiiv draft via `save_post` (skip gracefully if plan-gated; tell Matt to paste + send) → present. Newsletter story ↔ website page = 1:1; use the SAME hero image in both.
+Read _system docs (**including _bitcoin-beacon-VOICE.md — headline test + mandatory 25% cut pass on all copy**) → gather → filter vs MEMORY (and the 5-day topic cooldown via catalog) → build issue in `issues/` from TEMPLATE → write each story to `public/stories/YYYY-MM-DD/slug.html` **following `_bitcoin-beacon-STORY-SPEC.md` (lead ~900–1,300 words, secondaries ~600–900; depth + real specifics, never filler) and with the head template below** → refresh `public/index.html` with today's stories → **append today's stories to `public/archive.html`** (right beat section, newest first) → **append today's clean URLs to `public/sitemap.xml`** (lastmod = today) → append rows to `catalog.csv` + MEMORY → try beehiiv draft via `save_post` (skip gracefully if plan-gated; tell Matt to paste + send) → present. Newsletter story ↔ website page = 1:1; use the SAME hero image in both.
 
 ## Story page head template (REQUIRED on every new page)
 Insert directly after the viewport meta. Placeholders: TITLE, DESC (the standfirst, plain text, ~150 chars), DATE (YYYY-MM-DD), SLUG, HERO_URL.
