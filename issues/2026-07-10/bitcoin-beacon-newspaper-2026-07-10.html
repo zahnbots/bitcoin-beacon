@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 10, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  /* Masthead */
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  /* Lead */
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  /* shared lead hero — same illustration used on the website article */
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  /* Columns */
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .cols a{ color:var(--accent); }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  /* keep a subhead glued to the paragraph that follows it */
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+
+  /* Markets box — full-width banner */
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  /* The Take — opinion box */
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  /* Voices / from the timeline */
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 8</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>July 10, 2026</span>
+  </div>
+
+  <h1 class="lead-head">Vietnam Makes Bitcoin Property, Not Money</h1>
+  <p class="deck">Eighteen million Vietnamese own bitcoin. Since January they own it lawfully &mdash; and still cannot spend it.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; On the Ground</div>
+
+  <!-- HERO: the SAME house-style illustration used on the website article for the lead story. -->
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260710_111855_b09559a8-0674-42a6-a094-95fa917423f4.png" alt="A Hanoi shopkeeper holds up her phone at a street-front counter, a ledger and strongbox beside her">
+    <div class="cap">Hanoi: bitcoin you can own, inherit and sue over &mdash; but not spend. &mdash; Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$64,341</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">~957,440</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">~900 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap"><span class="kick">HANOI &mdash;</span> Vietnam spent a decade pretending its bitcoin owners did not exist. On January 1 the pretence ended: the Law on Digital Technology Industry took effect and bitcoin became property under Vietnamese civil law &mdash; ownable, inheritable, defensible in court.</p>
+    <p>Roughly 18 million Vietnamese hold digital assets, and the OECD&rsquo;s 2026 Asia Capital Markets Report puts the country&rsquo;s inflows at about 55% of GDP. All of that was true before the law. The law only stopped the state from having to look away.</p>
+    <p>What it did not do is make bitcoin money. Payment stays prohibited; the dong keeps its monopoly. Beside the property law sits Resolution 05/2025, a five-year pilot licensing regime for exchanges with terms that read like a moat: VND 10 trillion (about $400 million) of charter capital, 65% institutional ownership, foreign stakes capped at 49%.</p>
+    <p><em>Why it matters: Vietnam has legalised holding bitcoin and kept spending it illegal &mdash; a bet that property rights alone will pull the market out of the shadows.</em></p>
+    <p><a href="https://thebitcoinbeacon.com/stories/2026-07-10/vietnam-bitcoin-property-not-money">Read the full dispatch &rarr;</a></p>
+
+    <span class="sub">Markets &amp; Institutions</span>
+    <p><span class="kick">NEW YORK.</span> <strong>Adam Back&rsquo;s Bitcoin SPAC Collapses.</strong> BSTR and Cantor Equity Partners I terminated their merger on July 8 and shelved the shareholder vote set for today. The listing would have carried more than 30,000 BTC &mdash; 25,000 founder coins plus 5,021 to be bought with a $1.5 billion PIPE that never closed. <a href="https://thebitcoinbeacon.com/stories/2026-07-10/bstr-spac-collapses">Full story &rarr;</a></p>
+
+    <p><span class="kick">TOKYO.</span> <strong>Metaplanet Turns a Tokyo Brokerage Into Its Bitcoin Arm.</strong> Siiibo Securities becomes Metaplanet Securities on July 13, closing a &yen;2.1 billion ($13.1 million) purchase of a licensed broker. The target is Japan&rsquo;s &yen;1,190 trillion of low-yield household savings, approached from a balance sheet holding 43,000 BTC. <a href="https://thebitcoinbeacon.com/stories/2026-07-10/metaplanet-securities-tokyo">Full story &rarr;</a></p>
+
+    <span class="sub">Money &amp; Macro</span>
+    <p><span class="kick">WASHINGTON.</span> <strong>Nine of Eighteen Fed Officials Want Another Hike.</strong> June minutes, published July 8 under new chair Kevin Warsh, show a committee split down the middle and an easing bias deleted from the statement. Staff lifted the quarterly core PCE projection from 2.7% to 3.3%. Bitcoin rose anyway. <a href="https://thebitcoinbeacon.com/stories/2026-07-10/fed-minutes-split">Full story &rarr;</a></p>
+
+    <div class="take">
+      <div class="tag">The Take &middot; Opinion</div>
+      <h3>JPMorgan Says Private Blockchains Are Bitcoin&rsquo;s Real Threat</h3>
+      <p>The bank&rsquo;s analysts call Strategy&rsquo;s stack a volatility story, not an existential one. What should worry bitcoin, they argue, is the $4 trillion already moving across JPMorgan&rsquo;s own Kinexys network and the fifteen-plus banks building tokenised finance on permissioned rails that never touch a public chain.</p>
+      <p>They are right about the flows and wrong about the contest. A permissioned ledger is a faster database with a bank&rsquo;s promise attached. Bitcoin sells the one thing a bank cannot issue about itself: settlement nobody can reverse. Those are different products, and only one of them competes with the bank.</p>
+      <p class="sig"><a href="https://thebitcoinbeacon.com/stories/2026-07-10/jpmorgan-private-blockchains">Read the argument &rarr;</a></p>
+    </div>
+
+    <span class="sub">Network &amp; Mining</span>
+    <p><span class="kick">GLOBAL.</span> <strong>BitGo Gives Bitcoin Wallets a Quantum Risk Score.</strong> The custodian shipped tools on July 9 that rate a wallet&rsquo;s exposure and walk clients off addresses whose public keys already sit on-chain &mdash; an estimated 6.9 million BTC rest in them. No machine can break bitcoin today, which is the whole argument for moving now. <a href="https://thebitcoinbeacon.com/stories/2026-07-10/bitgo-quantum-custody">Full story &rarr;</a></p>
+
+    <span class="sub">Policy &amp; Nation-States</span>
+    <p><span class="kick">MOSCOW.</span> <strong>Russia&rsquo;s Biggest Private Bank Starts Trading Bitcoin.</strong> Alfa-Bank has opened bitcoin trading to a closed group of qualified investors inside its brokerage app, ahead of rules now expected to take force on September 1. It also intends to build its own digital depository and rent it to rivals. <a href="https://thebitcoinbeacon.com/stories/2026-07-10/alfa-bank-bitcoin-trading">Full story &rarr;</a></p>
+
+    <span class="sub">Voices</span>
+    <div class="voice">
+      <div class="q">Nobody has a quantum computer that can touch Bitcoin today, but that&rsquo;s exactly why the work should start now, while it&rsquo;s calm and optional rather than urgent and forced.</div>
+      <div class="who">Adam Back <span>&mdash; Blockstream and BSTR, on BitGo&rsquo;s quantum tooling</span></div>
+    </div>
+    <div class="voice">
+      <div class="q">We believe the safest key is one whose public key has never been revealed on-chain.</div>
+      <div class="who">Mike Belshe <span>&mdash; CEO and co-founder, BitGo</span></div>
+    </div>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>Ethiopian Electric Power says it wants no new mining contracts and no renewals of the old ones &mdash; watch where roughly 600 MW and 23 operators land. Whether the Senate clears the Clarity Act before its August 7 recess deadline, or leaves the question to the midterms. And El Salvador&rsquo;s next IMF review, where a reserve listed at 7,696 BTC meets a loan that forbids buying any.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="https://thebitcoinbeacon.com/subscribe.html">Subscribe</a> &bull; <a href="#">Unsubscribe</a> &bull; <a href="#">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>
