@@ -9,13 +9,11 @@
     <string>/bin/bash</string>
     <string>/Users/mzahn/bitcoin beacon/_system/auto-push.sh</string>
   </array>
-  <key>StartCalendarInterval</key>
-  <dict>
-    <key>Hour</key>
-    <integer>6</integer>
-    <key>Minute</key>
-    <integer>45</integer>
-  </dict>
+  <!-- Every 30 minutes. Runs once at load, then every 1800s. If the Mac was
+       asleep at a scheduled time, launchd fires once on wake — so a missed
+       morning push goes out shortly after the machine comes back. -->
+  <key>StartInterval</key>
+  <integer>1800</integer>
   <key>StandardOutPath</key>
   <string>/tmp/bitcoinbeacon-push.log</string>
   <key>StandardErrorPath</key>
