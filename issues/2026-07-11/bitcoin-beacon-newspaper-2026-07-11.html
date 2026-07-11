@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 11, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+  .readmore{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:700; font-size:11px; color:var(--accent); text-decoration:none; }
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 9</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>Saturday, July 11, 2026</span>
+  </div>
+
+  <h1 class="lead-head">Kazakhstan Cuts Taxes to Pull Bitcoin Onshore</h1>
+  <p class="deck">The country that scattered its miners in 2021 now wants the hashrate &mdash; and the traders &mdash; back inside a licensed perimeter.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Policy &amp; Nation-States Desk</div>
+
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260711_115132_de17525d-6854-40f3-b5e9-fd2446adeaff.png" alt="A Kazakh official gestures toward container bitcoin mines on the steppe beside a gas flare">
+    <div class="cap">On the steppe near Astana, container mines and stranded gas &mdash; Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$64,154</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">957,585</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">~900 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap"><span class="kick">ASTANA &mdash;</span> The country that chased out its bitcoin miners in the 2021 crackdown now wants them back. On July 8 President Kassym-Jomart Tokayev signed a decree that exempts income from digital-asset trades on licensed Kazakh platforms from personal income tax, lets miners burn otherwise-flared gas for power, and builds on a state crypto reserve the National Bank valued last autumn at $500 million to $1 billion.</p>
+    <p>The logic is jurisdictional. Kazakhstan was briefly the world&rsquo;s #2 mining hub before blackouts and a ban scattered the rigs; the new rules try to pull that hashrate &mdash; and the traders who followed it offshore &mdash; back inside a taxable, licensed border.</p>
+    <p>Why it matters: a government that once treated bitcoin as a drain on its grid now treats it as an export. <a class="readmore" href="https://thebitcoinbeacon.com/stories/2026-07-11/kazakhstan-tax-free-bitcoin-mining">Read the full dispatch &rarr;</a></p>
+
+    <div class="take">
+      <div class="tag">The Take</div>
+      <h3>Bitcoin Is Now the Default at Millions of Square Checkouts</h3>
+      <p>The treasury story gets the headlines. The quieter one matters more: since March, Square switches bitcoin acceptance on by default for eligible U.S. sellers, zero fees until 2027. Millions of merchants now take Lightning at the register unless they opt out.</p>
+      <p>That is not a bet on price. It is bitcoin becoming a payment rail one corner store at a time &mdash; the thing fourteen years of conferences kept promising. <a class="readmore" href="https://thebitcoinbeacon.com/stories/2026-07-11/square-bitcoin-default-tills">Read the argument &rarr;</a></p>
+      <div class="sig">&mdash; The Beacon</div>
+    </div>
+
+    <span class="sub">Money &amp; Macro</span>
+    <p><span class="kick">SAN SALVADOR.</span> The reserve just passed 7,680 BTC, worth more than $510 million, still growing by roughly a coin a day &mdash; exactly what El Salvador&rsquo;s $1.4 billion IMF program told it to stop. San Salvador calls the gains wallet consolidation, not purchases; on-chain trackers and Pete Rizzo count 170-plus BTC bought in 2026. The reconciliation, not the price, is what could freeze the Fund&rsquo;s payouts. <a class="readmore" href="https://thebitcoinbeacon.com/stories/2026-07-11/el-salvador-reserve-accounting-imf">Full story &rarr;</a></p>
+
+    <span class="sub">Network &amp; Mining</span>
+    <p><span class="kick">GERD, ETHIOPIA.</span> Phoenix Group has brought 132 megawatts of mining online at the Grand Ethiopian Renaissance Dam, with another 90 MW due this year &mdash; enough to push its own hashrate toward 13 EH/s. Ethiopia already runs roughly 2.6% of the global network on hydropower. The catch: the state utility has stopped issuing new mining permits, saying the grid is full. <a class="readmore" href="https://thebitcoinbeacon.com/stories/2026-07-11/ethiopia-dam-bitcoin-mining">Full story &rarr;</a></p>
+
+    <p>Public Lightning capacity touched a record above 5,600 BTC this spring &mdash; roughly half a billion dollars across 41,000 channels &mdash; even as the count of public nodes kept falling. Monthly volume runs north of $1.1 billion. Capital is concentrating into fewer, larger, professionally run routing nodes. Whether that reads as maturity or as centralization is the open question. <a class="readmore" href="https://thebitcoinbeacon.com/stories/2026-07-11/lightning-capacity-record-fewer-nodes">Full story &rarr;</a></p>
+
+    <span class="sub">Policy &amp; Nation-States</span>
+    <p><span class="kick">WASHINGTON.</span> The Senate returns July 13 with three weeks before recess to pass the CLARITY Act, which would hand bitcoin oversight to the CFTC as a digital commodity. It cleared committee 15&ndash;9 in May and has sat on the calendar since, snagged on ethics rules, DeFi shields and stablecoin yield. Miss the window and it waits until fall. <a class="readmore" href="https://thebitcoinbeacon.com/stories/2026-07-11/clarity-act-senate-countdown">Full story &rarr;</a></p>
+
+    <span class="sub">Voices</span>
+    <div class="voice">
+      <div class="q">&ldquo;Movements across various government-owned wallets&rdquo; &mdash; not net new purchases.</div>
+      <div class="who">Julie Kozack <span>&mdash; IMF spokesperson, on El Salvador&rsquo;s rising reserve</span></div>
+    </div>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>Pakistan bringing its first government bitcoin mining online from surplus power, over IMF objections; Bhutan&rsquo;s steady 2026 outflows (~$42.5M moved, ~5,400 BTC left) as Gelephu spending continues; whether bitcoin &mdash; not just stablecoins &mdash; follows into Bolivia&rsquo;s newly reopened payments market.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="https://thebitcoinbeacon.com/subscribe.html">Subscribe</a> &bull; <a href="#">Unsubscribe</a>
+  </div>
+
+</div>
+</body>
+</html>
