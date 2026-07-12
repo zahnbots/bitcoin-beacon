@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 12, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+  .more{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:700; font-size:11px; color:var(--accent); }
+
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 10</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>July 12, 2026</span>
+  </div>
+
+  <h1 class="lead-head">Bolivia Ran Out of Dollars. Bitcoin Filled the Gap.</h1>
+  <p class="deck">A currency crisis drained the country of hard cash &mdash; and pushed La Paz vendors, importers and even the state energy firm onto bitcoin&rsquo;s rails.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; On the Ground &middot; La Paz</div>
+
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260712_105209_d60cbf55-52ee-4c23-87c1-46c9ae4ab9fe.png" alt="A La Paz market vendor accepts a phone-scanned payment beneath the Andes">
+    <div class="cap">A market vendor takes a phone-scanned payment in La Paz, cable cars and Illimani behind &mdash; Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$64,150</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">957,730</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">~900 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+
+    <p class="first dropcap"><span class="kick">LA PAZ &mdash;</span> When the boliviano&rsquo;s dollar peg cracked and the banks ran dry, Bolivians did not wait for a rescue. They opened wallets. Virtual-asset transactions ran about <strong>$294 million</strong> in the first half of 2025, up from $46.5 million a year earlier &mdash; a jump of roughly <strong>532%</strong>.</p>
+    <p>Most of that flows through dollar-pegged stablecoins. But the bitcoin layer is where the everyday spending lives: a La Paz coffee stand takes payment through a Blink Lightning QR; barbershops and gyms quote in satoshis; a national QR standard, OpenBCB, went live to crypto wallets via AEON on July 9, settling merchants back into bolivianos. Even the state energy firm, YPFB, has used crypto to pay for fuel imports it could not source dollars for.</p>
+    <p><em>Why it matters: when the dollars vanish, bitcoin is the rail with no correspondent bank left to say no.</em></p>
+    <p><a class="more" href="https://thebitcoinbeacon.com/stories/2026-07-12/bolivia-dollar-shortage-bitcoin">Read the full dispatch &rarr;</a></p>
+
+    <span class="sub">Markets &amp; Institutions</span>
+    <p><span class="kick">LONDON.</span> Standard Chartered kept its <strong>$100,000</strong> year-end bitcoin call and pinned the whole slump on one firm. Strategy&rsquo;s pivot away from &ldquo;never sell&rdquo; is &ldquo;a communication challenge, nothing more,&rdquo; says research chief Geoff Kendrick, who calls $64,000 &ldquo;a screaming buy&rdquo; and bets clear signaling means Strategy never sells a coin. <a class="more" href="https://thebitcoinbeacon.com/stories/2026-07-12/standard-chartered-100k-target-strategy">Full story &rarr;</a></p>
+
+    <span class="sub">Policy &amp; Nation-States</span>
+    <p><span class="kick">PRAGUE.</span> The Czech National Bank bought bitcoin for a test portfolio in late 2025 &mdash; then its board voted against putting it in the real reserves. Governor Ale&scaron; Michl argues a 1% slice would lift returns on $180&nbsp;billion of reserves without adding risk. The trial runs regardless. <a class="more" href="https://thebitcoinbeacon.com/stories/2026-07-12/czech-national-bank-bitcoin-trial">Full story &rarr;</a></p>
+
+    <span class="sub">Network &amp; Mining</span>
+    <p><span class="kick">WEST TEXAS.</span> Galaxy energized the first phase of its Helios campus and handed <strong>133 MW</strong> to an AI cloud firm on a 15-year lease. The site was going to mine bitcoin; now mined-bitcoin balance sheets are financing the transformers and fiber instead. Pure miners that didn&rsquo;t pivot are down 90%-plus. <a class="more" href="https://thebitcoinbeacon.com/stories/2026-07-12/galaxy-helios-miner-ai-landlord">Full story &rarr;</a></p>
+
+    <div class="take">
+      <div class="tag">The Take &middot; Opinion</div>
+      <h3>America Banned a Digital Dollar It Never Built</h3>
+      <p>A housing bill became law on July 10 without a signature, and buried inside it is a permanent ban on a Federal Reserve digital currency through 2030. Same week, Circle won a national trust-bank charter to custody the dollars behind its stablecoin.</p>
+      <p>Washington did not choose between a state digital dollar and cash. It chose between a state digital dollar and a private one &mdash; and picked private. The rails to a programmable dollar now belong to companies, under bank charters, with reversibility built in.</p>
+      <p>That leaves exactly one digital money no institution issues, freezes, or prints: bitcoin. The CBDC fight was never bitcoin&rsquo;s to win. Its edge is being the only option on the table that answers to no one.</p>
+      <div class="sig">Washington &middot; <a class="more" href="https://thebitcoinbeacon.com/stories/2026-07-12/america-banned-digital-dollar">Read the argument &rarr;</a></div>
+    </div>
+
+    <span class="sub">Voices</span>
+    <div class="voice">
+      <div class="q">&ldquo;At $64,000 this is a screaming buy.&rdquo;</div>
+      <div class="who">Geoffrey Kendrick <span>&mdash; Standard Chartered, global head of digital-assets research</span></div>
+    </div>
+    <div class="voice">
+      <div class="q">&ldquo;This is the future.&rdquo;</div>
+      <div class="who">Ale&scaron; Michl <span>&mdash; Governor, Czech National Bank, on holding bitcoin in reserves</span></div>
+    </div>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>Pakistan&rsquo;s first government-facilitated bitcoin mining, still stuck in &ldquo;assessment&rdquo; a year after 2,000 MW were pledged. Whether Nubank&rsquo;s long-promised Lightning integration finally ships to its 100-million-plus Latin American users. Bhutan&rsquo;s 500 MW Jigmeling mine coming online while the kingdom keeps drawing its reserve down.</p>
+
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="https://thebitcoinbeacon.com/subscribe.html">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>
