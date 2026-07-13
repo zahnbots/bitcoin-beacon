@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 13, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+  .more{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:700; font-size:11px; color:var(--accent); }
+
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 11</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>July 13, 2026</span>
+  </div>
+
+  <h1 class="lead-head">39 Million Indians Own Bitcoin. Their Central Bank Wants It Banned.</h1>
+  <p class="deck">A reserve-pilot push reaches Parliament this week &mdash; but the Reserve Bank of India is still arguing for prohibition.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; South Asia Desk</div>
+
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260713_103304_ea32c9cd-dda8-4649-9e69-8f7fc49a42e7.png" alt="A New Delhi market vendor takes a phone payment, India Gate and a government dome behind">
+    <div class="cap">A New Delhi vendor takes a phone payment as the state debates a ban &mdash; Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$63,000</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">957,870</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">~880 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap"><span class="kick">NEW DELHI &mdash;</span> Nearly 39 million Indians hold about $2.1 billion in bitcoin and other digital assets, and the country ranks first in the world for grassroots adoption. Its central bank&rsquo;s advice to the government, revealed in documents reviewed by Reuters on July 8: lean toward prohibition.</p>
+    <p>The Reserve Bank of India warns that bank exposure to bitcoin invites contagion, that widespread adoption could accelerate capital flight, and that a country reliant on energy imports cannot afford money leaking past its banks. The tax department&rsquo;s complaint is quieter: in one recent year, fewer than a quarter of Indians who traded crypto declared the gains.</p>
+    <p>The timing is pointed. A parliamentary committee hears the finance ministry around July 15 before reporting on whether India follows the RBI&rsquo;s isolation or builds a licensing regime &mdash; while a ruling-party voice pushes a small bitcoin reserve pilot.</p>
+    <p><em>Why it matters: the largest grassroots bitcoin economy on earth is being governed by a state that would rather it didn&rsquo;t exist.</em></p>
+    <p><a class="more" href="https://thebitcoinbeacon.com/stories/2026-07-13/india-rbi-prohibition">Read the full dispatch &rarr;</a></p>
+
+    <div class="take">
+      <div class="tag">The Take</div>
+      <h3>Congress Moves to Stop Taxing Tiny Bitcoin Payments</h3>
+      <p>A quiet reason Americans don&rsquo;t spend bitcoin: every coffee bought with it is a taxable disposal. A House Ways and Means bill, H.R. 9178, would exempt the small network fees that ride along with a transaction &mdash; and it has bipartisan backing, including ranking Democrat Richard Neal.</p>
+      <p>It is a narrow fix, not the $200 de minimis threshold advocates wanted. But it concedes the real point: the friction that keeps bitcoin an investment rather than a currency in America is written in the tax code, not the protocol.</p>
+      <p class="sig"><a class="more" href="https://thebitcoinbeacon.com/stories/2026-07-13/de-minimis-bitcoin-tax-bill">Read the argument &rarr;</a></p>
+    </div>
+
+    <span class="sub">Policy &amp; Nation-States</span>
+    <p><span class="kick">ISLAMABAD.</span> Pakistan spent a year building a bitcoin framework &mdash; a regulator, a Virtual Assets Act, plans for a state reserve and surplus-power mining. Then its most influential cleric, Mufti Taqi Usmani, ruled crypto trading impermissible, and said renaming it &ldquo;token&rdquo; or &ldquo;stablecoin&rdquo; changes nothing. The fatwa isn&rsquo;t law, but in a country of 240 million Muslims it may be the harder veto. <a class="more" href="https://thebitcoinbeacon.com/stories/2026-07-13/pakistan-crypto-fatwa">Full story &rarr;</a></p>
+
+    <span class="sub">Markets &amp; Institutions</span>
+    <p><span class="kick">ABU DHABI.</span> Bitcoin Suisse&rsquo;s Middle East arm won a full Financial Services Permission from Abu Dhabi&rsquo;s ADGM on July 7, clearing it to offer custody, trading and hedging to institutions across the UAE. The Swiss firm safeguards about $3.7 billion in digital assets. While the West tightens and South Asia stalls, the Gulf keeps opening the front door. <a class="more" href="https://thebitcoinbeacon.com/stories/2026-07-13/bitcoin-suisse-abu-dhabi-license">Full story &rarr;</a></p>
+
+    <span class="sub">Money &amp; Macro</span>
+    <p><span class="kick">BUENOS AIRES.</span> President Javier Milei signed Order 475/2026, exempting registered exchanges from Argentina&rsquo;s 1.2% &ldquo;cheque tax&rdquo; on money moving in and out of them &mdash; a levy that had singled out crypto since 2021. In Latin America&rsquo;s most active market, the state just made it cheaper to move pesos into bitcoin. <a class="more" href="https://thebitcoinbeacon.com/stories/2026-07-13/argentina-cheque-tax-exemption">Full story &rarr;</a></p>
+
+    <span class="sub">Voices</span>
+    <div class="voice">
+      <div class="q">&ldquo;We are united on one fundamental objective: protecting Pakistanis from fraud, exploitation, and financial harm.&rdquo;</div>
+      <div class="who">Bilal Bin Saqib <span>&mdash; Pakistan&rsquo;s crypto minister, on meeting Mufti Taqi Usmani after the fatwa</span></div>
+    </div>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>India&rsquo;s finance-ministry testimony and the committee report due out of the monsoon session; whether the U.S. CLARITY Act clears the Senate before the August 7 recess (Galaxy now puts the odds at 50%); and Pakistan&rsquo;s first government-facilitated bitcoin mine, still &ldquo;in weeks&rdquo; a year after it was promised.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="https://thebitcoinbeacon.com/subscribe.html">Manage preferences</a> &bull; <a href="https://thebitcoinbeacon.com/subscribe.html">Subscribe</a>
+  </div>
+
+</div>
+</body>
+</html>
