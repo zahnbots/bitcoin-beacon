@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 14, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+  .more{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:700; font-size:11px; color:var(--accent); }
+
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 12</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>July 14, 2026</span>
+  </div>
+
+  <h1 class="lead-head">African Shops Take Bitcoin, Get Paid in Cash</h1>
+  <p class="deck">A settle-in-local-currency layer is spreading across Africa&rsquo;s markets &mdash; the merchant never has to hold a coin.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Africa Desk</div>
+
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260714_101546_667f540e-c8b6-46bd-9887-3f48ac69f2ba.png" alt="A Nairobi market vendor holds out a phone showing a payment QR code as a customer scans it, a matatu behind">
+    <div class="cap">A Nairobi vendor takes a Lightning payment that lands as shillings &mdash; Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$62,000</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">958,010</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">~900 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap"><span class="kick">NAIROBI &mdash;</span> In a Nairobi market, a fabric seller now takes bitcoin without ever holding a satoshi. The customer pays over the Lightning Network; a payment gateway converts it instantly; the shopkeeper&rsquo;s account shows Kenyan shillings.</p>
+    <p>That model &mdash; accept bitcoin, settle in local currency &mdash; is spreading across Africa&rsquo;s biggest markets. In Nigeria, a startup called Mular has processed about $500,000 letting customers pay in crypto while shops receive naira. BitSpenda runs the same rails in Ghana, Kenya and Nigeria; Machankura reaches feature phones over USSD; Fedi bundles it into one wallet for low-cost Androids.</p>
+    <p>The pitch is cost. A Lightning-to-fiat checkout runs 0.5% to 1%, against 2.5% to 3.5% for card processors &mdash; real money on a continent where cards barely reach.</p>
+    <p><em>Why it matters: the biggest barrier to merchant bitcoin was asking shopkeepers to hold a volatile asset; settling in cash removes it.</em></p>
+    <p><a class="more" href="https://thebitcoinbeacon.com/stories/2026-07-14/africa-merchants-settle-fiat">Read the full dispatch &rarr;</a></p>
+
+    <div class="take">
+      <div class="tag">The Take</div>
+      <h3>Turkey Taxes the Exit From the Lira</h3>
+      <p>Turks moved roughly $200 billion through crypto last year, the world&rsquo;s fourth-largest market &mdash; a number built not on speculation but on a lira that has lost more than half its value. When a currency melts, people reach for anything that holds.</p>
+      <p>Ankara&rsquo;s answer is not to ban the exit but to toll it. Paying with crypto has been illegal since 2021; a June 30 deadline just forced exchanges to license or close; and a proposed 10% withholding tax would take a cut of the escape. Debase the money, then charge people to leave it.</p>
+      <p class="sig"><a class="more" href="https://thebitcoinbeacon.com/stories/2026-07-14/turkey-taxes-the-exit">Read the argument &rarr;</a></p>
+    </div>
+
+    <span class="sub">Policy &amp; Nation-States</span>
+    <p><span class="kick">JAKARTA.</span> Indonesia is building a walled garden. On July 3 the exchange BTSE launched a licensed local venture under the country&rsquo;s new Law No.&nbsp;4, one of only a handful cleared by the regulator OJK &mdash; which shut 228 unlicensed platforms in the first five months of the year. For a nation of 280 million with tens of millions of crypto users, the door is open, but narrow. <a class="more" href="https://thebitcoinbeacon.com/stories/2026-07-14/indonesia-licenses-few-shuts-many">Full story &rarr;</a></p>
+
+    <span class="sub">Network &amp; Mining</span>
+    <p><span class="kick">JIGMELING.</span> The Himalayan kingdom&rsquo;s state bitcoin mine is reaching full power. Bitdeer&rsquo;s 500-megawatt Jigmeling data center, co-owned by Bhutan&rsquo;s sovereign investment arm, is scaling to capacity this year on pure hydropower. Combined with existing sites, Bhutan now mines an estimated 11 to 12 bitcoin a day &mdash; real income for a country of under 800,000 that already holds more than a billion dollars in bitcoin. <a class="more" href="https://thebitcoinbeacon.com/stories/2026-07-14/bhutan-jigmeling-mine-full-power">Full story &rarr;</a></p>
+
+    <span class="sub">Markets &amp; Institutions</span>
+    <p><span class="kick">NEW YORK.</span> Michael Saylor&rsquo;s Strategy has started grading the banks. Its new Bitcoin Banking Adoption Index scores the sector at 32% overall &mdash; Fidelity leads at 71%, with Goldman Sachs and JPMorgan in the mid-40s. The catch: the company most invested in banks adopting bitcoin is the one keeping score, and it hasn&rsquo;t published how. <a class="more" href="https://thebitcoinbeacon.com/stories/2026-07-14/strategy-bank-bitcoin-index">Full story &rarr;</a></p>
+
+    <span class="sub">Money &amp; Macro</span>
+    <p><span class="kick">BOGOT&Aacute;.</span> As the peso slides, Colombians are parking savings in crypto. About six million now use digital assets, and the country moved some $44 billion on-chain over the past year, among Latin America&rsquo;s five largest markets. Most of that is dollar-pegged stablecoins; bitcoin is the smaller, issuer-less share &mdash; the part no bank or government can freeze. <a class="more" href="https://thebitcoinbeacon.com/stories/2026-07-14/colombia-peso-bitcoin-savings">Full story &rarr;</a></p>
+
+    <span class="sub">Voices</span>
+    <div class="voice">
+      <div class="q">&ldquo;Major-bank Bitcoin adoption is accelerating, but still early: 32% overall as measured by the index.&rdquo;</div>
+      <div class="who">Michael Saylor <span>&mdash; executive chairman, Strategy, launching its Bitcoin Banking Adoption Index</span></div>
+    </div>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>Whether Indonesia&rsquo;s OJK widens the handful of crypto licenses it has granted or keeps the gate narrow; how Bhutan balances a growing mining income against a bitcoin reserve it has quietly been drawing down; and whether the U.S. CLARITY Act reaches a Senate vote before the August 7 recess.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="https://thebitcoinbeacon.com/subscribe.html">Manage preferences</a> &bull; <a href="https://thebitcoinbeacon.com/subscribe.html">Subscribe</a>
+  </div>
+
+</div>
+</body>
+</html>
