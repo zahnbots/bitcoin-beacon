@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 18, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  /* Masthead */
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  /* Lead */
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  /* Columns */
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+  .rd{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:700; font-size:10.5px; letter-spacing:0.4px; }
+  .rd a{ color:var(--accent); text-decoration:none; }
+
+  /* Markets box */
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  /* The Take */
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 16</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>Saturday, July 18, 2026</span>
+  </div>
+
+  <h1 class="lead-head">Lebanon&rsquo;s Banks Froze. Bitcoin Keeps Moving.</h1>
+  <p class="deck">A collapsed banking system taught Lebanese to hold value on their phones &mdash; and bitcoin is the piece no bank can freeze.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; The Levant Desk</div>
+
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260718_111850_3350fe08-a4e6-466b-91b0-b22bbb59df41.png" alt="A Beirut fruit vendor takes a phone payment in front of a shuttered bank, linocut">
+    <div class="cap">Beirut: a street sale settled by phone, in front of a bank that no longer pays out &mdash; Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$64,000</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">958,570</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">~900 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap"><span class="kick">BEIRUT &mdash;</span> At a Beirut fruit stall the price is quoted in lira but settled on a phone. Six years after Lebanon&rsquo;s banks froze deposits and the lira lost most of its value, the country runs on money people can hold themselves &mdash; dollars in hand, and increasingly bitcoin and dollar-stablecoins on a screen.</p>
+    <p>Surveys put crypto-wallet use near a fifth of the population, among the highest rates anywhere, and the driver is not speculation but a broken banking system. Aid groups have piloted stablecoin payments that skip the banks entirely; merchants price in dollars and take whatever settles fastest.</p>
+    <p>Bitcoin is the smaller share of the volume &mdash; the tokenized dollar still wins the day-to-day &mdash; but it is the one instrument no government issues and no bank can freeze.</p>
+    <p><em>Why it matters: where the banks stopped working, Lebanese didn&rsquo;t wait for a law to make bitcoin money.</em></p>
+    <p class="rd"><a href="https://thebitcoinbeacon.com/stories/2026-07-18/lebanon-banks-froze-bitcoin-cash-economy">Read the full dispatch &rarr;</a></p>
+
+    <div class="take">
+      <div class="tag">The Take &middot; Opinion</div>
+      <h3>Forty Countries Pledged Bitcoin. Thirteen Actually Hold It.</h3>
+      <p>More than 40 governments have &ldquo;committed&rdquo; to bitcoin, by one industry count. Public trackers show 13 with confirmed holdings, worth about $37.9B &mdash; and most of that is seized coin, not bought. The U.S. sits on ~328,000 BTC it forfeited, with no purchase program. El Salvador&rsquo;s buying is paused; Bhutan is drawing its stack down; Pakistan&rsquo;s &ldquo;national wallet&rdquo; met a central bank that still calls crypto banned.</p>
+      <p>A pledge is a press release. A balance sheet is a decision. So far the gap between them is the whole story.</p>
+      <p class="sig"><a href="https://thebitcoinbeacon.com/stories/2026-07-18/sovereign-bitcoin-pledges-versus-holdings" style="color:#c87a12;text-decoration:none;">Read the argument &rarr;</a></p>
+    </div>
+
+    <span class="sub">Policy &amp; Nation-States</span>
+    <p><span class="kick">PANAMA CITY.</span> A bill before Panama&rsquo;s National Assembly would recognize bitcoin, stablecoins and other digital assets as a lawful means of payment &mdash; when both parties agree &mdash; while licensing exchanges under the banking and financial-intelligence regulators. It is El Salvador&rsquo;s idea without the mandate: no one must take bitcoin, but the law would stop pretending no one does. A president vetoed a similar law in 2022.</p>
+    <p class="rd"><a href="https://thebitcoinbeacon.com/stories/2026-07-18/panama-crypto-payments-bill">Full story &rarr;</a></p>
+
+    <span class="sub">Markets &amp; Institutions</span>
+    <p><span class="kick">STOCKHOLM.</span> Bitcoin Treasury Capital lists BTC PREF, billed as Sweden&rsquo;s first bitcoin-backed preferred share, on July 20 &mdash; carrying a 10% annual dividend paid monthly. The catch: the rights issue behind it closed at 52% subscription, raising about SEK 12.2M ($1.3M) of a SEK 23.4M target. Even a double-digit yield couldn&rsquo;t fill the book, a cool read on Europe&rsquo;s appetite for leveraged bitcoin equity.</p>
+    <p class="rd"><a href="https://thebitcoinbeacon.com/stories/2026-07-18/sweden-btc-preferred-stock-undersubscribed">Full story &rarr;</a></p>
+
+    <span class="sub">Money &amp; Macro</span>
+    <p><span class="kick">CAIRO.</span> Egypt&rsquo;s central bank is building a digital pound &mdash; and says one reason is to pull Egyptians off the crypto its own currency crisis pushed them toward. The pound was floated in 2024 and lost about 40%; roughly 3 million Egyptians hold crypto wallets, trading peer-to-peer around a ban. The e-pound is a proof-of-concept aimed at 2030. Bitcoin needs no pilot.</p>
+    <p class="rd"><a href="https://thebitcoinbeacon.com/stories/2026-07-18/egypt-digital-pound-cbdc-versus-bitcoin">Full story &rarr;</a></p>
+
+    <span class="sub">Network &amp; Mining</span>
+    <p><span class="kick">MUSCAT.</span> Oman is turning waste into hashrate. The Gulf sultanate is licensing regulated miners to run on flared gas, spare grid power and solar &mdash; with KYC checks, local vendors and tech jobs attached &mdash; and has edged into the global top tier of mining hosts. It is the mirror image of Laos and Paraguay: instead of pricing miners out, a petro-state is inviting them in to monetize gas it would otherwise burn for nothing.</p>
+    <p class="rd"><a href="https://thebitcoinbeacon.com/stories/2026-07-18/oman-flared-gas-bitcoin-mining">Full story &rarr;</a></p>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>Whether the U.S. Treasury makes any actual open-market bitcoin purchase in Q4 if the reserve legislation clears; Portugal&rsquo;s MiCA provisions taking effect this month, and whether its tax regime keeps drawing bitcoin holders to Lisbon; and Morocco&rsquo;s long-promised crypto law, reported &ldquo;ready to be adopted&rdquo; after an eight-year ban.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="https://thebitcoinbeacon.com/subscribe.html">Subscribe</a> &bull; <a href="#">Unsubscribe</a> &bull; <a href="#">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>
