@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 17, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  /* Masthead */
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  /* Lead */
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  /* Columns */
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+
+  /* Markets box */
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  /* The Take */
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  /* Voices */
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 15</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>Friday, July 17, 2026</span>
+  </div>
+
+  <h1 class="lead-head">A New York Lawsuit Wants to Seize 3.8 Million Idle Bitcoin</h1>
+  <p class="deck">Anonymous plaintiffs are asking a Manhattan court to rule that 39,000 long-dormant wallets &mdash; perhaps Satoshi&rsquo;s own &mdash; are abandoned property they can claim.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Network &amp; Custody Desk</div>
+
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260717_125805_eff0be3a-2b2c-4c63-91e1-b51c9cc2b9d6.png" alt="A courtroom gavel hovering over a padlocked chest of dormant bitcoin, linocut">
+    <div class="cap">Dormant, not lost: a lawsuit tests whether unmoved coins are anyone&rsquo;s to take &mdash; Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$63,900</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">958,430</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">~900 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap"><span class="kick">NEW YORK &mdash;</span> A pseudonymous plaintiff called &ldquo;Noah Doe,&rdquo; joined by two Wyoming shell companies, has asked a Manhattan court to declare 39,069 bitcoin wallets abandoned property &mdash; and to hand over the keys. The wallets hold roughly 3.8 million bitcoin, near $290 billion, some of it likely mined by Satoshi Nakamoto and untouched since bitcoin&rsquo;s earliest years.</p>
+    <p>The theory rests on New York&rsquo;s lost-property statute: coins that haven&rsquo;t moved in five or six years are &ldquo;abandoned,&rdquo; and a finder can claim title. A judge has already paused a default judgment after the first named defendant argued the coins were never lost at all.</p>
+    <p>The Bitcoin Policy Institute has intervened. Its warning is plain: if dormancy equals abandonment, every long-term holder on earth suddenly has to move coins to prove they still exist.</p>
+    <p><em>Why it matters: self-custody only works if leaving your coins alone still counts as owning them.</em></p>
+    <p><a href="https://thebitcoinbeacon.com/stories/2026-07-17/new-york-dormant-wallet-lawsuit">Read the full dispatch &rarr;</a></p>
+
+    <div class="take">
+      <div class="tag">The Take</div>
+      <h3>The Grid Blocked AI. Bitcoin Miners Cash In.</h3>
+      <p>American towns are voting down data centers &mdash; the Bitcoin Policy Institute counts some $24 billion in AI projects stalled by zoning fights and grid fear. Yet the power, land and cooling those projects need already exist, humming, at bitcoin mines.</p>
+      <p>Public miners are now fielding more than $70 billion in offers to host AI compute. The industry politicians spent years calling a waste of electricity holds the one thing the AI boom can&rsquo;t permit into existence fast enough: a substation that already says yes. The risk is that the winners stop mining bitcoin at all. <a href="https://thebitcoinbeacon.com/stories/2026-07-17/miners-ai-grid-arbitrage">Read the argument &rarr;</a></p>
+      <div class="sig">&mdash; The Beacon</div>
+    </div>
+
+    <span class="sub">Markets &amp; Institutions</span>
+    <p><span class="kick">MEXICO CITY.</span> Ricardo Salinas, the billionaire chairman of Grupo Salinas, has anchored a $40 million round for ORANGE JUICE, a firm that buys small profitable businesses and sweeps their cash flow into bitcoin. Built by Lyn Alden and Jeff Booth&rsquo;s Ego Death Capital, it skips the borrow-and-buy playbook: no fund clock, no share sale to fund the next coin. <a href="https://thebitcoinbeacon.com/stories/2026-07-17/salinas-orange-juice-bitcoin-treasury">Full story &rarr;</a></p>
+    <p><span class="kick">JOHANNESBURG.</span> Altvest Capital has rebranded as Africa Bitcoin Corp and is raising up to $210 million to become the continent&rsquo;s first listed bitcoin treasury, targeting 21,000 coins by 2030. On the JSE main board since May, it has bought only single-digit amounts so far &mdash; the ambition is vast, the stack still small. <a href="https://thebitcoinbeacon.com/stories/2026-07-17/africa-bitcoin-corp-treasury">Full story &rarr;</a></p>
+
+    <span class="sub">Policy &amp; Nation-States</span>
+    <p><span class="kick">HANOI.</span> Five bank- and conglomerate-backed firms &mdash; affiliates of Techcombank, VPBank, LPBank, VIX Securities and Sun Group &mdash; have cleared screening to run Vietnam&rsquo;s first licensed exchanges, each posting a capital barrier near $400 million. Hanoi wants the country&rsquo;s large offshore bitcoin trade onshore, taxed and watched. Which assets list first is still unwritten. <a href="https://thebitcoinbeacon.com/stories/2026-07-17/vietnam-onshore-crypto-exchange-licenses">Full story &rarr;</a></p>
+
+    <span class="sub">Money &amp; Macro</span>
+    <p><span class="kick">NEW YORK.</span> A new NYDIG note argues the summer slide is mechanical, not fearful: bitcoin is tracing the same four-year drawdown it ran in 2014, 2018 and 2022, with a possible floor near $38,000 by October. The backdrop &mdash; oil back to $80 as the Hormuz truce breaks, a Fed unlikely to cut on the 29th &mdash; only tightens the screw. <a href="https://thebitcoinbeacon.com/stories/2026-07-17/nydig-supply-cycle-low">Full story &rarr;</a></p>
+
+    <span class="sub">Voices</span>
+    <div class="voice">
+      <div class="q">Coins untouched for five years are abandoned property, and whoever finds them can claim title.</div>
+      <div class="who">The legal theory in the &ldquo;Noah Doe&rdquo; filing <span>&mdash; which the Bitcoin Policy Institute has moved to block in New York</span></div>
+    </div>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>Whether the CLARITY Act &mdash; the bill that would fix bitcoin&rsquo;s status as a CFTC commodity &mdash; reaches a Senate floor vote before the August 7 recess, after Thursday&rsquo;s New York field hearing; the Federal Reserve&rsquo;s July 28&ndash;29 meeting, where cooling inflation meets a fresh oil shock; and El Salvador&rsquo;s next IMF review, and whether its quiet bitcoin buying survives the fine print.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="#">Unsubscribe</a> &bull; <a href="#">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>
