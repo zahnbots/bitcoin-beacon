@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 19, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+  .readmore{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:700; font-size:11px; color:var(--accent); text-decoration:none; }
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 17</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>July 19, 2026</span>
+  </div>
+
+  <h1 class="lead-head">Thailand Lets Tourists Spend Bitcoin in Baht</h1>
+  <p class="deck">A government sandbox turns a visitor&rsquo;s bitcoin into baht at the checkout &mdash; no bank account, no legal-tender law, just a QR code.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Bangkok Desk</div>
+
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260719_110837_796342bc-ac5f-41e7-a13c-da02dac04443.png" alt="A traveler pays a Bangkok street-food vendor by phone QR, linocut">
+    <div class="cap">A night-market sale settled by QR, funded from a foreign wallet &mdash; Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$63,000</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">958,710</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">~900 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap"><span class="kick">BANGKOK &mdash;</span> At a night-market stall the sale looks ordinary: a phone, a QR code, a chime in baht. What the vendor never sees is that the money started as a tourist&rsquo;s bitcoin. That is the whole design of TouristDigiPay, Thailand&rsquo;s crypto-to-baht sandbox &mdash; an 18-month government pilot that sends a visitor&rsquo;s bitcoin to a licensed exchange, converts it to baht, and loads a Tourist Wallet for QR payments.</p>
+    <p>Merchants receive only baht; approved shops can take up to &#3647;500,000 a month, small vendors &#3647;50,000; cash withdrawals are banned. Oversight is shared by the finance ministry, the SEC, the Bank of Thailand and the anti-money-laundering office. Bangkok hopes it lifts visitor spending around 10%, up to &#3647;175 billion (~$15bn).</p>
+    <p>It is the Boracay pattern from the top down: no legal-tender law, just a checkout that finally accepts what travelers already hold. The catch is in the plumbing &mdash; a licensed operator sells the bitcoin and settles fiat, so no one truly pays in bitcoin, and stablecoins may carry most of the volume.</p>
+    <p><em>Why it matters: adoption tends to arrive as a better checkout, not a mandate.</em></p>
+    <p><a class="readmore" href="https://thebitcoinbeacon.com/stories/2026-07-19/thailand-touristdigipay-bitcoin-baht">Read the full dispatch &rarr;</a></p>
+
+    <span class="sub">Network &amp; Mining &middot; Addis Ababa</span>
+    <p><strong>Ethiopia wants to own its bitcoin mines, not just host them.</strong> At Finance Forward Ethiopia 2026, PM Abiy Ahmed said the state fund is seeking mining partners; a February $250M tie-up gives it a 20&ndash;30% stake in new facilities. Africa&rsquo;s biggest miner (~2.5% of global hashrate) wants a share of the rigs, not just the power bill. <a class="readmore" href="https://thebitcoinbeacon.com/stories/2026-07-19/ethiopia-state-bitcoin-mining-ownership">Full story &rarr;</a></p>
+
+    <span class="sub">Policy &amp; Nation-States &middot; Abuja</span>
+    <p><strong>Nigeria opens a legal door for its bitcoin traders.</strong> Five years after the central bank cut crypto off from the banks, the SEC&rsquo;s incubation programme now supervises nine firms &mdash; Luno was the first global exchange admitted, joined this month by Kucoin and GIGX. A licensed onshore ramp for the world&rsquo;s biggest grassroots market; stablecoins still dominate the volume. <a class="readmore" href="https://thebitcoinbeacon.com/stories/2026-07-19/nigeria-sec-arip-onshore-exchanges">Full story &rarr;</a></p>
+
+    <span class="sub">Money &amp; Macro &middot; Kyiv</span>
+    <p><strong>Ukraine weighs putting bitcoin in its war chest.</strong> A cross-party draft (No. 13356) would let the National Bank hold bitcoin in official reserves &mdash; permissive, not compulsory. The logic is written in 2022&rsquo;s freeze of Russia&rsquo;s reserves: a bearer asset no adversary can switch off. Early-stage, no timetable, Binance reportedly assisting. <a class="readmore" href="https://thebitcoinbeacon.com/stories/2026-07-19/ukraine-bitcoin-reserve-bill-13356">Full story &rarr;</a></p>
+
+    <div class="take">
+      <div class="tag">The Take</div>
+      <h3>The Bitcoin Treasury Boom Is Splitting in Two</h3>
+      <p>One line of bitcoin-holding companies still raises hundreds of millions on demand &mdash; Treasury B.V. just pulled in $147M from Winklevoss Capital and Nakamoto for a Euronext listing. The other can&rsquo;t fill a rights issue at a 10% yield: Sweden&rsquo;s preferred-share raise closed 52% subscribed, and Adam Back&rsquo;s BSTR saw its SPAC listing collapse this month.</p>
+      <p>The dividing line is the premium. When shares trade above the coins, a treasury issues stock and buys more; when they sink to coin value, the flywheel jams. Survivors have brand, cheap capital, or real cash flow (see Salinas). The shakeout isn&rsquo;t the model breaking &mdash; it&rsquo;s the model finally being priced.</p>
+      <p class="sig">&mdash; The Beacon, on why not everyone who bought bitcoin through a ticker keeps the ticker. <a class="readmore" href="https://thebitcoinbeacon.com/stories/2026-07-19/bitcoin-treasury-companies-splitting">Read the argument &rarr;</a></p>
+    </div>
+
+    <span class="sub">From the Timeline</span>
+    <div class="voice">
+      <div class="q">&ldquo;It gives the National Bank the right to include virtual assets in the reserves &mdash; the timing, method and volume stay the central bank&rsquo;s discretion.&rdquo;</div>
+      <div class="who">Yaroslav Zheleznyak <span>&mdash; first deputy chair, Ukraine&rsquo;s parliamentary finance committee, on draft law No. 13356</span></div>
+    </div>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>Whether Kenya&rsquo;s new VASP law produces its first licensed operators; whether Pakistan finally brings its promised government bitcoin mine online after a year of &ldquo;in weeks&rdquo;; and whether the U.S. CLARITY Act reaches a Senate floor vote before the August 7 recess.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="https://thebitcoinbeacon.com/subscribe.html">Subscribe</a> &bull; <a href="#">Unsubscribe</a>
+  </div>
+
+</div>
+</body>
+</html>
