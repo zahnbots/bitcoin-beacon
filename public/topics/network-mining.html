@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Network &amp; Mining — The Bitcoin Beacon</title>
+<meta name="description" content="Miners, energy and the protocol — the machinery that keeps bitcoin running.">
+<link rel="canonical" href="https://thebitcoinbeacon.com/topics/network-mining">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#15130f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta property="og:site_name" content="The Bitcoin Beacon">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Network &amp; Mining — The Bitcoin Beacon">
+<meta property="og:description" content="Miners, energy and the protocol — the machinery that keeps bitcoin running.">
+<meta property="og:image" content="https://thebitcoinbeacon.com/assets/beacon-badge-400.png">
+<meta property="og:url" content="https://thebitcoinbeacon.com/topics/network-mining">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Network &amp; Mining — The Bitcoin Beacon">
+<meta name="twitter:description" content="Miners, energy and the protocol — the machinery that keeps bitcoin running.">
+<meta name="twitter:image" content="https://thebitcoinbeacon.com/assets/beacon-badge-400.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700&display=swap');
+  :root{ --ink:#15130f; --muted:#6b6459; --line:#e7e3da; --accent:#e8820c; --paper:#ffffff; --wash:#faf7f1; }
+  *{ box-sizing:border-box; } body{ margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',system-ui,Arial,sans-serif; line-height:1.55; }
+  a{ color:inherit; text-decoration:none; }
+  .nav{ position:sticky; top:0; z-index:20; background:rgba(255,255,255,.94); backdrop-filter:blur(6px); border-bottom:1px solid var(--line); }
+  .nav .in{ max-width:1180px; margin:0 auto; display:flex; align-items:center; gap:24px; padding:14px 24px; }
+  .nav .links{ display:flex; gap:20px; font-size:13px; font-weight:600; color:#4a463f; } .nav .links a:hover{ color:var(--accent); } .nav .links a.here{ color:var(--accent); }
+  .nav .sub{ background:var(--ink); color:#fff; font-size:12px; font-weight:700; padding:9px 15px; border-radius:999px; }
+  .wrap{ max-width:900px; margin:0 auto; padding:0 24px 60px; }
+  h1{ font-family:'Fraunces',Georgia,serif; font-size:36px; margin:34px 0 6px; }
+  .intro{ color:var(--muted); margin:0 0 10px; }
+  h2{ font-family:'Fraunces',serif; font-size:22px; border-top:2px solid var(--ink); padding-top:14px; margin:34px 0 6px; }
+  ul{ list-style:none; margin:0; padding:0; }
+  li{ border-bottom:1px solid var(--line); padding:12px 0; display:flex; gap:16px; align-items:baseline; }
+  .d{ font-size:12px; color:var(--muted); white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .t{ font-family:'Fraunces',serif; font-size:17px; font-weight:600; } .t:hover{ color:var(--accent); }
+  .p{ font-size:12px; color:var(--muted); margin-left:auto; white-space:nowrap; }
+  .arch{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin:22px 0 0; padding:18px 20px; background:var(--wash); border:1px solid var(--line); border-radius:14px; }
+  .arch .lbl{ font-size:13px; color:var(--muted); } .arch .lbl b{ color:var(--ink); }
+  .arch a{ display:inline-block; background:var(--ink); color:#fff; font-weight:700; font-size:13px; padding:11px 20px; border-radius:999px; white-space:nowrap; }
+  .arch a:hover{ background:var(--accent); }
+  .back{ display:inline-block; margin:18px 0 0; font-size:13px; font-weight:600; color:var(--muted); } .back:hover{ color:var(--accent); }
+  .cards{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin:26px 0 0; }
+  .card{ border:1px solid var(--line); border-radius:14px; padding:20px 22px; background:var(--paper); transition:border-color .15s; }
+  .card:hover{ border-color:var(--accent); }
+  .card h3{ font-family:'Fraunces',serif; font-size:20px; margin:0 0 6px; }
+  .card p{ color:var(--muted); font-size:13px; margin:0 0 12px; }
+  .card .meta{ font-size:12px; color:var(--muted); } .card .go{ color:var(--accent); font-weight:700; }
+  .cta{ background:var(--ink); color:#fff; border-radius:16px; padding:28px 24px; text-align:center; margin-top:44px; }
+  .cta h3{ font-family:'Fraunces',serif; font-size:22px; margin:0 0 6px; } .cta p{ color:#c9c3b8; margin:0 0 14px; font-size:14px; }
+  .cta .btn{ display:inline-block; background:var(--accent); color:#fff; font-weight:700; padding:12px 22px; border-radius:999px; font-size:14px; }
+  @media(max-width:640px){ .nav .links{ display:none; } .p{ display:none; } .cards{ grid-template-columns:1fr; } }
+
+  /* two-tier masthead (2026-07-06) */
+  .mast{ background:var(--paper); border-bottom:1px solid var(--line); }
+  .mast a{ display:flex; align-items:center; justify-content:center; gap:18px; padding:20px 24px 16px; }
+  .mast img{ height:119px; width:119px; border-radius:50%; }
+  .mast span{ font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:42px; letter-spacing:-.5px; color:var(--ink); }
+  .nav .in{ position:relative; justify-content:center; }
+  .nav .sub{ position:absolute; right:24px; top:50%; transform:translateY(-50%); margin-left:0; }
+  .nav .menu-btn{ position:absolute; left:14px; top:50%; transform:translateY(-50%); }
+  @media(max-width:768px){
+    .mast a{ gap:10px; padding:12px 14px 10px; }
+    .mast img{ height:74px; width:74px; }
+    .mast span{ font-size:23px; }
+    .nav .sub{ position:absolute; right:14px; }
+  }
+
+  /* mobile polish (2026-07-06c): deep stacked header, no slide bar */
+  html{ -webkit-text-size-adjust:100%; }
+  @media(max-width:768px){
+    .mast a{ gap:12px; padding:18px 14px 12px; }
+    .mast img{ height:64px; width:64px; }
+    .mast span{ font-size:24px; letter-spacing:-.3px; }
+    .nav{ position:static !important; background:var(--paper) !important; backdrop-filter:none !important; }
+    .nav .in{ flex-direction:column !important; align-items:center; padding:12px 14px 16px !important; gap:0 !important; }
+    .nav .links{ display:flex !important; flex-direction:row !important; flex-wrap:wrap !important; justify-content:center; overflow:visible !important; gap:9px 18px; padding:0 !important; margin:0; width:100%; font-size:13.5px; position:static !important; box-shadow:none !important; background:transparent !important; border:0 !important; }
+    .nav .links a{ white-space:nowrap; border-top:0 !important; padding:0 !important; font-size:13.5px !important; }
+    .nav .sub{ display:inline-block !important; position:static !important; transform:none !important; margin:14px auto 0 !important; padding:9px 26px; box-shadow:none !important; font-size:13px; }
+    .nav .menu-btn{ display:none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="mast"><a href="/">
+    <img src="/assets/beacon-badge-400.png" alt="The Bitcoin Beacon" width="400" height="400">
+    <span>The Bitcoin Beacon</span>
+  </a></div>
+  <div class="nav"><div class="in">
+    <div class="links"><a href="/topics/on-the-ground.html">On the Ground</a><a href="/topics/money-macro.html">Money &amp; Macro</a><a href="/topics/markets.html">Markets</a><a href="/topics/policy-nation-states.html">Nation-States</a><a href="/topics/network-mining.html" class="here">Network &amp; Mining</a><a href="/topics/opinion.html">Opinion</a></div>
+    <a class="sub" href="/subscribe.html" style="margin-left:auto;">Subscribe</a>
+  </div></div>
+<div class="wrap">
+<h1>Network & Mining</h1>
+<p class="intro">Miners, energy and the protocol — the machinery that keeps bitcoin running.</p>
+<ul>
+<li><span class="d">2026-07-20</span><a class="t" href="/stories/2026-07-20/pakistan-virtual-assets-act-mining-reserve">Pakistan Commits 2,000 Megawatts to Bitcoin Mining</a><span class="p">Islamabad, Pakistan</span></li>
+<li><span class="d">2026-07-19</span><a class="t" href="/stories/2026-07-19/ethiopia-state-bitcoin-mining-ownership">Ethiopia Wants to Own Its Bitcoin Mines, Not Just Host Them</a><span class="p">Addis Ababa, Ethiopia</span></li>
+<li><span class="d">2026-07-18</span><a class="t" href="/stories/2026-07-18/oman-flared-gas-bitcoin-mining">Oman Turns Its Flared Gas Into Bitcoin</a><span class="p">Muscat, Oman</span></li>
+<li><span class="d">2026-07-17</span><a class="t" href="/stories/2026-07-17/new-york-dormant-wallet-lawsuit">A New York Lawsuit Wants to Seize 3.8 Million Idle Bitcoin</a><span class="p">New York, USA</span></li>
+<li><span class="d">2026-07-16</span><a class="t" href="/stories/2026-07-16/paraguay-mining-tariffs-consolidation">Paraguay Prices Out Half Its Bitcoin Miners</a><span class="p">Ciudad del Este, Paraguay</span></li>
+<li><span class="d">2026-07-15</span><a class="t" href="/stories/2026-07-15/laos-cuts-power-bitcoin-miners">Laos Pulls the Plug on Its Bitcoin Miners</a><span class="p">Vientiane, Laos</span></li>
+<li><span class="d">2026-07-14</span><a class="t" href="/stories/2026-07-14/bhutan-jigmeling-mine-full-power">Bhutan&#x27;s State Bitcoin Mine Reaches Full Power</a><span class="p">Jigmeling, Bhutan</span></li>
+<li><span class="d">2026-07-12</span><a class="t" href="/stories/2026-07-12/galaxy-helios-miner-ai-landlord">A Bitcoin Miner Became an AI Landlord in West Texas</a><span class="p">West Texas, USA</span></li>
+<li><span class="d">2026-07-11</span><a class="t" href="/stories/2026-07-11/ethiopia-dam-bitcoin-mining">Ethiopia&#x27;s Mega-Dam Now Runs Bitcoin Mines</a><span class="p">Grand Ethiopian Renaissance Dam, Ethiopia</span></li>
+<li><span class="d">2026-07-11</span><a class="t" href="/stories/2026-07-11/lightning-capacity-record-fewer-nodes">Lightning Hits a Capacity Record With Fewer Nodes</a><span class="p">Global</span></li>
+</ul>
+<div class="arch"><div class="lbl">Showing the latest 10 of <b>16</b> Network & Mining stories.</div><a href="/archive/network-mining.html">Full archive &rarr;</a></div>
+<div class="cta"><h3>The world’s bitcoin headlines, in your inbox every morning.</h3><p>Free. Five minutes. No hype.</p><a class="btn" href="/subscribe.html">Subscribe free</a></div>
+</div>
+<footer style="border-top:1px solid var(--line); padding:26px 24px; text-align:center; color:var(--muted); font-size:12px;">THE BITCOIN BEACON &bull; The daily record of Bitcoin's global adoption &bull; Informational only — not financial advice</footer>
+
+<!-- subscribe modal (site-wide) -->
+<style>
+.bb-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(21,19,15,.62);padding:20px;}
+.bb-modal.open{display:flex;}
+.bb-modal .bb-card{background:#faf7f1;border-radius:16px;max-width:620px;width:100%;padding:16px 16px 8px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.35);}
+.bb-modal .bb-x{position:absolute;top:6px;right:12px;background:none;border:0;font-size:28px;color:#6b6459;cursor:pointer;line-height:1;}
+.bb-modal iframe{width:100%;height:340px;border:0;border-radius:10px;background:#fff;}
+</style>
+<div class="bb-modal" id="bb-modal" role="dialog" aria-modal="true" aria-label="Subscribe to The Bitcoin Beacon">
+  <div class="bb-card">
+    <button class="bb-x" aria-label="Close">&times;</button>
+    <iframe data-src="https://subscribe-forms.beehiiv.com/2c9c948c-bcee-4d82-ad46-d31816c72af4" title="Subscribe to The Bitcoin Beacon"></iframe>
+  </div>
+</div>
+<script>
+(function(){
+  var m=document.getElementById('bb-modal');if(!m)return;
+  var f=m.querySelector('iframe');
+  function open(e){if(e)e.preventDefault();if(!f.src)f.src=f.getAttribute('data-src');m.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){m.classList.remove('open');document.body.style.overflow='';}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a');if(!a)return;
+    var h=a.getAttribute('href')||'';
+    if(/subscribe\.html$/.test(h)||h==='#subscribe'){open(e);}
+  });
+  m.addEventListener('click',function(e){if(e.target===m)close();});
+  m.querySelector('.bb-x').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
+</body>
+</html>

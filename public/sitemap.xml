@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://thebitcoinbeacon.com/</loc><lastmod>2026-07-07</lastmod></url>
-  <url><loc>https://thebitcoinbeacon.com/archive</loc><lastmod>2026-07-07</lastmod></url>
+  <url><loc>https://thebitcoinbeacon.com/archive</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://thebitcoinbeacon.com/subscribe</loc><lastmod>2026-07-06</lastmod></url>
   <url><loc>https://thebitcoinbeacon.com/stories/2026-07-06/philippines-bitcoin-island</loc><lastmod>2026-07-06</lastmod></url>
   <url><loc>https://thebitcoinbeacon.com/stories/2026-07-06/malawi-mining-lightbulb</loc><lastmod>2026-07-06</lastmod></url>
@@ -100,4 +100,16 @@
 <url><loc>https://thebitcoinbeacon.com/stories/2026-07-20/square-block-bitcoin-million-merchants</loc><lastmod>2026-07-20</lastmod></url>
 <url><loc>https://thebitcoinbeacon.com/stories/2026-07-20/ghana-vasp-licensing-sandbox</loc><lastmod>2026-07-20</lastmod></url>
 <url><loc>https://thebitcoinbeacon.com/stories/2026-07-20/bitcoin-stablecoins-payments-take</loc><lastmod>2026-07-20</lastmod></url>
+  <url><loc>https://thebitcoinbeacon.com/topics/on-the-ground</loc><lastmod>2026-07-20</lastmod></url>
+  <url><loc>https://thebitcoinbeacon.com/archive/on-the-ground</loc><lastmod>2026-07-20</lastmod></url>
+  <url><loc>https://thebitcoinbeacon.com/topics/money-macro</loc><lastmod>2026-07-20</lastmod></url>
+  <url><loc>https://thebitcoinbeacon.com/archive/money-macro</loc><lastmod>2026-07-20</lastmod></url>
+  <url><loc>https://thebitcoinbeacon.com/topics/markets</loc><lastmod>2026-07-20</lastmod></url>
+  <url><loc>https://thebitcoinbeacon.com/archive/markets</loc><lastmod>2026-07-20</lastmod></url>
+  <url><loc>https://thebitcoinbeacon.com/topics/policy-nation-states</loc><lastmod>2026-07-20</lastmod></url>
+  <url><loc>https://thebitcoinbeacon.com/archive/policy-nation-states</loc><lastmod>2026-07-20</lastmod></url>
+  <url><loc>https://thebitcoinbeacon.com/topics/network-mining</loc><lastmod>2026-07-20</lastmod></url>
+  <url><loc>https://thebitcoinbeacon.com/archive/network-mining</loc><lastmod>2026-07-20</lastmod></url>
+  <url><loc>https://thebitcoinbeacon.com/topics/opinion</loc><lastmod>2026-07-20</lastmod></url>
+  <url><loc>https://thebitcoinbeacon.com/archive/opinion</loc><lastmod>2026-07-20</lastmod></url>
 </urlset>
