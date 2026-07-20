@@ -108,11 +108,26 @@ STYLE = """<style>
   }
 </style>"""
 
+# Canonical top-nav order used across the WHOLE site (topic tabs -> that topic's
+# full archive, then the Archive hub, then Custody). Keep this identical to the
+# hand-coded nav in index/story/custody pages.
+NAV_ORDER = [
+    ("on-the-ground",        "On the Ground"),
+    ("money-macro",          "Money &amp; Macro"),
+    ("markets",              "Markets"),
+    ("network-mining",       "Network &amp; Mining"),
+    ("opinion",              "Opinion"),
+    ("policy-nation-states", "Nation-States"),
+]
+
 def nav_html(current=None):
     links = []
-    for key, _h1, navlabel, _desc in BEATS:
+    for key, navlabel in NAV_ORDER:
         cls = ' class="here"' if key == current else ''
-        links.append(f'<a href="/topics/{key}.html"{cls}>{navlabel}</a>')
+        links.append(f'<a href="/archive/{key}.html"{cls}>{navlabel}</a>')
+    arch_cls = ' class="here"' if current == "archive" else ''
+    links.append(f'<a href="/archive.html"{arch_cls}>Archive</a>')
+    links.append('<a href="/custody/">Custody</a>')
     return (
         '<div class="mast"><a href="/">\n'
         '    <img src="/assets/beacon-badge-400.png" alt="The Bitcoin Beacon" width="400" height="400">\n'
@@ -220,35 +235,28 @@ def main():
     for key, h1, _nav, desc in BEATS:
         items = by_beat[key]
         total = len(items)
-        latest = items[:LATEST_N]
-        older = max(0, total - LATEST_N)
-
-        # ---- topic landing: latest 10 ----
-        lst = "\n".join(li_html(r) for r in latest)
-        if older > 0:
-            arch = (f'<div class="arch"><div class="lbl">Showing the latest {len(latest)} of <b>{total}</b> '
-                    f'{h1.split(" — ")[0]} stories.</div>'
-                    f'<a href="/archive/{key}.html">Full archive &rarr;</a></div>')
-        else:
-            arch = (f'<div class="arch"><div class="lbl">All <b>{total}</b> {h1.split(" — ")[0]} stories.</div>'
-                    f'<a href="/archive/{key}.html">Open archive &rarr;</a></div>')
-        body = f'<h1>{h1}</h1>\n<p class="intro">{desc}</p>\n<ul>\n{lst}\n</ul>\n{arch}'
-        out = page(f"{h1.split(' — ')[0]} — The Bitcoin Beacon", desc,
-                   f"{SITE}/topics/{key}", body, current=key)
-        open(os.path.join(PUB, "topics", f"{key}.html"), "w").write(out)
-
-        # ---- full archive ----
-        lst_all = "\n".join(li_html(r) for r in items)
         label = h1.split(" — ")[0]
-        body_a = (f'<h1>{label} — Archive</h1>\n'
-                  f'<p class="intro">Every {label} story we’ve run — <b>{total}</b> in all, newest first.</p>\n'
+
+        # ---- full archive (the topic tab's destination) ----
+        lst_all = "\n".join(li_html(r) for r in items)
+        body_a = (f'<h1>{label}</h1>\n'
+                  f'<p class="intro">Every {label} story we’ve run — <b>{total}</b> in all, newest first. {desc}</p>\n'
                   f'<ul>\n{lst_all}\n</ul>\n'
-                  f'<a class="back" href="/topics/{key}.html">&larr; Back to latest {label}</a>'
-                  f'<a class="back" href="/archive.html" style="margin-left:20px;">All topics &rarr;</a>')
+                  f'<a class="back" href="/archive.html">&larr; All topics</a>')
         out_a = page(f"{label} — Archive — The Bitcoin Beacon",
                      f"Every {label} story from The Bitcoin Beacon, newest first.",
                      f"{SITE}/archive/{key}", body_a, current=key)
         open(os.path.join(PUB, "archive", f"{key}.html"), "w").write(out_a)
+
+        # ---- retired /topics/<beat> landing -> redirect stub to the archive ----
+        stub = (f'<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
+                f'<meta name="robots" content="noindex">\n'
+                f'<meta http-equiv="refresh" content="0; url=/archive/{key}.html">\n'
+                f'<link rel="canonical" href="{SITE}/archive/{key}">\n'
+                f'<title>The Bitcoin Beacon</title>\n</head>\n<body>\n'
+                f'<p>Redirecting to the <a href="/archive/{key}.html">{label} archive</a>&hellip;</p>\n'
+                f'</body>\n</html>\n')
+        open(os.path.join(PUB, "topics", f"{key}.html"), "w").write(stub)
 
     # ---- archive.html hub ----
     cards = []
@@ -264,7 +272,7 @@ def main():
                 '<div class="cards">\n' + "\n".join(cards) + '\n</div>')
     hub = page("Archive — The Bitcoin Beacon",
                "Every story The Bitcoin Beacon has published, grouped by beat — Bitcoin adoption reported from the ground up, daily.",
-               f"{SITE}/archive", body_hub)
+               f"{SITE}/archive", body_hub, current="archive")
     open(os.path.join(PUB, "archive.html"), "w").write(hub)
 
     print("Built topic + archive pages for", len(BEATS), "beats;", len(rows), "published stories.")
