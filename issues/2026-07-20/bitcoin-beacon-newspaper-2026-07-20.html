@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 20, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  /* Masthead */
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  /* Lead */
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  /* shared lead hero — same illustration used on the website article */
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  /* Columns */
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  /* keep a subhead glued to the paragraph that follows it */
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+
+  /* Markets box — full-width banner */
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  /* The Take — opinion box */
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  /* Voices / from the timeline */
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 18</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>Monday, July 20, 2026</span>
+  </div>
+
+  <h1 class="lead-head">In Kibera, Cleaning the Streets Pays in Bitcoin</h1>
+  <p class="deck">In Nairobi&rsquo;s largest settlement, young people earn sats for collecting waste &mdash; and spend them at the shops next door.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Nairobi Desk</div>
+
+  <!-- HERO: the SAME house-style illustration used on the website article for the lead story. -->
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260720_105421_93ad770d-cc76-449a-8810-f449d12b0058.png" alt="A young woman pays a Nairobi market grocer by phone QR beside community recycling crates, linocut">
+    <div class="cap">Kibera, Nairobi &mdash; earned in satoshis, spent at the stall next door. Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$63,000</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">958,880</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">~910 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+
+    <p class="first dropcap"><span class="kick">NAIROBI &mdash;</span> In Kibera, one of Africa&rsquo;s largest informal settlements, a bag of collected plastic now converts into money the collector controls. Afribit Africa pays young people in satoshis &mdash; the smallest units of bitcoin &mdash; for community waste work, then signs up the shops around them to accept it.</p>
+    <p>Roughly 2,600 residents are inside the loop: earning bitcoin on weekends, spending it at grocers, kiosks and vegetable stalls that settle over the Lightning Network through Blink wallets. No bank account is required, and no bank takes a cut. The money moves phone-to-phone for a fraction of a cent, in a neighbourhood formal finance never bothered to reach.</p>
+    <p>It is small, and deliberately so. A circular economy holds only if the same coins keep moving between the same hands &mdash; earned, spent, re-earned &mdash; instead of leaking out as charity. Kibera is a test of whether that loop survives contact with a place the banking system forgot.</p>
+    <p><em>Why it matters: bitcoin&rsquo;s clearest use isn&rsquo;t a corporate treasury &mdash; it&rsquo;s a wallet nobody can freeze.</em></p>
+    <p><a href="https://thebitcoinbeacon.com/stories/2026-07-20/kibera-afribit-circular-economy">Read the full dispatch &rarr;</a></p>
+
+    <div class="take">
+      <div class="tag">The Take</div>
+      <h3>Let the Stablecoins Have the Checkout</h3>
+      <p>When Bolivia moved to bless the dollar-pegged USDT for everyday payments this month, bitcoiners winced. They shouldn&rsquo;t. A coin that swings 5% before lunch was never going to price a loaf of bread, and pretending otherwise has cost the movement credibility for a decade.</p>
+      <p>Bitcoin&rsquo;s edge isn&rsquo;t stability &mdash; it&rsquo;s that no one can print it, seize it, or switch it off. That makes it a savings technology first and a payment rail second. Let dollar tokens win the corner-store tap. The moment those dollars need to escape the country, the issuer, or inflation, they meet the one asset with no counterparty. Losing the checkout isn&rsquo;t a defeat. It&rsquo;s a division of labour.</p>
+      <p class="sig">&mdash; The Beacon &middot; <a href="https://thebitcoinbeacon.com/stories/2026-07-20/bitcoin-stablecoins-payments-take">Read the argument &rarr;</a></p>
+    </div>
+
+    <span class="sub">Network &amp; Mining</span>
+    <p><span class="kick">ISLAMABAD.</span> Pakistan has made its crypto regulator permanent. The Virtual Assets Act 2026 turned the Pakistan Virtual Assets Regulatory Authority into a standing federal body that licenses exchanges and custodians &mdash; Bitget is among the first cleared to operate. Alongside it runs an industrial bet: 2,000 megawatts of surplus power earmarked for bitcoin mining and data centres, with miner fees feeding a state reserve. <a href="https://thebitcoinbeacon.com/stories/2026-07-20/pakistan-virtual-assets-act-mining-reserve">Full story &rarr;</a></p>
+
+    <span class="sub">Markets &amp; Institutions</span>
+    <p><span class="kick">SAN FRANCISCO.</span> Block has switched bitcoin on across Square. More than a million U.S. merchants can now take Lightning payments through hardware they already own; Block waived the processing fees through 2026 and layered on 5% bitcoin back. Tap-to-pay runs Lightning on the back end, so paying in bitcoin feels like tapping a card. The pitch isn&rsquo;t novelty &mdash; it&rsquo;s habit. <a href="https://thebitcoinbeacon.com/stories/2026-07-20/square-block-bitcoin-million-merchants">Full story &rarr;</a></p>
+
+    <span class="sub">Policy &amp; Nation-States</span>
+    <p><span class="kick">ACCRA.</span> Ghana has put its bitcoin economy under one roof. A new Virtual Asset Service Providers law makes the Bank of Ghana the licensing authority for exchanges, custodians and wallet apps, and eleven firms are already trading inside a 12-month regulated sandbox. The cedi stays the only legal tender &mdash; but holding bitcoin here now leaves a paper trail the state recognises. <a href="https://thebitcoinbeacon.com/stories/2026-07-20/ghana-vasp-licensing-sandbox">Full story &rarr;</a></p>
+
+    <div class="voice">
+      <div class="q">&ldquo;Crypto isn&rsquo;t a luxury in Pakistan. It&rsquo;s a ladder for the masses.&rdquo;</div>
+      <div class="who">Bilal Bin Saqib <span>&mdash; CEO, Pakistan Crypto Council</span></div>
+    </div>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p><span class="kick">FOMC, JULY 28&ndash;29.</span> A near-certain rate hold keeps the pressure on zero-yield assets; the language matters more than the decision.</p>
+    <p><span class="kick">CLARITY ACT.</span> The U.S. market-structure bill needs a Senate floor vote before the August recess or it slips into 2027.</p>
+    <p><span class="kick">GELEPHU.</span> Watch whether Bhutan resumes the bitcoin drawdown funding its mindfulness-city megaproject.</p>
+
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="#">Unsubscribe</a> &bull; <a href="#">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>
