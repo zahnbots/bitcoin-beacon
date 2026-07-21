@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 21, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  /* Masthead */
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  /* Lead */
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  /* Columns */
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+  .readmore{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:700; font-size:11px; color:var(--accent); }
+
+  /* Markets box */
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+
+  /* The Take */
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 19</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>July 21, 2026</span>
+  </div>
+
+  <h1 class="lead-head">A Senegalese Startup Wires Bitcoin Into Mobile Money</h1>
+  <p class="deck">Banxaas now lets West Africans swap between the CFA franc and bitcoin inside the mobile-money apps they already use &mdash; across four countries.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; On the Ground &mdash; Dakar</div>
+
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260721_110635_feb443e7-20f6-4d64-b164-aaa666e829e9.png" alt="A Dakar market vendor takes a phone payment at a fruit stall, three-color linocut">
+    <div class="cap">Dakar, Senegal &mdash; where mobile money runs on top and bitcoin settles underneath. Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$64,000</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">960,270</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">~890 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap"><span class="kick">DAKAR &mdash;</span> In the markets of Senegal&rsquo;s capital, the money that clears fastest now rides two rails at once: mobile money on top, bitcoin underneath. Banxaas, built by the Senegalese startup Yit&eacute; Technologies, lets people swap between the CFA franc and bitcoin directly inside the mobile-money wallets they already use &mdash; Wave, Orange Money, MTN and others &mdash; and now reaches four countries: Senegal, C&ocirc;te d&rsquo;Ivoire, Guinea and Cameroon.</p>
+    <p>The pitch is not speculation. It is settlement. A trader in Dakar can be paid by a supplier in Abidjan, or by a relative abroad, and receive francs on a phone in seconds, with bitcoin&rsquo;s Lightning Network doing the cross-border leg the banks either overcharge for or refuse. In June, a tool built on Banxaas won first place at the bitcoin++ hackathon in Nairobi for stitching West African mobile money to Kenya&rsquo;s M-Pesa.</p>
+    <p><em>Why it matters: francophone West Africa just got a bitcoin rail wired into the apps people already trust &mdash; no bank, no branch, no wait.</em></p>
+    <p><a class="readmore" href="https://thebitcoinbeacon.com/stories/2026-07-21/senegal-banxaas-cfa-franc-lightning">Read the full dispatch &rarr;</a></p>
+
+    <span class="sub">Policy &amp; Nation-States</span>
+    <p><span class="kick">RABAT.</span> Morocco is moving to end a ban that never worked. Bill 42.25, drafted by the central bank with the finance ministry and markets regulator, would license exchanges and pull bitcoin under formal supervision &mdash; reversing a 2017 prohibition that pushed one of Africa&rsquo;s busiest peer-to-peer markets underground rather than closing it. Parliamentary review is underway; officials have floated adoption as soon as this year. <a class="readmore" href="https://thebitcoinbeacon.com/stories/2026-07-21/morocco-bill-4225-ends-crypto-ban">Full story &rarr;</a></p>
+
+    <span class="sub">Markets &amp; Institutions</span>
+    <p><span class="kick">TOKYO.</span> Metaplanet, Japan&rsquo;s largest corporate bitcoin holder at roughly 43,000 BTC, has bought a licensed securities firm and renamed it Metaplanet Securities. The plan &mdash; Project Nova &mdash; is to issue bitcoin-backed bonds and build digital-credit products with a yen-stablecoin issuer and Japan&rsquo;s Progmat platform, using the treasury as collateral rather than just holding it. A treasury company is becoming a lender. <a class="readmore" href="https://thebitcoinbeacon.com/stories/2026-07-21/metaplanet-securities-bitcoin-credit">Full story &rarr;</a></p>
+
+    <span class="sub">Money &amp; Macro</span>
+    <p><span class="kick">NEW DELHI.</span> India taxes bitcoin at 30% on gains plus a 1% levy on every trade, and this year added penalties for exchanges that file late. Yet the Reserve Bank of India still tells the government it wants the asset banned outright, per papers reported by Reuters. The state collects on a market its own central bank refuses to bless &mdash; while some ruling-party voices float a national reserve. <a class="readmore" href="https://thebitcoinbeacon.com/stories/2026-07-21/india-taxes-bitcoin-rbi-ban">Full story &rarr;</a></p>
+
+    <div class="take">
+      <div class="tag">The Take &middot; Opinion</div>
+      <h3>The Miners Are Leaving. Bitcoin Doesn&rsquo;t Mind.</h3>
+      <p>Hashrate has fallen roughly 15% since January as miners divert megawatts to AI, and difficulty has stepped down through a dozen adjustments this year. Read as a health chart, that looks like decline. It isn&rsquo;t.</p>
+      <p>Difficulty is the network&rsquo;s thermostat: when miners leave, mining gets cheaper for whoever stays, and blocks keep arriving about every ten minutes no matter how many machines are plugged in. The security budget floats; the issuance schedule doesn&rsquo;t. A network that shrugs off indifference is doing exactly what it was built to do.</p>
+      <div class="sig">&mdash; The Beacon &middot; <a class="readmore" href="https://thebitcoinbeacon.com/stories/2026-07-21/bitcoin-hashrate-falling-difficulty-take">Read the argument &rarr;</a></div>
+    </div>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>The U.S. Federal Reserve meets July 28&ndash;29, where the language matters more than the near-certain hold. Whether Morocco&rsquo;s Bill 42.25 clears parliament on the timeline officials have floated. And El Salvador&rsquo;s next IMF review &mdash; and whether its quiet accumulation survives the fine print.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="https://thebitcoinbeacon.com/subscribe.html">Subscribe</a> &bull; <a href="#">Unsubscribe</a>
+  </div>
+
+</div>
+</body>
+</html>
