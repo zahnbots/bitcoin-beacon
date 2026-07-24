@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 24, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+  .kick a{ color:var(--accent); text-decoration:none; }
+
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 22</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>July 24, 2026</span>
+  </div>
+
+  <h1 class="lead-head">A $50 Transfer to Lagos Now Costs Two Cents</h1>
+  <p class="deck">A fee that legacy remitters can&rsquo;t follow down &mdash; and the killer app for bitcoin in Africa was never the price chart.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; On the Ground</div>
+
+  <!-- HERO: same house-style illustration as the website lead article -->
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260724_110219_1ee7f058-a8f1-4127-b2e4-a304676a8082.png" alt="A Lagos market vendor holding up a phone showing a payment received, linocut">
+    <div class="cap">LAGOS &mdash; Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$66,000</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">960,700</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">~890 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap d"><span class="kick">LAGOS &mdash;</span> Send $50 to a family member in Lagos through a traditional remitter and the fee is roughly $3.25. Send the same $50 over the Lightning Network through Bitnob and it lands in seconds for a cent or two. That gap is the whole story of bitcoin&rsquo;s quiet spread across Africa.</p>
+    <p>Bitnob, founded in 2020 and built for the continent&rsquo;s hardest payment corridors, now moves payroll for remote workers across 23 African countries, with transaction volume up 340% year on year and more than $4.5 billion routed through its rails. Its Strike partnership lets someone in the United States send dollars that arrive as local currency in an African bank account &mdash; bitcoin the invisible wire in between, never touched by either end.</p>
+    <p>In June it launched Bitnob Enterprise, selling that infrastructure to banks and fintechs.</p>
+    <p><em>Why it matters: adoption in the Global South follows the cheapest way to get paid, not the loudest headline.</em></p>
+    <p class="kick"><a href="https://thebitcoinbeacon.com/stories/2026-07-24/bitnob-lightning-africa-payroll-remittances">Read the full dispatch &rarr;</a></p>
+
+    <div class="take">
+      <span class="tag">The Take</span>
+      <h3>States Mine Bitcoin Before They Trust You to Hold It</h3>
+      <p>Kazakhstan will stock a national reserve from its miners. Paraguay sells them the cheapest power on the continent. Pakistan earmarked 2,000 megawatts; Ethiopia hosts state-owned rigs. Yet several of these same governments still make it hard for an ordinary citizen to own a single coin. The pattern is consistent: states are comfortable with bitcoin as a revenue line they control, and wary of it as money they can&rsquo;t. Mining is a tax on electricity they already run; self-custody is a person they can&rsquo;t. Revenue is easy. Letting go is the hard part.</p>
+      <p class="kick"><a href="https://thebitcoinbeacon.com/stories/2026-07-24/states-mine-bitcoin-before-trusting-citizens-take">Read the argument &rarr;</a></p>
+      <div class="sig">Opinion &bull; The Bitcoin Beacon</div>
+    </div>
+
+    <span class="sub">Policy &amp; Nation-States</span>
+    <p><span class="kick">ASTANA.</span> Kazakhstan approved rules to seed a national crypto reserve from its bitcoin miners. A presidential decree (July 7) and Resolution No. 638 (July 18, effective August 1) give large licensed miners capped-tariff power on 10-year contracts; in return they hand a slice of output monthly to a state fund managed by the national bank. The government accumulates bitcoin without buying a coin. <span class="kick"><a href="https://thebitcoinbeacon.com/stories/2026-07-24/kazakhstan-strategic-crypto-reserve-miners">Full story &rarr;</a></span></p>
+
+    <span class="sub">Money &amp; Macro</span>
+    <p><span class="kick">BRAS&Iacute;LIA.</span> From July 1, Brazil&rsquo;s tax office runs DeCripto: anyone trading bitcoin on foreign exchanges, DeFi, or peer-to-peer above R$35,000 a month must file every month, aligned to the OECD&rsquo;s reporting standard. Gains are taxed at a flat 17.5%. Domestic exchanges already report for you. The paper trail tightens as adoption climbs. <span class="kick"><a href="https://thebitcoinbeacon.com/stories/2026-07-24/brazil-decripto-crypto-tax-reporting">Full story &rarr;</a></span></p>
+
+    <span class="sub">Network &amp; Mining</span>
+    <p><span class="kick">ASUNCI&Oacute;N.</span> Paraguay&rsquo;s state utility expects mining revenue to more than triple, from $100 million in 2024 to about $350 million in 2026 &mdash; even as the number of legal operators roughly halves. A handful of large firms have locked up most of the 943 megawatts of contracted capacity, fed by surplus power from the Itaip&uacute; dam at roughly $0.033 a kilowatt-hour. <span class="kick"><a href="https://thebitcoinbeacon.com/stories/2026-07-24/paraguay-mining-revenue-consolidation">Full story &rarr;</a></span></p>
+
+    <div class="voice">
+      <div class="q">&ldquo;A fee measured in cents doesn&rsquo;t need a marketing budget. It just needs someone with a phone and a reason to send money home.&rdquo;</div>
+      <div class="who">The Bitcoin Beacon <span>on Lightning remittances across Africa</span></div>
+    </div>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>Whether Kazakhstan&rsquo;s Resolution No. 638 names a 10% miner-contribution rate when it takes effect August 1; Turkey&rsquo;s promised return of a crypto-tax bill after March&rsquo;s withdrawal; and whether Laos follows through on cutting power to its remaining bitcoin miners this quarter.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="https://thebitcoinbeacon.com/subscribe.html">Subscribe</a> &bull; <a href="https://thebitcoinbeacon.com/">thebitcoinbeacon.com</a>
+  </div>
+
+</div>
+</body>
+</html>
