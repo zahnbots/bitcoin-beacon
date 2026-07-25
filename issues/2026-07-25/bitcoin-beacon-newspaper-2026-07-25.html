@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 25, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+  .kick a{ color:var(--accent); text-decoration:none; }
+
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 23</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>July 25, 2026</span>
+  </div>
+
+  <h1 class="lead-head">El Salvador Keeps Buying Bitcoin as IMF Reviews Stall</h1>
+  <p class="deck">The reserve has passed 7,700 coins, two program reviews have slipped, and the daily buying goes on.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Money &amp; Macro</div>
+
+  <!-- HERO: same house-style illustration as the website lead article -->
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260725_110443_c326dab5-8df8-4779-8dd3-12541ae49d55.png" alt="A Salvadoran surf-town shopkeeper taking a phone payment at golden hour, linocut">
+    <div class="cap">SAN SALVADOR &mdash; Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time (11:03 UTC)</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$59,978</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">958,477</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">~935 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap d"><span class="kick">SAN SALVADOR &mdash;</span> On the Pacific coast, a shopkeeper still takes bitcoin for a plate of pupusas and a cold bottle of water. Four years after the legal-tender law that made this country famous, the everyday scene is smaller than the headlines once promised &mdash; but the state&rsquo;s own stack keeps growing.</p>
+    <p>The Strategic Bitcoin Reserve now holds more than 7,700 coins, worth roughly half a billion dollars, ranking El Salvador among the five largest sovereign holders on record.</p>
+    <p>That growth is the problem. Under its $1.4 billion IMF program, the government agreed to a hard ceiling of zero on new public-sector purchases. President Nayib Bukele keeps posting that the state buys one coin a day; the Fund insists the reserve is only shuffling coins between wallets it already controls. Two scheduled reviews &mdash; due last September and this March &mdash; have quietly slipped, with the next now expected before year-end.</p>
+    <p><em>Why it matters: the country that turned bitcoin into policy is now the test case for whether a government can hold it and satisfy its lenders at the same time.</em></p>
+    <p class="kick"><a href="https://thebitcoinbeacon.com/stories/2026-07-25/el-salvador-bitcoin-reserve-imf-reviews-stall">Read the full dispatch &rarr;</a></p>
+
+    <div class="take">
+      <span class="tag">The Take</span>
+      <h3>Governments Regulate Bitcoin Only After Their Citizens Adopt It</h3>
+      <p>Kenya wants a report on every trader. Indonesia handed its market to a new supervisor. Vietnam is licensing exchanges; Nigeria and Ghana wrote rulebooks after the fact. The sequence never reverses: people use bitcoin first &mdash; to save, to get paid, to move money past a broken bank &mdash; and the state writes the rules once the market it wants to tax already exists. Regulation here isn&rsquo;t permission. It&rsquo;s recognition, arriving late and calling itself a start.</p>
+      <p class="kick"><a href="https://thebitcoinbeacon.com/stories/2026-07-25/regulation-follows-adoption-take">Read the argument &rarr;</a></p>
+      <div class="sig">Opinion &bull; The Bitcoin Beacon</div>
+    </div>
+
+    <span class="sub">Markets &amp; Institutions</span>
+    <p><span class="kick">ABU DHABI.</span> Bitcoin Suisse&rsquo;s Middle East arm won full financial-services approval from Abu Dhabi&rsquo;s regulator on July 7, clearing it to offer regulated trading, custody, and derivatives to institutions. The $3.7 billion Swiss custodian joins Binance and Kraken inside the ADGM free zone, and the permit follows a fresh EU license from Liechtenstein &mdash; a four-market footprint aimed squarely at Gulf money. <span class="kick"><a href="https://thebitcoinbeacon.com/stories/2026-07-25/bitcoin-suisse-abu-dhabi-adgm-license">Full story &rarr;</a></span></p>
+
+    <span class="sub">Network &amp; Mining</span>
+    <p><span class="kick">THIMPHU.</span> Blockchain trackers flagged another 100 bitcoin, about $8 million, leaving Bhutan&rsquo;s government wallets, pushing 2026 outflows past $230 million. The kingdom&rsquo;s once-quiet stack has fallen below 3,200 coins from a 2024 peak near 13,000. Officials deny a fire-sale and call it reserve management &mdash; even as Gelephu, its new special zone, fast-tracks licenses for foreign crypto firms. <span class="kick"><a href="https://thebitcoinbeacon.com/stories/2026-07-25/bhutan-bitcoin-outflows-gelephu-licensing">Full story &rarr;</a></span></p>
+
+    <span class="sub">Policy &amp; Nation-States</span>
+    <p><span class="kick">NAIROBI.</span> Kenya&rsquo;s Finance Bill would compel every licensed exchange to file user-level reports with the tax authority, part of a VASP regime advancing after last year&rsquo;s crypto law. Local operators warn the compliance load favors global giants; the Treasury is chasing a market it counts in the hundreds of billions of shillings. Adoption came first; the paperwork is catching up. <span class="kick"><a href="https://thebitcoinbeacon.com/stories/2026-07-25/kenya-finance-bill-vasp-reporting">Full story &rarr;</a></span></p>
+
+    <span class="sub">On the Ground</span>
+    <p><span class="kick">HARARE.</span> On its sixth currency in fifteen years, Zimbabwe&rsquo;s gold-backed ZiG is wobbling again, and savers are routing around it &mdash; into bitcoin and dollar tokens the moment a paycheck clears. The government says a de-dollarization roadmap is coming, alongside a 15% tax on money sent to offshore crypto platforms. Citizens have heard currency promises before. <span class="kick"><a href="https://thebitcoinbeacon.com/stories/2026-07-25/zimbabwe-zig-bitcoin-hedge">Full story &rarr;</a></span></p>
+
+    <div class="voice">
+      <div class="q">&ldquo;A government can hold bitcoin or ban it, tax it or ignore it. What it can&rsquo;t do anymore is decide whether its citizens have already started.&rdquo;</div>
+      <div class="who">The Bitcoin Beacon <span>on regulation catching up to use</span></div>
+    </div>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>The US Federal Reserve meets July 28&ndash;29, where the language will matter more than the near-certain hold; Turkey&rsquo;s promised return of a crypto-tax bill after March&rsquo;s withdrawal; and Indonesia&rsquo;s July enforcement window for exchanges that haven&rsquo;t finished moving from Bappebti to the new financial-services supervisor.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="https://thebitcoinbeacon.com/subscribe.html">Subscribe</a> &bull; <a href="https://thebitcoinbeacon.com/">thebitcoinbeacon.com</a>
+  </div>
+
+</div>
+</body>
+</html>
