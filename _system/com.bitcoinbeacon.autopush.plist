@@ -9,11 +9,17 @@
     <string>/bin/bash</string>
     <string>/Users/mzahn/bitcoin beacon/_system/auto-push.sh</string>
   </array>
-  <!-- Every 30 minutes. Runs once at load, then every 1800s. If the Mac was
-       asleep at a scheduled time, launchd fires once on wake — so a missed
-       morning push goes out shortly after the machine comes back. -->
-  <key>StartInterval</key>
-  <integer>1800</integer>
+  <!-- Push-on-completion (since 2026-07-27): the daily run writes
+       _system/deploy.trigger as its FINAL step; launchd sees the change and
+       pushes immediately. No more fixed 30-min interval — that used to
+       snapshot the repo mid-run and publish a half-built edition (new story
+       pages, yesterday's homepage). Also fires once at load/login, which
+       harmlessly pushes the current state. For a manual push at any time:
+       bash "/Users/mzahn/bitcoin beacon/_system/auto-push.sh" -->
+  <key>WatchPaths</key>
+  <array>
+    <string>/Users/mzahn/bitcoin beacon/_system/deploy.trigger</string>
+  </array>
   <key>StandardOutPath</key>
   <string>/tmp/bitcoinbeacon-push.log</string>
   <key>StandardErrorPath</key>
