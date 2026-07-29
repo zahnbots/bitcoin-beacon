@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 29, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 27</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>July 29, 2026</span>
+  </div>
+
+  <h1 class="lead-head">In Costa Rica, Surf Towns Spend Bitcoin Over Lightning</h1>
+  <p class="deck">A grassroots project called Bitcoin Jungle has wired more than 200 businesses along the Pacific coast to take bitcoin &mdash; and settle instantly in colones.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; On the Ground</div>
+
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260729_104351_914b1081-1148-4923-add3-a9006986747e.png" alt="A beachfront vendor takes a phone payment in a Costa Rican surf town, linocut">
+    <div class="cap">Uvita: a coastal café settles a bitcoin payment in colones &mdash; Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">&mdash;</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">&mdash;</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">&mdash;</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap">UVITA, Costa Rica &mdash; Along the surf breaks of the southern Pacific coast, paying in bitcoin has become unremarkable. A traveler taps a phone at a Dominical café, the screen shows colones, and the money lands in the owner&rsquo;s bank account seconds later over SINPE, the national instant-transfer system.</p>
+    <p>The rail is Bitcoin Jungle, a project started in the Osa region in 2021 that has since wired more than 200 businesses &mdash; restaurants, surf shops, lodges, clinics &mdash; to accept bitcoin over the Lightning Network. Merchants never hold the coin; the software converts each payment to local currency instantly.</p>
+    <p>Unlike El Salvador&rsquo;s Bitcoin Beach, which handed bitcoin to residents, Jungle bet on tourists who already own it and want to spend it. It runs on open-source tools and free community classes, not a government mandate.</p>
+    <p>Why it matters: the adoption that survives a bear market looks like a paid lunch, not a price chart.</p>
+    <p><a href="https://thebitcoinbeacon.com/stories/2026-07-29/costa-rica-bitcoin-jungle-circular-economy">Read the full dispatch &rarr;</a></p>
+
+    <div class="take">
+      <div class="tag">The Take</div>
+      <h3>Forget the Price. Count the Cash Registers.</h3>
+      <p>Treasuries buy, ETFs flow, the chart does its thing &mdash; and none of it tells you whether bitcoin is becoming money. That answer is at the till: 200 shops in Costa Rica, three million users in Ghana, banks opening their doors in Argentina. Count registers, not candles.</p>
+      <p>The counter is fair: circular economies are still tiny and tourist-fed, and price and liquidity decide whether any of it lasts.</p>
+      <p class="sig"><a href="https://thebitcoinbeacon.com/stories/2026-07-29/count-the-cash-registers-adoption-take">Read the argument &rarr;</a></p>
+    </div>
+
+    <span class="sub">Network &amp; Mining</span>
+    <p><span class="kick">THE NETWORK.</span> BIP-110 would cap the arbitrary data that Ordinals, BRC-20 tokens and Runes pack into blocks &mdash; 83 bytes on OP_RETURN, no Taproot annex. To lock in early through its August window it needs 55% of miners signaling yes. Under 1% are. Bitcoin Core won&rsquo;t merge it, and Michael Saylor published &ldquo;110 reasons&rdquo; against. <a href="https://thebitcoinbeacon.com/stories/2026-07-29/bip-110-data-limit-fork-dispute">Full story &rarr;</a></p>
+
+    <span class="sub">Money &amp; Macro</span>
+    <p><span class="kick">BUENOS AIRES.</span> Argentina&rsquo;s central bank is unwinding its 2022 crypto ban, clearing licensed banks &mdash; Galicia, BBVA, Santander &mdash; to offer bitcoin custody and trading. Separately, the market regulator now counts crypto toward the net worth that defines a &ldquo;qualified investor.&rdquo; In a country where roughly a quarter of adults hold crypto, the banks are chasing customers they already lost. <a href="https://thebitcoinbeacon.com/stories/2026-07-29/argentina-banks-bitcoin-cnv-qualified-investor">Full story &rarr;</a></p>
+
+    <span class="sub">Policy &amp; Nation-States</span>
+    <p><span class="kick">ACCRA.</span> Ghana passed its first virtual-asset law in December, and the Bank of Ghana now requires every crypto firm serving Ghanaians to register &mdash; a precursor to full licences due through 2026. About 17% of adults, some three million people, already use bitcoin and crypto, moving an estimated $3 billion a year. The state is regulating a market that grew without it. <a href="https://thebitcoinbeacon.com/stories/2026-07-29/ghana-vasp-licensing-bank-of-ghana">Full story &rarr;</a></p>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>Whether Argentina&rsquo;s first licensed bank switches on bitcoin services before year-end; Ghana&rsquo;s step from registration to its first issued VASP licences; and whether Colombia drafts crypto rules once its new government is seated after the May vote.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="https://thebitcoinbeacon.com/subscribe.html">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>
