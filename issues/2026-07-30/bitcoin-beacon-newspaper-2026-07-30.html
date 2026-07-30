@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 30, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  /* Masthead */
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  /* Lead */
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  /* shared lead hero — same illustration used on the website article */
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  /* Columns */
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  /* keep a subhead glued to the paragraph that follows it */
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+
+  /* Markets box — full-width banner */
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  /* The Take — opinion box */
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  /* Voices / from the timeline */
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 28</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>July 30, 2026</span>
+  </div>
+
+  <h1 class="lead-head">As the Rial Collapses, Iranians Move to Bitcoin</h1>
+  <p class="deck">A currency that has shed a third of its value in seven months is teaching ten million Iranians to hold savings no bank can freeze.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; On the Ground</div>
+
+  <!-- HERO: the SAME house-style illustration used on the website article for the lead story. -->
+  <div class="lead-hero"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260730_111050_0d822b03-8aa6-416f-9637-56294b46f153.png" alt="A Tehran shopkeeper checks a rising chart on his phone beside stacks of banknotes, linocut"><div class="cap">Tehran: with the rial in free fall, savers reach for a bearer asset &mdash; Illustration: The Bitcoin Beacon</div></div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; as of 11:08 UTC, 30 Jul</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$64,485</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">960,248</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">~897 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap d"><span class="kick">TEHRAN &mdash;</span> The rial has lost a third of its value since New Year&rsquo;s, sliding past <strong>1.95 million to the dollar</strong> in late July. The IMF projects inflation near <strong>69%</strong> this year; food prices have roughly doubled. For an Iranian whose wage buys less every week, a bank account is a slow leak.</p>
+    <p>So millions are opting out. An estimated <strong>ten million people</strong> &mdash; about a fifth of adults &mdash; now hold bitcoin or other crypto, despite a state that restricts mining and stablecoins alike. The appeal is self-custody: coins the government cannot freeze, print, or convert overnight, the way Lebanon&rsquo;s banks once trapped their depositors.</p>
+    <p>Bitcoin is not spreading here because Iranians read Satoshi. It is spreading because the alternative is watching savings evaporate.</p>
+    <p><em>Why it matters: the strongest case for bitcoin is rarely made by its advocates &mdash; it is made by a failing currency.</em></p>
+    <p><a href="https://thebitcoinbeacon.com/stories/2026-07-30/iran-rial-collapse-bitcoin-savings">Read the full dispatch &rarr;</a></p>
+
+    <div class="take">
+      <div class="tag">The Take</div>
+      <h3>The Fed Meets This Week. Bitcoin&rsquo;s New Users Won&rsquo;t Notice.</h3>
+      <p>The FOMC gathers this week and every bitcoin desk in Manhattan will parse the wording. Rate up, the ETFs bleed; rate steady, the leverage piles back on. That is the bitcoin of Wall Street &mdash; a risk asset priced against the dollar.</p>
+      <p>It is not the bitcoin of Lagos, Buenos Aires or Tehran. There, no one is handicapping a September hike. They are handicapping a currency that lost a third of its value while the Fed debated a quarter-point. Two assets share a ticker and little else &mdash; and only one is growing because people need it.</p>
+      <p class="sig">&mdash; The Bitcoin Beacon &middot; <a href="https://thebitcoinbeacon.com/stories/2026-07-30/fed-meeting-bitcoin-real-users-take">Read the argument &rarr;</a></p>
+    </div>
+
+    <span class="sub">Policy &amp; Nation-States</span>
+    <p><span class="kick">TOKYO.</span> <strong>Japan made bitcoin a financial product.</strong> On July 15 the Diet folded bitcoin and roughly a hundred other assets under its securities law, clearing the path to cut the tax on gains from as high as 55% to a flat <strong>20%</strong> and to list spot bitcoin ETFs. The tax break may wait until 2028, but the legal status changed now. <a href="https://thebitcoinbeacon.com/stories/2026-07-30/japan-fiea-bitcoin-financial-instrument">Full story &rarr;</a></p>
+
+    <span class="sub">Markets &amp; Institutions</span>
+    <p><span class="kick">NEW YORK.</span> <strong>The ETF money is trickling back.</strong> US spot bitcoin funds logged a third straight week of net inflows &mdash; their first such run since May &mdash; with BlackRock&rsquo;s IBIT taking <strong>$319M</strong> of one week&rsquo;s $499M before the streak snapped on an outflow day. Institutions are re-engaging, but cautiously. <a href="https://thebitcoinbeacon.com/stories/2026-07-30/bitcoin-etf-inflows-institutional-return">Full story &rarr;</a></p>
+
+    <span class="sub">Money &amp; Macro</span>
+    <p><span class="kick">GLOBAL.</span> <strong>Strike will lend against your bitcoin without margin calls.</strong> Jack Mallers&rsquo; company rolled out volatility-protected loans at rates up to <strong>14.2%</strong>, promising no forced liquidations if the price falls &mdash; a pitch to holders who want cash without selling their coins. <a href="https://thebitcoinbeacon.com/stories/2026-07-30/strike-bitcoin-backed-loans-no-margin-call">Full story &rarr;</a></p>
+
+    <span class="sub">Network &amp; Mining</span>
+    <p><span class="kick">GLOBAL.</span> <strong>Lightning Labs wants software to pay in bitcoin.</strong> Its new Wavelength toolkit (July 21) lets any app &mdash; or an AI agent &mdash; hold and send self-custodial bitcoin through a simple API at <strong>one basis point</strong>, against 200&ndash;300 on card rails. Machines can now pay machines in sats. <a href="https://thebitcoinbeacon.com/stories/2026-07-30/lightning-labs-wavelength-self-custodial-api">Full story &rarr;</a></p>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p><strong>Brazil&rsquo;s reserve bill:</strong> PL 4501/2024 (RESBit), which would authorize buying up to one million BTC, is still grinding through Chamber committees. <strong>Korea&rsquo;s ETF path:</strong> Seoul plans to amend its Capital Markets Act in late 2026 to allow spot bitcoin funds. <strong>El Salvador&rsquo;s next IMF review:</strong> whether the fund signs off while the reserve keeps growing.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="https://thebitcoinbeacon.com/subscribe.html">Subscribe</a> &bull; <a href="#">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>
