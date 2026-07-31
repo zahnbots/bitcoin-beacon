@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 31, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+  a{ color:#b06a10; }
+
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 29</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>July 31, 2026</span>
+  </div>
+
+  <h1 class="lead-head">In Zambia, a Bitcoin Mine Keeps the Lights On</h1>
+  <p class="deck">A charity-built hydro dam on the Zambezi was failing. Then bitcoin miners moved in &mdash; and 15,000 people kept their power.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Global Desk</div>
+
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260731_161804_930d1a86-8463-42c3-be46-73907c8f3b39.png" alt="A container bitcoin mine beside a small hydro plant on the Zambezi, power running to a village at dusk">
+    <div class="cap">Zengamina, Zambia &mdash; a run-of-river hydro plant, kept solvent by the miners next door. Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; as of 16:10 UTC</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$62,772</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">960,430</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">~885 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap"><span class="kick">ZENGAMINA, Zambia &mdash;</span> On a bend of the Zambezi in Zambia&rsquo;s remote north-west, a hydro dam built two decades ago with $3 million in charity money was running short of paying customers. Too few families nearby could afford its electricity to keep it solvent. In 2022, a shipping container packed with 120 bitcoin miners arrived and began buying the unused power.</p>
+    <p>Today the plant serves more than 15,000 people, and the mine is its buyer of last resort. The operator, Gridless &mdash; backed by Jack Dorsey&rsquo;s Block &mdash; runs six such sites across Zambia, Malawi and Kenya, each parked at a rural mini-grid with more power than the local economy can absorb. In one Malawian village, the extra revenue let the station wire up 500 more homes.</p>
+    <p>The rigs are mobile by design: when Zengamina joins Zambia&rsquo;s national grid, expected within a year, the miners pack up and move on.</p>
+    <p><em>Why it matters: bitcoin mining is turning stranded rural electricity into a reason to keep the lights on.</em></p>
+    <p><a href="https://thebitcoinbeacon.com/stories/2026-07-31/zambia-gridless-hydro-bitcoin-mining">Read the full dispatch &rarr;</a></p>
+
+    <div class="take">
+      <div class="tag">The Take</div>
+      <h3>Big Investors Own Bitcoin They Can&rsquo;t Spend</h3>
+      <p>Norway&rsquo;s wealth fund holds roughly 11,400 bitcoin indirectly. Abu Dhabi&rsquo;s Mubadala counts a BlackRock bitcoin ETF among its largest positions. Luxembourg became the first eurozone state to route 1% of its fund into one.</p>
+      <p>All of it sits inside regulated wrappers whose keys belong to a custodian &mdash; exposure to a price, not possession of an asset. In Lagos and rural Zambia, people hold the coin itself: spendable, and seizable by no one. Two very different things now share a ticker.</p>
+      <p class="sig"><a href="https://thebitcoinbeacon.com/stories/2026-07-31/funds-own-bitcoin-people-hold-it-take">Read the argument &rarr;</a> &bull; The Beacon</p>
+    </div>
+
+    <span class="sub">Money &amp; Macro</span>
+    <p><span class="kick">LAGOS &mdash;</span> The naira has slid from about &#8358;750 to the dollar in 2023 to near &#8358;1,600 today, erasing more than 40% of the purchasing power of anyone who held only cash. Nigeria now counts an estimated 27&ndash;30 million crypto users &mdash; most young and low-income &mdash; parking savings in bitcoin and dollar-pegged tokens the naira can&rsquo;t match. <a href="https://thebitcoinbeacon.com/stories/2026-07-31/nigeria-naira-savings-bitcoin-hedge">Full story &rarr;</a></p>
+
+    <span class="sub">Policy &amp; Nation-States</span>
+    <p><span class="kick">BUDAPEST &mdash;</span> Hungary&rsquo;s parliament repealed a 2024 rule &mdash; stricter than the EU&rsquo;s own &mdash; that forced third-party &ldquo;validators&rdquo; to verify the origin of crypto before any conversion. Days earlier, the central bank handed CoinCash operator Tiwala Solutions the country&rsquo;s first licence under the EU&rsquo;s MiCA regime. One of the bloc&rsquo;s crypto holdouts just chose to align. <a href="https://thebitcoinbeacon.com/stories/2026-07-31/hungary-mica-license-validator-repeal">Full story &rarr;</a></p>
+
+    <p><span class="kick">JAKARTA &mdash;</span> An amended financial-sector law moved oversight of crypto from Indonesia&rsquo;s commodities agency to its financial regulator, the OJK, effective mid-June. The cost of running an exchange jumped: new licences require about 500 billion rupiah (~$320 million) in capital, with a July 1 compliance deadline. Jakarta is treating bitcoin as finance, not a commodity. <a href="https://thebitcoinbeacon.com/stories/2026-07-31/indonesia-ojk-crypto-oversight-p2sk">Full story &rarr;</a></p>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>Whether another EU holdout trims its crypto rules now MiCA is fully live; Gridless&rsquo;s raise to build its own run-of-river hydro, and where its miners land once Zengamina joins the grid; Indonesia&rsquo;s first OJK-era exchange licences under the new $320M bar; the next US wealth-fund filings for fresh sovereign bitcoin-ETF stakes.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="https://thebitcoinbeacon.com/subscribe.html">Subscribe</a> &bull; <a href="#">Unsubscribe</a> &bull; <a href="#">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>
