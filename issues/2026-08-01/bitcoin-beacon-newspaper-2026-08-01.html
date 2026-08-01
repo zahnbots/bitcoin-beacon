@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — August 1, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+  .cols a{ color:#9a5a10; }
+
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .marketbox .asof{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:8.5px; letter-spacing:1px;
+    text-transform:uppercase; text-align:center; color:#8a8578; padding:0 0 5px; }
+
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  .readmore{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px; font-weight:700; letter-spacing:.3px; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 30</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>August 1, 2026</span>
+  </div>
+
+  <h1 class="lead-head">A Firmware Bug Drained $38 Million From Coldcard Wallets</h1>
+  <p class="deck">Bitcoin&rsquo;s most trusted hardware wallet generated weak seeds for five years. Thieves needed 25 minutes.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Network &amp; Mining Desk</div>
+
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260801_103609_d2e37eb7-28f2-43b7-8e10-60936a6e687a.png" alt="A cracked bitcoin hardware wallet on a workbench, light leaking through the seam, linocut">
+    <div class="cap">A trusted device, cracked from the inside &mdash; Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$62,980</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">960,548</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">~905 EH/s</div></div>
+    </div>
+    <div class="asof">As of 10:30 UTC &middot; BTC via River; block &amp; hashrate via mempool.space</div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap"><span class="kick">TORONTO &mdash;</span> Between 01:31 and 01:56 UTC Friday, someone emptied about <strong>594 bitcoin</strong> &mdash; roughly <strong>$38 million</strong> &mdash; from some 500 wallets in a single 25-minute sweep. The victims weren&rsquo;t careless. They&rsquo;d done the right thing: taken their coins off exchanges and onto a Coldcard, one of the most respected hardware wallets in bitcoin.</p>
+    <p>The betrayal came from inside the device. A firmware flaw dating to <strong>March 2021</strong> quietly built wallet seeds with a fraction of the randomness they should have had &mdash; turning &ldquo;unguessable&rdquo; phrases into guessable ones. Every drained wallet was single-signature; the stolen coins span 2021 to 2026, matching the bug&rsquo;s age.</p>
+    <p>Coinkite has shipped fixed firmware, but a patch can&rsquo;t repair a weak seed. Anyone who set up a Coldcard Mk3 since 2021 without their own dice entropy or a passphrase should update, make a fresh wallet, and move their coins today. The unsettling part: an AI likely found the bug by reading the open-source code, and an estimated $70-million-plus bounty now hangs over every wallet codebase that touches private keys.</p>
+    <p><em>Why it matters: self-custody is still right &mdash; but its tools now face auditors that never sleep.</em></p>
+    <p class="readmore"><a href="https://thebitcoinbeacon.com/stories/2026-08-01/coldcard-firmware-bug-bitcoin-theft">Read the full dispatch &rarr;</a></p>
+
+    <div class="take">
+      <span class="tag">The Take &middot; Opinion</span>
+      <h3>Wall Street Wants Bitcoin to Pay Interest. Ask Where It Comes From.</h3>
+      <p>Regulators just cleared bitcoin ETFs that pay a yield, and the pitch writes itself: own bitcoin, earn on it too. One question settles most of the argument &mdash; where does the yield come from? Bitcoin pays no interest; to make it pay, someone lends your coins or writes options against them. The 2022 graveyard &mdash; Celsius, BlockFi, Voyager &mdash; was built on exactly that promise. Read the mechanics before the headline rate.</p>
+      <p class="sig"><a href="https://thebitcoinbeacon.com/stories/2026-08-01/bitcoin-yield-where-it-comes-from-take">Read the argument &rarr;</a></p>
+    </div>
+
+    <span class="sub">On the Ground &middot; Austin</span>
+    <p><span class="kick">A public company on Lightning.</span> Vida Global, a small Austin AI firm, began paying its global team in bitcoin over Lightning &mdash; with zero BTC on its balance sheet. Using Voltage Credit, it draws dollars, sends instant Lightning payments, and repays like a vendor invoice. The trigger wasn&rsquo;t ideology: an Argentine employee asked to be paid in something the peso couldn&rsquo;t erode. The CFO objection just became a template problem. <a href="https://thebitcoinbeacon.com/stories/2026-08-01/vida-global-lightning-bitcoin-payroll">Full story &rarr;</a></p>
+
+    <span class="sub">Markets &amp; Institutions &middot; New York</span>
+    <p><span class="kick">Yield comes to the ETF.</span> The SEC cleared a path for bitcoin ETFs that generate income, approving a Cboe rule change and a no-action letter that let funds lend or write options against their coins. The CME is going 24/7 in early 2026. Wall Street keeps building bitcoin&rsquo;s plumbing &mdash; and quietly re-importing the counterparty risk bitcoin was meant to remove. <a href="https://thebitcoinbeacon.com/stories/2026-08-01/sec-yield-bearing-bitcoin-etf-cme">Full story &rarr;</a></p>
+
+    <span class="sub">Policy &amp; Nation-States &middot; San Salvador</span>
+    <p><span class="kick">An election enters the picture.</span> El Salvador&rsquo;s two main opposition parties named 2027 presidential candidates, and both call Bukele&rsquo;s bitcoin strategy a fiscal failure. Neither offers a rival plan, and both start far behind a popular incumbent still buying roughly a bitcoin a day (holdings near 7,725 BTC). But a policy long treated as permanent now carries something new: a vote. <a href="https://thebitcoinbeacon.com/stories/2026-08-01/el-salvador-2027-election-bitcoin-opposition">Full story &rarr;</a></p>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>Whether other open-source wallet makers publish fresh audits after Coldcard; the US Senate&rsquo;s Aug 7 recess deadline for the Gallego&ndash;Tillis market-structure compromise; the network&rsquo;s estimated ~2.4% downward difficulty adjustment due around Aug 8; and whether Brazil&rsquo;s cross-border crypto-settlement ban, effective Oct 1, pushes flows toward peer-to-peer.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="#">Unsubscribe</a> &bull; <a href="#">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>
