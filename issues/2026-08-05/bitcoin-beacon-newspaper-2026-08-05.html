@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon &mdash; August 5, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .marketbox .asof{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:8.5px; letter-spacing:1px;
+    text-transform:uppercase; text-align:center; color:#8a8578; padding:0 0 5px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  .readmore{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px; font-weight:700; letter-spacing:.3px; }
+  .readmore a, .take .sig a{ color:var(--accent); text-decoration:none; }
+  .cols a{ color:var(--accent); text-decoration:none; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 34</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>August 5, 2026</span>
+  </div>
+
+  <h1 class="lead-head">A Guatemalan Lake Town Runs on Bitcoin</h1>
+  <p class="deck">On Lake Atitl&aacute;n, roughly 80 shops take bitcoin over Lightning &mdash; and a miner fed on fried-food grease turns the town&rsquo;s waste oil into hashrate.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Adoption Desk</div>
+
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260805_112248_feff985c-c4a0-43eb-ae78-c7f8213d2d19.png" alt="A Maya market vendor accepts a bitcoin phone payment on the shore of Lake Atitlan, volcanoes behind, linocut">
+    <div class="cap">Bitcoin becomes money where it solves a local problem &mdash; Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$64,035</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">961,148</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">955 EH/s</div></div>
+    </div>
+    <div class="asof">As of 11:10 UTC &middot; BTC via River; block &amp; hashrate via mempool.space</div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap"><span class="kick">PANAJACHEL, Guatemala &mdash;</span> The volcanoes ringing Lake Atitl&aacute;n draw the tourists; the exchange rate keeps them. In the lakeside town Guatemalans call Pana, a hotel bill or a plate of pepi&aacute;n settles by scanning a QR code and sending a few thousand satoshis over Lightning &mdash; no bank in between.</p>
+    <p>Locals call it Bitcoin Lake. Since 2022 it has grown into one of Central America&rsquo;s more durable circular economies: roughly 80 businesses now take bitcoin, and an earlier count found about 90% of participating merchants were unbanked &mdash; people transacting on a global network from a secondhand phone.</p>
+    <p>The twist sits at the water&rsquo;s edge. A project nicknamed Kaboom collects the used cooking oil that restaurants once tipped toward the lake, burns it for power, and runs bitcoin miners on it. Waste becomes electricity; electricity earns bitcoin; bitcoin funds the collection and a My First Bitcoin class at a local school.</p>
+    <p><em>Why it matters: bitcoin becomes money where it solves a specific local problem &mdash; not where a government orders people to use it.</em></p>
+    <p class="readmore"><a href="https://thebitcoinbeacon.com/stories/2026-08-05/guatemala-bitcoin-lake-panajachel">Read the full dispatch &rarr;</a></p>
+
+    <div class="take">
+      <span class="tag">The Take &middot; Opinion</span>
+      <h3>Bitcoin&rsquo;s Obituary Is Due Again. This Time It&rsquo;s Quantum.</h3>
+      <p>Bitcoin died at Mt. Gox, died each time China banned it, was going to die when Wall Street wrapped it in ETFs. This week it&rsquo;s dying of quantum computers. The obituaries are well written and, so far, all early. Quantum deserves more than an eye-roll &mdash; a cryptographic break is physics, not a market panic, and a third of all coins sit in exposed addresses. But look at the two clocks: the threat runs on hardware still far from breaking a key; the fix runs on proposals that already exist and the strongest migration incentive ever built &mdash; keeping your money.</p>
+      <p class="sig"><a href="https://thebitcoinbeacon.com/stories/2026-08-05/bitcoin-annual-obituary-quantum-take">Read the argument &rarr;</a></p>
+    </div>
+
+    <span class="sub">Network &amp; Mining &middot; New York</span>
+    <p><span class="kick">Q-Day, 2028.</span> Fundstrat&rsquo;s Tom Lee told CNBC a quantum computer could break bitcoin&rsquo;s cryptography by 2028 and that the network hasn&rsquo;t agreed how to stop it. The threat is real but early: no machine comes close, and post-quantum fixes are already in draft. His aside that Ethereum and Solana are safe is wrong &mdash; they use the same curve. <a href="https://thebitcoinbeacon.com/stories/2026-08-05/tom-lee-quantum-bitcoin-2028">Full story &rarr;</a></p>
+
+    <span class="sub">Policy &amp; Nation-States &middot; Washington</span>
+    <p><span class="kick">The architects walk.</span> Tyler Williams, the Treasury adviser who helped build America&rsquo;s Strategic Bitcoin Reserve, is resigning as the CLARITY market-structure bill stalls before the recess &mdash; one of a cluster of crypto-policy exits across Washington. The reserve&rsquo;s ~328,000 seized coins aren&rsquo;t going anywhere; the plan to buy more just lost its engine. <a href="https://thebitcoinbeacon.com/stories/2026-08-05/us-treasury-bitcoin-policy-chief-resigns">Full story &rarr;</a></p>
+
+    <span class="sub">Markets &amp; Institutions &middot; Singapore</span>
+    <p><span class="kick">A miner stops hoarding.</span> Bitdeer liquidated its entire treasury &mdash; about 1,133 coins &mdash; to zero to fund an AI pivot, becoming the largest listed self-miner holding no bitcoin. Mining margins are at record lows. The coins didn&rsquo;t vanish; they moved to buyers with longer horizons, while the miner became an AI landlord. <a href="https://thebitcoinbeacon.com/stories/2026-08-05/bitdeer-liquidates-bitcoin-treasury">Full story &rarr;</a></p>
+
+    <span class="sub">Money &amp; Macro &middot; Riyadh</span>
+    <p><span class="kick">The Gulf&rsquo;s young buyers.</span> Saudi Arabia is the region&rsquo;s fastest-growing digital-asset market, up about 153% year over year, driven by under-35s with smartphones rather than sovereigns hoarding coins. The riyal is stable, so this is discretionary demand &mdash; and it&rsquo;s running well ahead of the rules meant to govern it. <a href="https://thebitcoinbeacon.com/stories/2026-08-05/saudi-arabia-youth-bitcoin-gulf">Full story &rarr;</a></p>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>Bitcoin&rsquo;s mining difficulty resets around August 8 after a run of fast blocks; Vietnam aims to switch on its first licensed exchanges in the third quarter; Ethiopia is still hunting a partner for its state-run mining venture; and Metaplanet&rsquo;s next purchase would push it further toward its 210,000-coin target.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="#">Unsubscribe</a> &bull; <a href="#">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>
