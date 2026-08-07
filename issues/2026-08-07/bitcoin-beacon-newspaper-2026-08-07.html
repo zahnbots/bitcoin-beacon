@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon &mdash; August 7, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .marketbox .asof{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:8.5px; letter-spacing:1px;
+    text-transform:uppercase; text-align:center; color:#8a8578; padding:0 0 5px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  .readmore{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px; font-weight:700; letter-spacing:.3px; }
+  .readmore a, .take .sig a{ color:var(--accent); text-decoration:none; }
+  .cols a{ color:var(--accent); text-decoration:none; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 36</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>August 7, 2026</span>
+  </div>
+
+  <h1 class="lead-head">A New Bitcoin Fork Will Airdrop Coins to Every Holder</h1>
+  <p class="deck">Around August 21, a Drivechain project called eCash copies the entire Bitcoin ledger 1:1 &mdash; and drags every ETF, treasury, and custodian into a decision.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Network Desk</div>
+
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260807_113614_ccb16dc0-489d-4b30-80b2-7ec482dbbe32.png" alt="A river forks into two channels around a rocky island beneath a radiant bitcoin sun as a lone boatman steers toward the calmer branch, linocut">
+    <div class="cap">One chain becomes two &mdash; and every holder wakes up with a copy &mdash; Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$65,050</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">961,426</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">926 EH/s</div></div>
+    </div>
+    <div class="asof">As of 11:27 UTC &middot; BTC via River; block &amp; hashrate via mempool.space</div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap"><span class="kick">BLOCK 964,000 &mdash;</span> Around August 21, at that block height, developer Paul Sztorc will split the Bitcoin chain and hand every holder a matching pile of a new coin called eCash. Hold 4.19 BTC, receive 4.19 eCash. Nothing you own moves; a copy of the ledger forks off and goes its own way.</p>
+    <p>The mechanics are old &mdash; Bitcoin Cash did this in 2017 &mdash; but the room has changed. The biggest holders are no longer hobbyists. Strategy sits on 818,334 coins; public companies hold roughly 1.2 million between them; spot ETFs custody more than a million, most of it at a single firm.</p>
+    <p>Each now faces a forced choice: claim the airdrop and trigger a taxable event auditors must disclose, or ignore free coins and explain that too. The fork also quietly reassigns up to 600,000 dormant coins linked to Satoshi to its own backers &mdash; a move critics call theft. For ordinary holders, the hazard is simpler: scammers are already circling the &ldquo;free airdrop.&rdquo;</p>
+    <p><em>Why it matters: most forks die, but this one forces Wall Street to decide what counts as bitcoin.</em></p>
+    <p class="readmore"><a href="https://thebitcoinbeacon.com/stories/2026-08-07/ecash-hard-fork-august-airdrop">Read the full dispatch &rarr;</a></p>
+
+    <div class="take">
+      <span class="tag">The Take &middot; Opinion</span>
+      <h3>Wall Street Keeps Repackaging Bitcoin. The Coin Doesn&rsquo;t Change.</h3>
+      <p>Three stories this week rhyme. A fork sends compliance desks scrambling over which chain is &ldquo;real&rdquo; bitcoin. The SEC spins up a unit to police how companies book their coins. And in Seoul, leveraged single-stock funds made a national stock index swing harder than bitcoin itself. Different headlines, one pattern: finance keeps wrapping bitcoin in new layers &mdash; trusts, proxies, derivatives, accounting rules. Each wrapper adds access and a little distance. The thing at the center is unchanged: 21 million, final settlement, yours only if you hold the keys.</p>
+      <p class="sig"><a href="https://thebitcoinbeacon.com/stories/2026-08-07/wall-street-repackages-bitcoin-take">Read the argument &rarr;</a></p>
+    </div>
+
+    <span class="sub">Network &amp; Mining &middot; The Repos</span>
+    <p><span class="kick">After the hack.</span> Days after a firmware bug drained more than $100 million from Coldcard wallets, a volunteer &ldquo;red team&rdquo; led by developer Calle and AnchorWatch&rsquo;s Rob Hamilton pointed AI tooling at 390 open-source Bitcoin projects. In the first 27.5 hours it logged 4,962 findings &mdash; 85 critical, 635 high-severity. OpenSats funded the compute; the crew plans to open-source its audit harness so anyone can rerun it. <a href="https://thebitcoinbeacon.com/stories/2026-08-07/bitcoin-red-team-audit-4962-flaws">Full story &rarr;</a></p>
+
+    <span class="sub">Markets &amp; Institutions &middot; New York</span>
+    <p><span class="kick">The auditors arrive.</span> The SEC has stood up a Financial Reporting and Accounting Unit aimed at public digital-asset firms, led by former Gibson Dunn lawyer Timothy Zimmerman. The timing bites: new FASB rules force companies to mark bitcoin at fair value every quarter, so a down month lands straight on the income statement &mdash; as Strategy&rsquo;s multibillion-dollar swings already show. <a href="https://thebitcoinbeacon.com/stories/2026-08-07/sec-accounting-unit-bitcoin-treasuries">Full story &rarr;</a></p>
+
+    <span class="sub">Money &amp; Macro &middot; Seoul</span>
+    <p><span class="kick">The calm one.</span> For once, bitcoin is the steady asset. South Korea&rsquo;s KOSPI is posting 30-day volatility near 81% against bitcoin&rsquo;s ~38%, after leveraged single-stock ETFs tied to Samsung and SK Hynix came to dominate trading. SK Hynix fell 27% in three sessions; the Korea Exchange has tripped nine trading halts this year, versus one in 2024. <a href="https://thebitcoinbeacon.com/stories/2026-08-07/bitcoin-calmer-than-kospi-volatility">Full story &rarr;</a></p>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>Bitcoin&rsquo;s difficulty adjusts around August 8 after a fast run of blocks; the BIP-110 data-limit soft fork faces its miner-signaling deadline with support still under 1%; the US CLARITY Act remains stuck before the Senate&rsquo;s recess; and a wave of miners are posting second-quarter losses as they lease more megawatts to AI.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="#">Unsubscribe</a> &bull; <a href="#">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>
