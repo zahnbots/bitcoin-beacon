@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — July 3, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  /* Masthead */
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  /* Lead */
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  /* shared lead hero — same illustration used on the website article */
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  /* Columns */
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  /* keep a subhead glued to the paragraph that follows it */
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+
+  /* Markets box — full-width banner */
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  /* The Take — opinion box */
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  /* Voices / from the timeline */
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 37</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>August 8, 2026</span>
+  </div>
+
+  <h1 class="lead-head">South Africa&rsquo;s Bitcoin Township Takes Its Model Across Africa</h1>
+  <p class="deck">Bitcoin Ekasi pays its township staff in satoshis. Now it is on a pan-African tour &mdash; one node in a federation of 37 circular economies.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; The Adoption Desk</div>
+
+  <!-- HERO: the SAME house-style illustration used on the website article for the lead story. -->
+  <div class="lead-hero"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260808_112640_f5228c72-4cc7-4135-930f-e72bd8722c69.png" alt="A South African township market where a shopkeeper and a young customer settle a bitcoin phone payment, linocut"><div class="cap">On the Ground &middot; Where sats change hands &middot; The Bitcoin Beacon</div></div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$64,953</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">961,570</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">913 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <!-- BUILD FRESH. Read _bitcoin-beacon-MEMORY.md first; use ONLY net-new, BITCOIN-ONLY stories (no altcoins/crypto-industry).
+         LEAD adoption story: place dateline in the first line, e.g. <span class="kick">NAIROBI &mdash;</span>, and END the lead on a one-line "why it matters."
+         Lead para: class="first dropcap d". Section headers: <span class="sub">TITLE</span>. Inline tags/datelines: <span class="kick">LABEL.</span>.
+         ONE <div class="take"> opinion piece. Voices: <div class="voice"><div class="q">...</div><div class="who">Name <span>@handle - context</span></div></div>.
+         Beats (use only when there's fresh news; adoption leads): On the Ground / Money & Macro / Markets & Institutions / Policy & Nation-States / Network & Mining / Voices. Drop empty sections. -->
+    <p class="first dropcap d"><span class="kick">MOSSEL BAY, South Africa &mdash;</span> In a township above this Garden Route resort town, a surf coach collects his wages in bitcoin and buys his bread with it at a shop that takes the same coins. That loop is the whole idea behind <strong>Bitcoin Ekasi</strong>, which has paid its staff entirely in satoshis since 2021. This month it put the model on the road, launching a <strong>Pan-African Bitcoin Tour</strong> to link the continent&rsquo;s other circular economies.</p><p>It is no longer alone. The Federation of Bitcoin Circular Economies now counts more than <strong>37 community projects across at least a dozen African countries</strong> &mdash; from Zambia&rsquo;s Bitcoin Campus to Malawi&rsquo;s Women of Satoshi Cooperative &mdash; and a January summit tallied roughly <strong>700 merchants</strong> taking daily bitcoin payments. Underneath runs Machankura, which moves bitcoin over Lightning on basic feature phones, no smartphone or data required. The economies are small, donor-seeded and exposed to volatility. But where remittances are dear and bank branches scarce, paying a wage and settling a shopkeeper without a middleman is a real alternative, not a slogan.</p><p><em>Why it matters: adoption that sticks is measured in wages paid and groceries bought, not coins bought and held &mdash; and that is happening in more African towns than a year ago.</em></p><p><a href="https://thebitcoinbeacon.com/stories/2026-08-08/sa-bitcoin-township-pan-african">Read the full dispatch &rarr;</a></p>
+    <div class="take"><div class="tag">The Take &middot; Opinion</div><h3>Governments Learned to Mine Bitcoin. Now They Want the Pool.</h3><p>Oman just ordered every licensed miner into a single state pool. Set it beside Kazakhstan&rsquo;s accredited pool and tithe, Russia&rsquo;s regional bans, Bhutan&rsquo;s hydro-mining and Pakistan&rsquo;s two-gigawatt allocation, and the pattern is clear: governments went from banning bitcoin mining to owning it.</p><p>Fine &mdash; hashrate defends the network whoever runs the machines, and regulated beats banned. The catch is one word: mandatory. A voluntary pool a miner can leave in seconds; a national one it cannot leave without leaving the country. That compulsion is exactly what bitcoin was built to deny. Watch pool concentration, not flags.</p><div class="sig">&mdash; The Bitcoin Beacon &middot; <a href="https://thebitcoinbeacon.com/stories/2026-08-08/governments-want-the-mining-pool-take">Read the argument &rarr;</a></div></div>
+    <span class="sub">Policy &amp; Nation-States</span><p><span class="kick">MUSCAT &mdash;</span> Oman launched <strong>OmanHash</strong>, a national bitcoin mining pool, and made it mandatory: every licensed miner must route its hashrate through the state platform. The pool consolidates about <strong>10 EH/s</strong> in phase one and was built by the same firm behind Kazakhstan&rsquo;s state pool. A voluntary pool you can leave; a licence condition you cannot. <a href="https://thebitcoinbeacon.com/stories/2026-08-08/oman-mandatory-state-mining-pool">Full story &rarr;</a></p><span class="sub">Markets &amp; Institutions</span><p><span class="kick">NEW YORK &mdash;</span> America&rsquo;s spot bitcoin ETFs pulled in roughly <strong>$626 million</strong> over the first three trading days of August, and by one count have not posted a single day of net selling all month. BlackRock&rsquo;s IBIT took about <strong>76%</strong> of it &mdash; steady, sizable demand, routed almost entirely through one company. <a href="https://thebitcoinbeacon.com/stories/2026-08-08/us-bitcoin-etf-august-inflow-streak">Full story &rarr;</a></p><p><span class="kick">PARIS &mdash;</span> A cluster of European listed firms is racing to become the continent&rsquo;s Strategy. Paris-listed <strong>Capital B</strong> has stacked about <strong>3,000 BTC</strong>, with Germany&rsquo;s Bitcoin Group and France&rsquo;s Sequans close behind. The playbook &mdash; issue shares, buy bitcoin, repeat &mdash; works only while the stock trades above the coins it holds. <a href="https://thebitcoinbeacon.com/stories/2026-08-08/europe-corporate-bitcoin-treasury-race">Full story &rarr;</a></p>
+    
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>The difficulty adjustment lands tonight (about <strong>+0.43%</strong> estimated, per mempool.space); the <strong>eCash</strong> hard fork nears block 964,000, around Aug 21; and the US <strong>CLARITY Act</strong> remains stalled in the Senate.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="#">Unsubscribe</a> &bull; <a href="#">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>
