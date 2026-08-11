@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — August 11, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  /* Masthead */
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  /* Lead */
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  /* shared lead hero — same illustration used on the website article */
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  /* Columns */
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  /* keep a subhead glued to the paragraph that follows it */
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+
+  /* Markets box — full-width banner */
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  /* The Take — opinion box */
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  /* Voices / from the timeline */
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 39</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>August 11, 2026</span>
+  </div>
+
+  <h1 class="lead-head">On Isla Mujeres, Sixteen Shops Now Take Bitcoin</h1>
+  <p class="deck">Two years ago the count was zero &mdash; now a one-woman project is turning a Cancún ferry island into a Lightning economy.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Global Adoption Desk</div>
+
+  <!-- HERO: the SAME house-style illustration used on the website article for the lead story. -->
+  <div class="lead-hero"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260811_114655_8015ee6d-12ff-4f47-9399-eabc432c1d53.png" alt="A sunlit Isla Mujeres market stall, a vendor handing food to a customer paying by phone over Lightning, palm trees and turquoise sea, three-color linocut"><div class="cap">On the Ground · A Lightning economy, one stall at a time · Illustration: The Bitcoin Beacon</div></div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$64,286</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">962,003</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">898 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap d"><span class="kick">ISLA MUJERES &mdash;</span> On a limestone island a ferry ride from Cancún, you can now buy a taco, a hotel night, or a golf-cart tour with bitcoin. Two years ago you could not. BTC Isla, a not-for-profit started by Isabella Santos after she moved to the island in early 2024, has onboarded sixteen merchants to take payment over the Lightning Network &mdash; up from zero &mdash; and put an ATM and point-of-sale kiosks on the ground. It charges no fees. It runs free classes in a Bitcoin Café, each paired with a welcome dinner. Most of the sixteen are food-and-drink vendors, but the list now reaches lodging, transport, and tours. Sixteen is small against several hundred island businesses; the slope is the story. This is a hyper-local circular economy where wages and spending stay in sats, nudging the boundary of the fiat economy outward one merchant at a time.</p>
+<p><em>Why it matters: the adoption that lasts is built shop by shop, not decreed from a capital.</em></p>
+    <p><a href="https://thebitcoinbeacon.com/stories/2026-08-11/btc-isla-mujeres-bitcoin-island">Read the full dispatch &rarr;</a></p>
+    <div class="take">
+      <div class="tag">The Take &middot; Opinion</div>
+      <h3>The State Found a Cheaper Way to Own Bitcoin</h3>
+      <p>Kazakhstan won&rsquo;t buy bitcoin. It will take a tenth of what its miners produce. Oman pooled its miners; Pakistan is wiring surplus power to its own rigs. Call it what it is: not conviction, but a royalty. A government that extracts coins can also switch the pipeline off &mdash; which is exactly why a mined reserve is weaker than a bought one.</p>
+      <p><a href="https://thebitcoinbeacon.com/stories/2026-08-11/state-mining-royalty-extraction-take">Read the argument &rarr;</a></p>
+      <div class="sig">The Bitcoin Beacon</div>
+    </div>
+    <span class="sub">Policy &amp; Nation-States</span>
+    <p><strong>Kazakhstan Takes a 10% Cut of Miners&rsquo; Bitcoin</strong> &mdash; <span class="kick">ASTANA &mdash;</span> A law that took effect August 1 requires the country&rsquo;s largest bitcoin mines &mdash; those over 150 megawatts &mdash; to transfer 10% of what they mine each month to a state fund, which routes the coins into a national reserve. In return, miners get capped power on ten-year contracts. It is a mining royalty, not a sovereign conviction buy &mdash; and a future government can shut it off. <a href="https://thebitcoinbeacon.com/stories/2026-08-11/kazakhstan-mining-reserve-10-percent-tax">Full story &rarr;</a></p>
+<span class="sub">Markets &amp; Institutions</span>
+    <p><strong>Ninety Wallets Now Hold 10,000 Bitcoin Each</strong> &mdash; The number of wallets holding at least 10,000 BTC has climbed to 90, a six-month high, up six in eight weeks. Those addresses added a net 46,420 BTC over two months, the fastest accumulation of 2026, per Santiment &mdash; even as smaller holders sold after the Coldcard exploit and the CLARITY Act delay. Supply is rotating to stronger hands. <a href="https://thebitcoinbeacon.com/stories/2026-08-11/bitcoin-whale-wallets-six-month-high">Full story &rarr;</a></p>
+<span class="sub">Money &amp; Macro</span>
+    <p><strong>Argentina Lets Its Banks Hold Bitcoin</strong> &mdash; <span class="kick">BUENOS AIRES &mdash;</span> Under a central-bank framework that reverses a 2022 ban, regulated Argentine banks can now offer bitcoin trading and custody inside the apps millions already use &mdash; through separate units held to higher capital and liquidity rules. In a country scarred by inflation, bitcoin moves from the blue-dollar street market toward the bank branch. <a href="https://thebitcoinbeacon.com/stories/2026-08-11/argentina-banks-bitcoin-custody-framework">Full story &rarr;</a></p>
+<span class="sub">Network &amp; Mining</span>
+    <p><strong>MARA Borrows $600 Million Against Its Bitcoin</strong> &mdash; <span class="kick">FORT LAUDERDALE &mdash;</span> Rather than sell, the miner MARA pledged 18,750 BTC &mdash; about $1.2 billion &mdash; as collateral for $600 million in new debt from Coinbase and Two Prime. It is a bet the treasury out-earns the interest, and a tell about the moment: even as some firms dump coins, the largest miners are borrowing to keep theirs. <a href="https://thebitcoinbeacon.com/stories/2026-08-11/mara-pledges-bitcoin-collateral-600m-loan">Full story &rarr;</a></p>
+
+    <span class="sub">From the Timeline</span>
+    <div class="voice"><div class="q">A reserve you mined can be un-mined by the next administration. A reserve you bought is just yours.</div><div class="who">The Bitcoin Beacon <span>on sovereign stacks</span></div></div>
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>US July CPI lands Aug 14 &mdash; a hot print reopens September rate-hike talk and drains liquidity. The Senate&rsquo;s CLARITY Act vote, pushed to the fall, still gates whether US firms can hold bitcoin without an accounting penalty. Metaplanet is preparing bitcoin-yield products in Japan through its new securities arm. And Pakistan&rsquo;s promised 2,000 megawatts of surplus power for state-linked mining has yet to come online &mdash; watch whether the rigs actually plug in.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="#">Unsubscribe</a> &bull; <a href="#">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>
