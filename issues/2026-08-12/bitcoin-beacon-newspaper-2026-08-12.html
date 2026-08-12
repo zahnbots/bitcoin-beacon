@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — August 12, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+  .rdlink{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:700; font-size:11px; color:var(--accent); }
+
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 40</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>Wednesday, August 12, 2026</span>
+  </div>
+
+  <h1 class="lead-head">BlackRock Cuts Its Bitcoin-to-ETF Minimum From $25M to $1M</h1>
+  <p class="deck">An in-kind swap once reserved for Wall Street desks now lets family offices move bitcoin into IBIT without triggering a taxable sale.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Markets Desk</div>
+
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260812_115547_e4f2b2e5-ab07-4356-a6af-1a2e4d10c55e.png" alt="A Wall Street trading desk where a broker swaps a large bitcoin coin for share certificates, three-color linocut">
+    <div class="cap">Markets &amp; Institutions &middot; The cheapest door between a coin and a fund just widened &middot; Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$64,132</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">962,141</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">891 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+
+    <p class="first dropcap"><span class="kick">NEW YORK &mdash;</span> BlackRock has cut the price of moving bitcoin into its IBIT exchange-traded fund without selling it. The minimum for an &ldquo;in-kind&rdquo; conversion &mdash; handing over actual bitcoin and receiving fund shares, no cash changing hands and no taxable sale triggered &mdash; drops from $25 million to $1 million, a 96% cut announced by digital-assets head Robbie Mitchnick on August 10.</p>
+    <p>The mechanism used to be the preserve of Wall Street trading desks. At $1 million it reaches registered advisers and family offices &mdash; the tier that holds appreciated coins and wants ETF convenience without a tax bill. Mitchnick says the threshold will keep falling, eventually to any size. It lands as IBIT&rsquo;s five-day inflow streak snapped with a $144.67 million outflow: plumbing, not price, is where the contest sits.</p>
+    <p><em>Why it matters: the cheapest path between owning bitcoin and owning a bitcoin fund just got twenty-five times wider &mdash; and it runs toward Wall Street&rsquo;s custody.</em> <a class="rdlink" href="https://thebitcoinbeacon.com/stories/2026-08-12/blackrock-ibit-in-kind-minimum">Read the full dispatch &rarr;</a></p>
+
+    <span class="sub">Policy &amp; Nation-States</span>
+    <p><span class="kick">WASHINGTON &mdash;</span> The White House has given the Senate until September 15 to advance the CLARITY Act, the bill that would finally classify bitcoin as a commodity under the CFTC. Adviser Patrick Witt says if lawmakers &ldquo;can&rsquo;t get there by September 15, they never will.&rdquo; Democrats blocked a pre-recess vote; a cloture motion now needs seven of them to cross. Prediction markets give 2026 passage roughly one in four. <a class="rdlink" href="https://thebitcoinbeacon.com/stories/2026-08-12/clarity-act-september-deadline-bitcoin">Full story &rarr;</a></p>
+
+    <span class="sub">Network &amp; Mining</span>
+    <p>Luke Dashjr has taken a sabbatical as chairman and CTO of the Jack Dorsey-backed mining pool Ocean, turning to the stalled BIP-110 fork he champions. His breakaway chain has produced just two blocks since splitting at block 961,632. Now its developers are drafting a hard fork that would abandon Bitcoin&rsquo;s proof-of-work for a new algorithm, chosen by a secret commit-reveal to keep miners in the dark. <a class="rdlink" href="https://thebitcoinbeacon.com/stories/2026-08-12/dashjr-ocean-sabbatical-bip110-pow-reset">Full story &rarr;</a></p>
+    <p>Sazmining, a hosted-mining provider, has become the first mining-as-a-service firm to accept Square &mdash; adding cards, Apple Pay, Cash App and ACH alongside bitcoin, Lightning and wire. Buying hashpower now works like buying coffee: even the on-ramps to mining are converging on tap-to-pay rails. <a class="rdlink" href="https://thebitcoinbeacon.com/stories/2026-08-12/sazmining-square-payments">Full story &rarr;</a></p>
+
+    <span class="sub">Markets &amp; Institutions</span>
+    <p><span class="kick">TORONTO &mdash;</span> BlackRock&rsquo;s Canadian arm has listed the iShares Equity + Bitcoin ETF Portfolio (IBQT) on the Toronto exchange: 97% global stocks, 3% bitcoin, a 0.22% fee. It is a one-ticket retirement holding with a small bitcoin sleeve baked in &mdash; exposure for investors who will never open a wallet or place a single crypto trade. <a class="rdlink" href="https://thebitcoinbeacon.com/stories/2026-08-12/blackrock-canada-ibqt-bitcoin-portfolio">Full story &rarr;</a></p>
+
+    <div class="take">
+      <div class="tag">The Take &middot; Opinion</div>
+      <h3>The ETF Owns Bitcoin. The Phone Spends It.</h3>
+      <p>Today&rsquo;s headlines came from downtown: a cheaper ETF conversion, a 3%-bitcoin portfolio, a bill to define the asset. All real, all legitimizing &mdash; and all about bitcoin the asset. The adoption that answers the original question, money for people the banks skipped, was somewhere else.</p>
+      <p>On Lightning, fees fall from 6&ndash;10% to a fraction of a cent. In Kenya, forty million M-Pesa numbers quietly became Lightning addresses this year; Machankura moves sats over USSD on phones with no internet. Wall Street decides what bitcoin is worth. A market stall in Lagos decides what it&rsquo;s for.</p>
+      <p class="sig">Watch the till, not just the ticker. &mdash; The Beacon &nbsp;<a class="rdlink" href="https://thebitcoinbeacon.com/stories/2026-08-12/real-adoption-lightning-not-wall-street-take">Read the argument &rarr;</a></p>
+    </div>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p><span class="kick">SEC.</span> An open meeting Friday could propose a &ldquo;Regulation Crypto&rdquo; offering regime that treats bitcoin as a digital commodity &mdash; an end-run around a stalled Congress. <span class="kick">CPI.</span> Wednesday&rsquo;s US inflation print is the week&rsquo;s macro hinge. <span class="kick">ETF flows.</span> Whether IBIT&rsquo;s buyers return after a $144.67M outflow snapped a five-day inflow streak.</p>
+
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="https://thebitcoinbeacon.com/subscribe.html">Subscribe</a> &bull; <a href="https://thebitcoinbeacon.com/">Read on the web</a>
+  </div>
+
+</div>
+</body>
+</html>
