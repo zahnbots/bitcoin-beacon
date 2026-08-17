@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — August 17, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  /* Masthead */
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  /* Lead */
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  /* shared lead hero — same illustration used on the website article */
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  /* Columns */
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  /* keep a subhead glued to the paragraph that follows it */
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+  .cols a{ color:#9a5a10; }
+  .take a{ color:#9a5a10; }
+
+  /* Markets box — full-width banner */
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  /* The Take — opinion box */
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  /* Voices / from the timeline */
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 43</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>Monday, August 17, 2026</span>
+  </div>
+
+  <h1 class="lead-head">Russia Legalizes Bitcoin Trading, Caps Retail Buyers at $3,700 a Year</h1>
+  <p class="deck">Putin signed the law this month and the central bank has cleared bitcoin for licensed exchanges &mdash; but ordinary Russians can buy only about $3,700 of it a year.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Policy &amp; Nation-States Desk</div>
+
+  <!-- HERO: the SAME house-style illustration used on the website article for the lead story. -->
+  <div class="lead-hero"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260817_120414_6c825e0c-4851-432d-b57d-36ebbfe74727.png" alt="A state-bank clerk hands a bitcoin coin across a counter beneath Kremlin domes, linocut">
+    <div class="cap">A cautious opening: bitcoin arrives on Russian exchanges, on a leash. Illustration: The Bitcoin Beacon</div></div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; as of 12:03 UTC</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$63,569</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">962,885</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">~919 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap"><span class="kick">MOSCOW &mdash;</span> Russia has decided to let its citizens buy bitcoin &mdash; carefully. President Vladimir Putin signed a law on August 4 legalizing regulated crypto trading under the Bank of Russia, and on August 11 the central bank cleared its first three assets for licensed exchanges: bitcoin, ether and Tether. XRP did not make the cut.</p>
+<p>The gate is narrow. Non-qualified investors &mdash; ordinary Russians &mdash; may buy no more than 300,000 rubles, about $3,700, of these assets a year through any one intermediary, and only after passing a risk test. Qualified investors face no cap. Core provisions take effect September 1.</p>
+<p>For a country under heavy sanctions, an onshore, surveilled bitcoin market is less about retail speculation than about control: liquidity the state can see, tax, and potentially tap.</p>
+<p><em>Why it matters: the question is no longer whether governments allow bitcoin, but on what terms &mdash; and Russia&rsquo;s terms are a cage with the door left ajar.</em></p>
+<p><a href="https://thebitcoinbeacon.com/stories/2026-08-17/russia-legalizes-bitcoin-retail-cap">Read the full dispatch &rarr;</a></p>
+
+    <span class="sub">Network &amp; Mining</span>
+    <p><span class="kick">ROCKDALE, Texas.</span> Riot Platforms, one of the largest listed bitcoin miners, signed a 20-year lease handing 191 megawatts at its Rockdale campus to the AI lab Anthropic &mdash; $9.1 billion in base rent, up to $16.1 billion if extensions are exercised. Riot will build and operate the halls; Anthropic brings the chips. The bitcoin miner is becoming an energy landlord, and it is not alone: across the sector, firms are selling coins and leasing megawatts as AI outbids hashing for cheap power. <a href="https://thebitcoinbeacon.com/stories/2026-08-17/bitcoin-miners-lease-power-to-ai-riot-anthropic">Full story &rarr;</a></p>
+
+    <span class="sub">Markets &amp; Institutions</span>
+    <p><span class="kick">NEW YORK.</span> Goldman Sachs agreed to acquire NEOS Investments for up to $2.25 billion, and the prize is BTCI &mdash; a roughly $1 billion fund that never buys bitcoin outright. It holds bitcoin exchange-traded products and sells covered calls against them, paying shareholders monthly income at an annualized rate in the mid-20s. The deal hands Goldman about $30 billion across 19 options-income ETFs and vaults it past BlackRock in the bitcoin-yield business. <a href="https://thebitcoinbeacon.com/stories/2026-08-17/goldman-neos-bitcoin-income-etf">Full story &rarr;</a></p>
+
+    <span class="sub">Money &amp; Macro</span>
+    <p><span class="kick">CHICAGO.</span> The trade that made bitcoin respectable on Wall Street &mdash; buy the spot ETF, short the CME future, pocket the premium &mdash; has stopped paying. As the futures basis compressed below the yield on two-year Treasuries, institutions pulled out: CME open interest fell to its lowest since February 2024, and Binance overtook it for the first time since 2023. The regulated venue is thinning while offshore fills the gap. <a href="https://thebitcoinbeacon.com/stories/2026-08-17/basis-trade-unwind-binance-overtakes-cme">Full story &rarr;</a></p>
+
+    <span class="sub">Policy &amp; Nation-States</span>
+    <p><span class="kick">SEOUL.</span> South Korea is herding bitcoin trading onshore. Its financial-intelligence unit pressed Google to pull dozens of overseas exchange apps &mdash; including OKX and Bybit &mdash; from new Android installs, cutting off roughly half the top global derivatives venues. In the same move, regulators softened a 20% ownership cap toward 34%, clearing mega-banks like KB and Shinhan to acquire domestic exchanges Upbit, Bithumb and Coinone. <a href="https://thebitcoinbeacon.com/stories/2026-08-17/south-korea-blocks-offshore-exchanges-banks">Full story &rarr;</a></p>
+
+    <div class="take">
+      <div class="tag">The Take &middot; Opinion</div>
+      <h3>Wall Street Stopped Betting Bitcoin Goes Up</h3>
+      <p>Line up this week&rsquo;s institutional moves and they point one way. Goldman paid up to $2.25 billion not to buy bitcoin but to own a fund that <em>sells options</em> on it. UBS multiplied its bitcoin call exposure while cutting puts &mdash; covered-call overwriting. Cboe filed to list 3x leveraged bitcoin funds. And the cash-and-carry trade that anchored the CME unwound because its premium fell below Treasury yields. None of that is a bet on a higher price.</p>
+      <p>It is a bet on stillness. The smart money has stopped positioning for appreciation and started harvesting bitcoin&rsquo;s volatility for yield. The steelman is real: income products broaden the base and dampen forced selling, and flat is not bearish. But covered calls cap the upside they sell, and a market that monetizes chop is a market resigned to going nowhere. When the biggest players are done buying the thing and start renting out its variance, ask who is left to bid the top.</p>
+      <p class="sig"><a href="https://thebitcoinbeacon.com/stories/2026-08-17/institutions-stopped-betting-bitcoin-up-take">Read the argument &rarr;</a> &bull; The Bitcoin Beacon</p>
+    </div>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>The CLARITY Act&rsquo;s Senate cloture vote on September 15, the closest thing to a US verdict on what bitcoin legally is. MSCI&rsquo;s November index review, which could force passive funds to dump bitcoin-treasury proxies like Strategy and Metaplanet. Whether other sanctioned or capital-controlled states copy Russia&rsquo;s legalize-but-cap template. And whether Riot&rsquo;s AI pivot spreads far enough among large miners to start bending the hashrate curve.</p>
+
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    Read every dispatch at <a href="https://thebitcoinbeacon.com">thebitcoinbeacon.com</a> &bull; <a href="https://thebitcoinbeacon.com/subscribe.html">Subscribe free</a>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A breach at Trezor's fulfillment partner ShipMonk exposed order data for 13,689 hardware-wallet customers, most including names and home addresses.">
+<link rel="canonical" href="https://thebitcoinbeacon.com/stories/2026-08-15/trezor-shipmonk-data-breach">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#15130f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta property="og:site_name" content="The Bitcoin Beacon">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A Shipping Partner Leaked 13,689 Trezor Owners' Addresses">
+<meta property="og:description" content="A breach at Trezor's fulfillment partner ShipMonk exposed order data for 13,689 hardware-wallet customers, most including names and home addresses.">
+<meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260815_114919_923c816b-d346-44a8-9b64-1afcb8b9208b.png">
+<meta property="og:url" content="https://thebitcoinbeacon.com/stories/2026-08-15/trezor-shipmonk-data-breach">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A Shipping Partner Leaked 13,689 Trezor Owners' Addresses">
+<meta name="twitter:description" content="A breach at Trezor's fulfillment partner ShipMonk exposed order data for 13,689 hardware-wallet customers, most including names and home addresses.">
+<meta name="twitter:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260815_114919_923c816b-d346-44a8-9b64-1afcb8b9208b.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"A Shipping Partner Leaked 13,689 Trezor Owners' Addresses","description":"A breach at Trezor's fulfillment partner ShipMonk exposed order data for 13,689 hardware-wallet customers, most including names and home addresses.","image":["https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260815_114919_923c816b-d346-44a8-9b64-1afcb8b9208b.png"],"datePublished":"2026-08-15","dateModified":"2026-08-15","mainEntityOfPage":"https://thebitcoinbeacon.com/stories/2026-08-15/trezor-shipmonk-data-breach","author":{"@type":"Organization","name":"The Bitcoin Beacon","url":"https://thebitcoinbeacon.com"},"publisher":{"@type":"Organization","name":"The Bitcoin Beacon","url":"https://thebitcoinbeacon.com","logo":{"@type":"ImageObject","url":"https://thebitcoinbeacon.com/assets/masthead-ink.png"}}}</script>
+<title>A Shipping Partner Leaked 13,689 Trezor Owners' Addresses &mdash; The Bitcoin Beacon</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#15130f; --muted:#6b6459; --line:#e7e3da; --accent:#e8820c; --paper:#ffffff; --wash:#faf7f1; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',system-ui,Arial,sans-serif; line-height:1.6; }
+  a{ color:inherit; text-decoration:none; }
+  .nav{ position:sticky; top:0; z-index:20; background:rgba(255,255,255,.94); backdrop-filter:blur(6px); border-bottom:1px solid var(--line); }
+  .nav .in{ max-width:1120px; margin:0 auto; display:flex; align-items:center; gap:26px; padding:12px 24px; }
+  .nav img{ height:56px; }
+  .nav .links{ display:flex; gap:20px; font-size:13px; font-weight:600; color:#4a463f; margin-left:6px; }
+  .nav .links a:hover{ color:var(--accent); }
+  .nav .sub{ background:var(--ink); color:#fff; font-size:12px; font-weight:700; padding:9px 15px; border-radius:999px; }
+  .nav .menu-btn{ display:none; background:none; border:0; font-size:22px; line-height:1; cursor:pointer; color:var(--ink); padding:4px 8px; -webkit-tap-highlight-color:transparent; }
+  .wrap{ max-width:720px; margin:0 auto; padding:0 24px; }
+  .crumb{ max-width:720px; margin:26px auto 0; padding:0 24px; }
+  .tag{ display:inline-block; font-size:11px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; color:#8a5a12; }
+  h1.title{ font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:44px; line-height:1.08; letter-spacing:-.5px; margin:10px 0 14px; }
+  .standfirst{ font-size:20px; line-height:1.5; color:#3b382f; font-family:'Fraunces',Georgia,serif; font-style:italic; margin:0 0 20px; }
+  .meta{ display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center; font-size:13px; color:var(--muted); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:12px 0; margin-bottom:24px; }
+  .meta b{ color:var(--ink); font-weight:700; }
+  .hero{ max-width:1000px; margin:0 auto 28px; padding:0 24px; }
+  .heroart{ height:360px; border-radius:14px; position:relative; overflow:hidden; background:#111; }
+  .heroart img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .heroart .cap{ position:absolute; left:0; bottom:0; width:100%; padding:14px 18px; font-size:12px; color:#fff; background:linear-gradient(transparent,rgba(0,0,0,.55)); }
+  .body{ font-size:18px; }
+  .body p{ margin:0 0 18px; }
+  .body h2{ font-family:'Fraunces',Georgia,serif; font-size:26px; font-weight:700; margin:34px 0 10px; letter-spacing:-.3px; }
+  .body .drop::first-letter{ float:left; font-family:'Fraunces',serif; font-weight:700; font-size:64px; line-height:50px; padding:6px 10px 0 0; color:var(--accent); }
+  .pull{ font-family:'Fraunces',Georgia,serif; font-size:26px; line-height:1.3; font-weight:500; color:var(--ink); border-left:4px solid var(--accent); padding:6px 0 6px 20px; margin:26px 0; }
+  .sources{ background:var(--wash); border:1px solid var(--line); border-radius:12px; padding:16px 20px; margin:26px 0; font-size:14px; }
+  .sources h4{ margin:0 0 8px; font-size:12px; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); }
+  .sources ol{ margin:0; padding-left:20px; } .sources li{ margin-bottom:6px; }
+  .sources a{ color:var(--accent); text-decoration:underline; word-break:break-word; }
+  .note{ font-size:12.5px; color:var(--muted); font-style:italic; border-top:1px solid var(--line); padding-top:14px; margin-top:24px; }
+  .subscribe{ max-width:1120px; margin:34px auto; padding:26px 24px; text-align:center; }
+  .subscribe .box{ background:var(--ink); color:#fff; border-radius:16px; padding:30px 24px; }
+  .subscribe h3{ font-family:'Fraunces',serif; font-size:24px; margin:0 0 8px; }
+  .subscribe p{ color:#c9c3b8; margin:0 0 16px; font-size:15px; }
+  .subscribe .btn{ display:inline-block; background:var(--accent); color:#fff; font-weight:700; padding:12px 22px; border-radius:999px; font-size:14px; }
+  footer{ border-top:1px solid var(--line); padding:26px 24px; text-align:center; color:var(--muted); font-size:12px; }
+  @media(max-width:720px){ h1.title{ font-size:32px; } }
+  @media(max-width:768px){
+    html,body{ max-width:100%; overflow-x:hidden; }
+    .nav .in{ flex-wrap:nowrap; gap:8px 10px; padding:10px 14px; }
+    .nav .menu-btn{ display:inline-flex; align-items:center; }
+    .nav img{ height:34px; }
+    .nav .links{ display:none; }
+    .nav .sub{ margin-left:auto; padding:8px 12px; white-space:nowrap; }
+    .crumb{ margin-top:20px; padding:0 16px; }
+    .wrap{ padding:0 16px; }
+    h1.title{ font-size:27px; }
+    .standfirst{ font-size:17px; }
+    .hero{ padding:0 16px; margin-bottom:22px; }
+    .heroart{ height:210px; }
+    .body{ font-size:16px; }
+    .body h2{ font-size:22px; }
+    .pull{ font-size:21px; }
+  }
+  .mast{ background:var(--paper); border-bottom:1px solid var(--line); }
+  .mast a{ display:flex; align-items:center; justify-content:center; gap:18px; padding:20px 24px 16px; }
+  .mast img{ height:119px; width:119px; border-radius:50%; }
+  .mast span{ font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:42px; letter-spacing:-.5px; color:var(--ink); }
+  .nav .in{ position:relative; justify-content:center; }
+  .nav .sub{ position:absolute; right:24px; top:50%; transform:translateY(-50%); margin-left:0; }
+  .nav .menu-btn{ position:absolute; left:14px; top:50%; transform:translateY(-50%); }
+  @media(max-width:768px){
+    .mast a{ gap:12px; padding:18px 14px 12px; }
+    .mast img{ height:64px; width:64px; }
+    .mast span{ font-size:24px; letter-spacing:-.3px; }
+    .nav{ position:static !important; background:var(--paper) !important; backdrop-filter:none !important; }
+    .nav .in{ flex-direction:column !important; align-items:center; padding:12px 14px 16px !important; gap:0 !important; }
+    .nav .links{ display:flex !important; flex-direction:row !important; flex-wrap:wrap !important; justify-content:center; overflow:visible !important; gap:9px 18px; padding:0 !important; margin:0; width:100%; font-size:13.5px; position:static !important; box-shadow:none !important; background:transparent !important; border:0 !important; }
+    .nav .links a{ white-space:nowrap; border-top:0 !important; padding:0 !important; font-size:13.5px !important; }
+    .nav .sub{ display:inline-block !important; position:static !important; transform:none !important; margin:14px auto 0 !important; padding:9px 26px; box-shadow:none !important; font-size:13px; }
+    .nav .menu-btn{ display:none !important; }
+  }
+</style>
+</head>
+<body>
+  <div class="mast"><a href="/">
+    <img src="/assets/beacon-badge-400.png" alt="The Bitcoin Beacon" width="400" height="400">
+    <span>The Bitcoin Beacon</span>
+  </a></div>
+  <div class="nav"><div class="in">
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <div class="links"><a href="/archive/on-the-ground.html">On the Ground</a><a href="/archive/money-macro.html">Money &amp; Macro</a><a href="/archive/markets.html">Markets</a><a href="/archive/network-mining.html">Network &amp; Mining</a><a href="/archive/opinion.html">Opinion</a><a href="/archive/policy-nation-states.html">Nation-States</a><a href="/archive.html">Archive</a><a href="/custody/">Custody</a></div>
+    <a class="sub" href="#subscribe">Subscribe</a>
+  </div></div>
+  <script>
+  (function(){var b=document.querySelector('.nav .menu-btn');if(b){b.addEventListener('click',function(){var n=b.closest('.nav');var open=n.classList.toggle('open');b.setAttribute('aria-expanded',open?'true':'false');});}})();
+  </script>
+
+  <div class="crumb"><span class="tag" style="color:#b5601f;">Network &amp; Mining &middot; Prague</span></div>
+  <div class="wrap">
+    <h1 class="title">A Shipping Partner Leaked 13,689 Trezor Owners&rsquo; Addresses</h1>
+    <p class="standfirst">The wallets stayed safe. The customer list &mdash; names, homes and phone numbers of people who own bitcoin &mdash; did not.</p>
+    <div class="meta"><b>By The Bitcoin Beacon</b> &middot; PRAGUE &middot; August 15, 2026 &middot; 5 min read</div>
+  </div>
+  <div class="hero"><div class="heroart">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260815_114919_923c816b-d346-44a8-9b64-1afcb8b9208b.png" alt="A parcel warehouse with an opened box revealing a hardware device beneath a looming padlock, three-color linocut">
+    <div class="cap">Network &amp; Mining &middot; Illustration: The Bitcoin Beacon</div>
+  </div></div>
+  <div class="wrap body">
+
+<p class="drop">On August 13, the hardware-wallet maker Trezor disclosed a data breach &mdash; not of its own systems, but of a shipping partner. The Czech company said order data for 13,689 customers who received deliveries in the 90 days before August 8 had been exposed through a breach at its fulfillment provider, ShipMonk. Trezor&rsquo;s own infrastructure, its device firmware and customers&rsquo; private keys were untouched.</p>
+
+<p>The exposed records split two ways: 11,742 included names, email addresses, phone numbers and shipping addresses; another 1,947 included names, cities and emails. Affected customers spanned the US, the UK, Sweden, Colombia, Brazil, Italy and Portugal.</p>
+
+<h2>The seed phrase was never the weak point here</h2>
+<p>No coins moved, and Trezor was quick to stress that no coins could move from this leak alone. But that framing understates the threat. A list of names paired with home addresses, filtered to people who just bought a bitcoin hardware wallet, is a targeting document. It tells an attacker exactly who holds bitcoin and where they sleep.</p>
+
+<div class="pull">A hardware-wallet customer list is, by definition, a list of people worth robbing.</div>
+
+<p>The immediate danger is phishing: convincing emails or texts impersonating Trezor support, urging a &ldquo;security update&rdquo; that asks for a recovery phrase. The slower, uglier danger is physical &mdash; the so-called &ldquo;$5 wrench&rdquo; attack, where the threat is not a hacker but a person at the door. Self-custody defends against remote theft brilliantly and against a home invasion not at all.</p>
+
+<h2>A bad summer for hardware</h2>
+<p>The leak lands in a rough stretch for the category. Earlier in August, a firmware flaw tied to Coldcard wallets was linked to bitcoin thefts running into the tens of millions, draining funds from more than a thousand addresses. The two incidents are unrelated in cause &mdash; one a supply-chain data leak, the other a device vulnerability &mdash; but together they puncture the idea that buying a hardware wallet ends the security conversation.</p>
+
+<h2>What owners should do</h2>
+<p>Treat any message referencing a recent Trezor order as hostile until proven otherwise; the attackers now know real order details, which makes their lures more convincing. Never enter a recovery phrase anywhere but the device itself. And weigh the quieter lesson: privacy around a purchase &mdash; where it shipped, under what name &mdash; is part of the security model, and it lives with vendors and their contractors, outside the owner&rsquo;s control.</p>
+
+<p><em>Why it matters: the hardest part of holding your own bitcoin is no longer the cryptography &mdash; it is the metadata other companies keep about you.</em></p>
+
+    <div class="sources">
+      <h4>Sources</h4>
+      <ol>
+        <li>Bitcoin Magazine &mdash; <a href="https://bitcoinmagazine.com/news/trezor-data-breach-leaks-customer-info">Data Breach At Trezor Leaks Info On Nearly 14,000 Bitcoin Wallet Users</a></li>
+        <li>CryptoRank &mdash; <a href="https://cryptorank.io/news/feed/d093c-trezor-data-breach-leaks-customer-info">Trezor data breach leaks customer info</a></li>
+        <li>The Hacker News &mdash; <a href="https://thehackernews.com/2026/08/coldcard-hardware-wallet-flaw-linked-to.html">Coldcard Hardware Wallet Flaw Linked to Bitcoin Theft</a> (context)</li>
+      </ol>
+    </div>
+    <p class="note">The 13,689 figure, the record split (11,742 with addresses; 1,947 with cities), the affected countries and the ShipMonk attribution are from Trezor&rsquo;s August 13, 2026 disclosure as reported by the cited sources. The Coldcard incident is a separate, earlier event included for context. Informational only &mdash; not financial advice. This touches on physical safety; treat unsolicited &ldquo;support&rdquo; contact with caution.</p>
+
+    <div class="subscribe" id="subscribe"><div class="box">
+    <h3>The world&rsquo;s bitcoin headlines, in your inbox every morning.</h3>
+    <p>Free. Five minutes. No hype.</p>
+    <a class="btn" href="/subscribe.html">Subscribe free</a>
+  </div></div>
+  </div>
+  <footer>THE BITCOIN BEACON &bull; The daily record of Bitcoin's global adoption &bull; Informational only &mdash; not financial advice</footer>
+
+<!-- subscribe modal (site-wide) -->
+<style>
+.bb-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(21,19,15,.62);padding:20px;}
+.bb-modal.open{display:flex;}
+.bb-modal .bb-card{background:#faf7f1;border-radius:16px;max-width:620px;width:100%;padding:16px 16px 8px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.35);}
+.bb-modal .bb-x{position:absolute;top:6px;right:12px;background:none;border:0;font-size:28px;color:#6b6459;cursor:pointer;line-height:1;}
+.bb-modal iframe{width:100%;height:340px;border:0;border-radius:10px;background:#fff;}
+</style>
+<div class="bb-modal" id="bb-modal" role="dialog" aria-modal="true" aria-label="Subscribe to The Bitcoin Beacon">
+  <div class="bb-card">
+    <button class="bb-x" aria-label="Close">&times;</button>
+    <iframe data-src="https://subscribe-forms.beehiiv.com/2c9c948c-bcee-4d82-ad46-d31816c72af4" title="Subscribe to The Bitcoin Beacon"></iframe>
+  </div>
+</div>
+<script>
+(function(){
+  var m=document.getElementById('bb-modal');if(!m)return;
+  var f=m.querySelector('iframe');
+  function open(e){if(e)e.preventDefault();if(!f.src)f.src=f.getAttribute('data-src');m.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){m.classList.remove('open');document.body.style.overflow='';}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a');if(!a)return;
+    var h=a.getAttribute('href')||'';
+    if(/subscribe\.html$/.test(h)||h==='#subscribe'){open(e);}
+  });
+  m.addEventListener('click',function(e){if(e.target===m)close();});
+  m.querySelector('.bb-x').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
+
+</body>
+</html>
