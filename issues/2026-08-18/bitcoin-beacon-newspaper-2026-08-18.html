@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — August 18, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+  .rd{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:700; font-size:10.5px; color:var(--accent); text-transform:uppercase; letter-spacing:0.5px; }
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 44</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>August 18, 2026</span>
+  </div>
+
+  <h1 class="lead-head">A Peruvian Charity Now Runs Its Aid on Bitcoin</h1>
+  <p class="deck">Motiv reaches 750 families a week across 15 Peruvian towns, teaching bitcoin as a plain payment tool &mdash; a circular economy built from a shoe drive.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Global South Desk</div>
+
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260818_131829_28450863-636b-4803-abdd-494a42305865.png" alt="A highland-market volunteer fits new shoes on a child while a stallholder takes a phone payment, three-color linocut">
+    <div class="cap">In the Andes, bitcoin is shoes on feet and food on tables, not a trade &middot; Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$64,123</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">963,041</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">933 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap"><span class="kick">CUSCO &mdash;</span> The program that now moves bitcoin through fifteen Peruvian towns started with a pair of shoes. In 2019 a small charity called Motiv began fitting Andean children with boots sturdy enough for the walk to school. Six years on it reaches more than 750 families a week, teaches bitcoin six days a week across fifteen locations, and logged 25,000 to 30,000 bitcoin transactions from its 2025 events alone.</p>
+    <p>The pivot was an accident. In 2020, with donors refusing to redirect an earmarked shoe budget toward pandemic food, a bitcoin holder offered to fund it &mdash; on one condition: everything had to be bought in bitcoin. Motiv found merchants, kept a list, and taught them bitcoin as plumbing, not a bet.</p>
+    <p>The honest caveat is dependency: a 50-person, donor-seeded operation hasn&rsquo;t shown the trade continues once the grants stop. What it has shown is narrower and real &mdash; bitcoin can reach people the banks skipped, with no price chart and no promise of riches.</p>
+    <p><em>Why it matters: the adoption that lasts rarely arrives by decree &mdash; it arrives when a merchant takes a coin because the person in front of them is holding one.</em></p>
+    <p><a class="rd" href="https://thebitcoinbeacon.com/stories/2026-08-18/peru-motiv-circular-economy">Read the full dispatch &rarr;</a></p>
+
+    <div class="take">
+      <div class="tag">The Take</div>
+      <h3>Bitcoin Is Splitting Into Two Economies</h3>
+      <p>Read the week from two directions. Bottom-up: a Peruvian charity moving sats through 15 towns, Indonesians running 40 meetups a month. Top-down: an ETF liquidating into bigger rivals, Lightning capacity swelling from institutions, custody pooling into fewer hands.</p>
+      <p>Both are &ldquo;adoption.&rdquo; They point opposite ways. The number that settles it isn&rsquo;t the price &mdash; it&rsquo;s the ratio of people holding their own keys to assets parked with a few institutions. This week both rose.</p>
+      <p><a class="rd" href="https://thebitcoinbeacon.com/stories/2026-08-18/two-bitcoins-take">Read the argument &rarr;</a></p>
+      <div class="sig">The Bitcoin Beacon</div>
+    </div>
+
+    <span class="sub">On the Ground</span>
+    <p><span class="kick">JAKARTA.</span> Indonesia banned bitcoin as payment in 2018, sending officers into shops that took it. Today it runs an estimated 40 meetups a month across 40 cities and a community near 55,000. The workaround is legal: don&rsquo;t spend bitcoin, redeem it inside a closed-loop network &mdash; the structure that shields airline miles. Fragile, but it rebuilt one of the world&rsquo;s most active scenes. <a class="rd" href="https://thebitcoinbeacon.com/stories/2026-08-18/bitcoin-indonesia-meetups-comeback">Full story &rarr;</a></p>
+
+    <span class="sub">Policy &amp; Nation-States</span>
+    <p><span class="kick">HANOI.</span> Vietnam is targeting the third quarter to open its first regulated crypto market, with five bank-linked firms cleared and a 0.1% trade tax. Bitcoin will be legal to trade &mdash; but still not to spend, with every settlement clearing in dong. In a country where 30%-plus already hold digital assets, the state is licensing the trade while keeping the money national. <a class="rd" href="https://thebitcoinbeacon.com/stories/2026-08-18/vietnam-regulated-bitcoin-market-q3">Full story &rarr;</a></p>
+
+    <span class="sub">Markets &amp; Institutions</span>
+    <p><span class="kick">NEW YORK.</span> A bitcoin ETF shut down. Hashdex&rsquo;s DEFI fund stopped trading Aug 17 and began selling its 226 bitcoin, its $14.7M in assets too small to cover costs against fee-waiving giants. Demand for bitcoin isn&rsquo;t the problem; a few mega-issuers have captured it. The coins stay in the market &mdash; the custody consolidates. <a class="rd" href="https://thebitcoinbeacon.com/stories/2026-08-18/hashdex-bitcoin-etf-liquidation">Full story &rarr;</a></p>
+
+    <span class="sub">Network &amp; Mining</span>
+    <p><span class="kick">THE NETWORK.</span> Bitcoin&rsquo;s Lightning Network holds more money than ever &mdash; public channels near 5,000 BTC &mdash; while its node count has slid from about 20,700 in 2022 to under 15,000. Capacity is rising because institutions are filling existing channels, not because new users are joining. A stronger payments layer, and a more concentrated one. <a class="rd" href="https://thebitcoinbeacon.com/stories/2026-08-18/lightning-capacity-record-nodes-fall">Full story &rarr;</a></p>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>The U.S. FOMC minutes land Wednesday &mdash; watch whether a stalled Fed keeps bitcoin range-bound. Whether Vietnam&rsquo;s Q3 launch actually arrives on schedule. Whether other capital-controlled states copy the &ldquo;license the trade, ban the spending&rdquo; template now spreading across Asia. And the open question under today&rsquo;s lead: can a donor-seeded circular economy keep spinning once the grants stop?</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="#">Unsubscribe</a> &bull; <a href="#">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>
