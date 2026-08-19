@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Galaxy Research confirms $115M drained from Coldcard wallets through a weak seed-generation flaw. Days later, BitBox patched its own severe firmware bug.">
+<link rel="canonical" href="https://thebitcoinbeacon.com/stories/2026-08-19/coldcard-hack-115-million">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#15130f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta property="og:site_name" content="The Bitcoin Beacon">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hackers Drained $115 Million From Coldcard Wallets">
+<meta property="og:description" content="Galaxy Research confirms $115M drained from Coldcard wallets through a weak seed-generation flaw. Days later, BitBox patched its own severe firmware bug.">
+<meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260819_115144_9caba37d-c406-4c86-a426-095ba3ec55dd.png">
+<meta property="og:url" content="https://thebitcoinbeacon.com/stories/2026-08-19/coldcard-hack-115-million">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hackers Drained $115 Million From Coldcard Wallets">
+<meta name="twitter:description" content="Galaxy Research confirms $115M drained from Coldcard wallets through a weak seed-generation flaw. Days later, BitBox patched its own severe firmware bug.">
+<meta name="twitter:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260819_115144_9caba37d-c406-4c86-a426-095ba3ec55dd.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Hackers Drained $115 Million From Coldcard Wallets", "description": "Galaxy Research confirms $115M drained from Coldcard wallets through a weak seed-generation flaw. Days later, BitBox patched its own severe firmware bug.", "image": ["https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260819_115144_9caba37d-c406-4c86-a426-095ba3ec55dd.png"], "datePublished": "2026-08-19", "dateModified": "2026-08-19", "mainEntityOfPage": "https://thebitcoinbeacon.com/stories/2026-08-19/coldcard-hack-115-million", "author": {"@type": "Organization", "name": "The Bitcoin Beacon", "url": "https://thebitcoinbeacon.com"}, "publisher": {"@type": "Organization", "name": "The Bitcoin Beacon", "url": "https://thebitcoinbeacon.com", "logo": {"@type": "ImageObject", "url": "https://thebitcoinbeacon.com/assets/masthead-ink.png"}}}</script>
+<title>Hackers Drained $115 Million From Coldcard Wallets &mdash; The Bitcoin Beacon</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#15130f; --muted:#6b6459; --line:#e7e3da; --accent:#e8820c; --paper:#ffffff; --wash:#faf7f1; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',system-ui,Arial,sans-serif; line-height:1.6; }
+  a{ color:inherit; text-decoration:none; }
+  .nav{ position:sticky; top:0; z-index:20; background:rgba(255,255,255,.94); backdrop-filter:blur(6px); border-bottom:1px solid var(--line); }
+  .nav .in{ max-width:1120px; margin:0 auto; display:flex; align-items:center; gap:26px; padding:12px 24px; }
+  .nav img{ height:56px; }
+  .nav .links{ display:flex; gap:20px; font-size:13px; font-weight:600; color:#4a463f; margin-left:6px; }
+  .nav .links a:hover{ color:var(--accent); }
+  .nav .sub{ background:var(--ink); color:#fff; font-size:12px; font-weight:700; padding:9px 15px; border-radius:999px; }
+  .nav .menu-btn{ display:none; background:none; border:0; font-size:22px; line-height:1; cursor:pointer; color:var(--ink); padding:4px 8px; -webkit-tap-highlight-color:transparent; }
+  .wrap{ max-width:720px; margin:0 auto; padding:0 24px; }
+  .crumb{ max-width:720px; margin:26px auto 0; padding:0 24px; }
+  .tag{ display:inline-block; font-size:11px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; color:#8a5a12; }
+  h1.title{ font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:44px; line-height:1.08; letter-spacing:-.5px; margin:10px 0 14px; }
+  .standfirst{ font-size:20px; line-height:1.5; color:#3b382f; font-family:'Fraunces',Georgia,serif; font-style:italic; margin:0 0 20px; }
+  .meta{ display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center; font-size:13px; color:var(--muted); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:12px 0; margin-bottom:24px; }
+  .meta b{ color:var(--ink); font-weight:700; }
+  .hero{ max-width:1000px; margin:0 auto 28px; padding:0 24px; }
+  .heroart{ height:360px; border-radius:14px; position:relative; overflow:hidden; background:#111; }
+  .heroart img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .heroart .cap{ position:absolute; left:0; bottom:0; width:100%; padding:14px 18px; font-size:12px; color:#fff; background:linear-gradient(transparent,rgba(0,0,0,.55)); }
+  .body{ font-size:18px; }
+  .body p{ margin:0 0 18px; }
+  .body h2{ font-family:'Fraunces',Georgia,serif; font-size:26px; font-weight:700; margin:34px 0 10px; letter-spacing:-.3px; }
+  .body .drop::first-letter{ float:left; font-family:'Fraunces',serif; font-weight:700; font-size:64px; line-height:50px; padding:6px 10px 0 0; color:var(--accent); }
+  .pull{ font-family:'Fraunces',Georgia,serif; font-size:26px; line-height:1.3; font-weight:500; color:var(--ink); border-left:4px solid var(--accent); padding:6px 0 6px 20px; margin:26px 0; }
+  .sources{ background:var(--wash); border:1px solid var(--line); border-radius:12px; padding:16px 20px; margin:26px 0; font-size:14px; }
+  .sources h4{ margin:0 0 8px; font-size:12px; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); }
+  .sources ol{ margin:0; padding-left:20px; } .sources li{ margin-bottom:6px; }
+  .sources a{ color:var(--accent); text-decoration:underline; word-break:break-word; }
+  .note{ font-size:12.5px; color:var(--muted); font-style:italic; border-top:1px solid var(--line); padding-top:14px; margin-top:24px; }
+  .subscribe{ max-width:1120px; margin:34px auto; padding:26px 24px; text-align:center; }
+  .subscribe .box{ background:var(--ink); color:#fff; border-radius:16px; padding:30px 24px; }
+  .subscribe h3{ font-family:'Fraunces',serif; font-size:24px; margin:0 0 8px; }
+  .subscribe p{ color:#c9c3b8; margin:0 0 16px; font-size:15px; }
+  .subscribe .btn{ display:inline-block; background:var(--accent); color:#fff; font-weight:700; padding:12px 22px; border-radius:999px; font-size:14px; }
+  footer{ border-top:1px solid var(--line); padding:26px 24px; text-align:center; color:var(--muted); font-size:12px; }
+  @media(max-width:720px){ h1.title{ font-size:32px; } }
+  @media(max-width:768px){
+    html,body{ max-width:100%; overflow-x:hidden; }
+    .nav .in{ flex-wrap:nowrap; gap:8px 10px; padding:10px 14px; }
+    .nav .menu-btn{ display:inline-flex; align-items:center; }
+    .nav img{ height:34px; }
+    .nav .links{ display:none; }
+    .nav .sub{ margin-left:auto; padding:8px 12px; white-space:nowrap; }
+    .crumb{ margin-top:20px; padding:0 16px; }
+    .wrap{ padding:0 16px; }
+    h1.title{ font-size:27px; }
+    .standfirst{ font-size:17px; }
+    .hero{ padding:0 16px; margin-bottom:22px; }
+    .heroart{ height:210px; }
+    .body{ font-size:16px; }
+    .body h2{ font-size:22px; }
+    .pull{ font-size:21px; }
+  }
+  .mast{ background:var(--paper); border-bottom:1px solid var(--line); }
+  .mast a{ display:flex; align-items:center; justify-content:center; gap:18px; padding:20px 24px 16px; }
+  .mast img{ height:119px; width:119px; border-radius:50%; }
+  .mast span{ font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:42px; letter-spacing:-.5px; color:var(--ink); }
+  .nav .in{ position:relative; justify-content:center; }
+  .nav .sub{ position:absolute; right:24px; top:50%; transform:translateY(-50%); margin-left:0; }
+  .nav .menu-btn{ position:absolute; left:14px; top:50%; transform:translateY(-50%); }
+  @media(max-width:768px){
+    .mast a{ gap:12px; padding:18px 14px 12px; }
+    .mast img{ height:64px; width:64px; }
+    .mast span{ font-size:24px; letter-spacing:-.3px; }
+    .nav{ position:static !important; background:var(--paper) !important; backdrop-filter:none !important; }
+    .nav .in{ flex-direction:column !important; align-items:center; padding:12px 14px 16px !important; gap:0 !important; }
+    .nav .links{ display:flex !important; flex-direction:row !important; flex-wrap:wrap !important; justify-content:center; overflow:visible !important; gap:9px 18px; padding:0 !important; margin:0; width:100%; font-size:13.5px; position:static !important; box-shadow:none !important; background:transparent !important; border:0 !important; }
+    .nav .links a{ white-space:nowrap; border-top:0 !important; padding:0 !important; font-size:13.5px !important; }
+    .nav .sub{ display:inline-block !important; position:static !important; transform:none !important; margin:14px auto 0 !important; padding:9px 26px; box-shadow:none !important; font-size:13px; }
+    .nav .menu-btn{ display:none !important; }
+  }
+</style>
+</head>
+<body>
+  <div class="mast"><a href="/">
+    <img src="/assets/beacon-badge-400.png" alt="The Bitcoin Beacon" width="400" height="400">
+    <span>The Bitcoin Beacon</span>
+  </a></div>
+  <div class="nav"><div class="in">
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <div class="links"><a href="/archive/on-the-ground.html">On the Ground</a><a href="/archive/money-macro.html">Money &amp; Macro</a><a href="/archive/markets.html">Markets</a><a href="/archive/network-mining.html">Network &amp; Mining</a><a href="/archive/opinion.html">Opinion</a><a href="/archive/policy-nation-states.html">Nation-States</a><a href="/archive.html">Archive</a><a href="/custody/">Custody</a></div>
+    <a class="sub" href="#subscribe">Subscribe</a>
+  </div></div>
+  <script>
+  (function(){var b=document.querySelector('.nav .menu-btn');if(b){b.addEventListener('click',function(){var n=b.closest('.nav');var open=n.classList.toggle('open');b.setAttribute('aria-expanded',open?'true':'false');});}})();
+  </script>
+
+  <div class="crumb"><span class="tag" style="color:#8a5a12;">Network &amp; Mining &middot; Toronto</span></div>
+  <div class="wrap">
+    <h1 class="title">Hackers Drained $115 Million From Coldcard Wallets</h1>
+    <p class="standfirst">A flaw that shipped in 2021 let thieves guess the seed phrases behind one of bitcoin&rsquo;s most trusted hardware wallets. Days later, a rival maker patched its own severe bug.</p>
+    <div class="meta"><b>By The Bitcoin Beacon</b> &middot; TORONTO &middot; August 19, 2026 &middot; 7 min read</div>
+  </div>
+  <div class="hero"><div class="heroart">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260819_115144_9caba37d-c406-4c86-a426-095ba3ec55dd.png" alt="A person at a desk clutching a hardware wallet as a shadowed hand lifts coins from a safe, three-color linocut">
+    <div class="cap">Network &amp; Mining &middot; The safety net of self-custody is the firmware you never read &middot; Illustration: The Bitcoin Beacon</div>
+  </div></div>
+  <div class="wrap body">
+
+<p class="drop">The point of a hardware wallet is that no one can guess your keys. For thousands of Coldcard owners, that promise broke on July 31, when thieves began emptying wallets that had sat untouched for years. By August 16, Galaxy Research put the confirmed losses at more than <strong>$115 million</strong> in bitcoin, measured at the price when each coin was stolen, and said the true figure could pass <strong>$130 million</strong> as it keeps counting.</p>
+
+<p>The flaw sits in the most sensitive step a wallet performs: generating the random number that becomes your seed phrase. In Coldcard Mk3 devices, starting with firmware version 4.0.1 released in March 2021, seed generation quietly fell back to a weak software pseudorandom number generator instead of the hardware true-random generator the device was built around. Weak randomness means guessable keys. Attackers did not need to steal the devices or break their secure chips &mdash; they could reconstruct the seeds from afar and sweep the coins.</p>
+
+<h2>A bug that got worse with every update</h2>
+<p>Coinkite, the Toronto company behind Coldcard, said the bug &ldquo;silently went unnoticed&rdquo; and that &ldquo;its potential impact grew with every release&rdquo; of its products &mdash; each new firmware carried the flaw forward to more users. The company first warned holders on July 31, days after the thefts began, and urged them either to update immediately or move their coins off the device entirely. Unlike a normal patch, some affected users cannot simply upgrade; a seed generated by a compromised process stays weak, so the safe move is to migrate funds to a freshly generated wallet.</p>
+
+<p>Galaxy Research, which has been tracking the on-chain trail, estimates that at least <strong>15 separate attackers</strong> were exploiting the bug independently &mdash; not one crew, but a scramble once the weakness became known. The firm said it had spoken with more than <strong>200 victims</strong> to support them and gather intelligence on the thieves. On August 18, Bitcoin Magazine reported that investigators may have identified the &ldquo;wave one&rdquo; attacker and that the case had drawn the FBI&rsquo;s attention.</p>
+
+<div class="pull">The typical stolen coin had sat untouched for 3.5 years. These were savers, not traders.</div>
+
+<p>What makes the episode sting is who lost. According to Galaxy&rsquo;s analysis, the typical stolen coin had sat untouched for about three and a half years, and a striking <strong>88%</strong> of the pilfered funds were at least a year old. This was not hot money on an exchange; it was long-term savings, held in cold storage by people who did everything the orthodoxy told them to do &mdash; buy a dedicated device, keep the keys off the internet, hold their own coins.</p>
+
+<h2>Then BitBox found its own hole</h2>
+<p>The Coldcard disaster was still unfolding when a second maker came forward. On August 17, the Swiss manufacturer BitBox released a firmware update it called &ldquo;Dixence&rdquo; and disclosed that internal audits had turned up multiple severe vulnerabilities. One would have let an attacker manipulate a user into installing malicious firmware; another, a memory-corruption flaw, could enable arbitrary code execution and the subsequent installation of malicious firmware, opening the door to fund loss.</p>
+
+<p>BitBox said the memory-corruption issue affected its Multi edition and that the Bitcoin-only edition was not vulnerable, because its firmware does not contain the offending code. Crucially, the company said there were no reports of stolen funds and that users did not need to migrate &mdash; only to update through the official BitBoxApp, ideally via the in-app prompt rather than by hunting for a download. It was a patch, not a post-mortem. But the timing underscored a point the Coldcard hack had already made: the device is only as trustworthy as the code running inside it, and that code is written by humans.</p>
+
+<h2>The uncomfortable lesson</h2>
+<p>Self-custody removes the middleman. That is the entire pitch: no bank to freeze your account, no exchange to go bankrupt with your coins, no counterparty at all. But removing the middleman also removes the safety net. When a bank ships buggy software, deposit insurance and chargebacks absorb the damage. When a hardware wallet ships buggy software, the loss is final and it is yours.</p>
+
+<p>The immediate fallout has been a quiet migration. Coinkite and other Bitcoiners spent the past three weeks urging Coldcard owners to move their funds, and some spooked holders have done the thing self-custody was meant to avoid &mdash; sent their coins back to exchanges, where at least a company stands behind the balance. That is a rational response to fear, and also a small defeat for the idea that individuals can safely be their own bank.</p>
+
+<p>None of this is a flaw in bitcoin the protocol. The network kept producing blocks; the ledger recorded every theft with perfect fidelity. The break was in the tools people use to touch it. As the industry has professionalized, those tools have multiplied &mdash; hardware wallets, payment servers, custodial apps &mdash; and each is a new surface where a single mistake can cost strangers their savings. The Coldcard flaw hid in plain sight for more than four years before anyone with bad intentions found it.</p>
+
+<p><em>Why it matters: bitcoin hands you full control of your money, and full responsibility for the code that guards it &mdash; a bargain that only holds when the code is sound.</em></p>
+
+    <div class="sources">
+      <h4>Sources</h4>
+      <ol>
+        <li>Bitcoin Magazine &mdash; <a href="https://bitcoinmagazine.com/news/losses-top-115-million-in-coldcard-hack">Losses Top $115M In Coldcard Bitcoin Hack: Galaxy Research (Aug. 17, 2026)</a></li>
+        <li>Bitcoin Magazine &mdash; <a href="https://bitcoinmagazine.com/news/bitbox-warns-users-about-vulnerability">BitBox Warns Bitcoiners After Discovering &lsquo;Severe&rsquo; Vulnerability In Firmware (Aug. 18, 2026)</a></li>
+        <li>Bitcoin Magazine &mdash; <a href="https://bitcoinmagazine.com/technical/hunting-down-the-coldcard-hacker-wave-1-thief-may-be-known-to-fbi">Hunting Down the Coldcard Hacker: Wave 1 Thief May Be Known to FBI (Aug. 18, 2026)</a></li>
+        <li>Galaxy Research (@glxyresearch) &mdash; <a href="https://x.com/glxyresearch/status/2089002238391832948">on-chain loss estimate and victim outreach (Aug. 16, 2026)</a></li>
+        <li>BitBox &mdash; <a href="https://blog.bitbox.swiss/en/bitbox-08-2026-dixence-update/">Dixence security update advisory (Aug. 17, 2026)</a></li>
+      </ol>
+    </div>
+    <p class="note">Loss figures are Galaxy Research estimates based on bitcoin&rsquo;s price at the time each coin was stolen and remain provisional; the firm has said totals could exceed $130 million. Coldcard is made by Coinkite (Toronto); BitBox by Shift Crypto (Switzerland). Informational only &mdash; not financial advice.</p>
+  </div>
+  <div class="subscribe" id="subscribe"><div class="box">
+    <h3>The world&rsquo;s bitcoin headlines, in your inbox every morning.</h3>
+    <p>Free. Five minutes. No hype.</p>
+    <a class="btn" href="/subscribe.html">Subscribe free</a>
+  </div></div>
+
+  <footer>THE BITCOIN BEACON &bull; The daily record of Bitcoin's global adoption &bull; Informational only &mdash; not financial advice</footer>
+
+<!-- subscribe modal (site-wide) -->
+<style>
+.bb-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(21,19,15,.62);padding:20px;}
+.bb-modal.open{display:flex;}
+.bb-modal .bb-card{background:#faf7f1;border-radius:16px;max-width:620px;width:100%;padding:16px 16px 8px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.35);}
+.bb-modal .bb-x{position:absolute;top:6px;right:12px;background:none;border:0;font-size:28px;color:#6b6459;cursor:pointer;line-height:1;}
+.bb-modal iframe{width:100%;height:340px;border:0;border-radius:10px;background:#fff;}
+</style>
+<div class="bb-modal" id="bb-modal" role="dialog" aria-modal="true" aria-label="Subscribe to The Bitcoin Beacon">
+  <div class="bb-card">
+    <button class="bb-x" aria-label="Close">&times;</button>
+    <iframe data-src="https://subscribe-forms.beehiiv.com/2c9c948c-bcee-4d82-ad46-d31816c72af4" title="Subscribe to The Bitcoin Beacon"></iframe>
+  </div>
+</div>
+<script>
+(function(){
+  var m=document.getElementById('bb-modal');if(!m)return;
+  var f=m.querySelector('iframe');
+  function open(e){if(e)e.preventDefault();if(!f.src)f.src=f.getAttribute('data-src');m.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){m.classList.remove('open');document.body.style.overflow='';}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a');if(!a)return;
+    var h=a.getAttribute('href')||'';
+    if(/subscribe\.html$/.test(h)||h==='#subscribe'){open(e);}
+  });
+  m.addEventListener('click',function(e){if(e.target===m)close();});
+  m.querySelector('.bb-x').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
+
+</body>
+</html>
