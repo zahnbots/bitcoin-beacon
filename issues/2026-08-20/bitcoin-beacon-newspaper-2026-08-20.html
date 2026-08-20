@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — August 20, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+  a{ color:var(--accent); }
+  .rd{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:700; font-size:10.5px; text-transform:uppercase; letter-spacing:0.5px; }
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="The Bitcoin Beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 46</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>Thursday, August 20, 2026</span>
+  </div>
+
+  <h1 class="lead-head">Bitcoin Surges Past $72,000 as the Treasury Doubles Bond Buybacks</h1>
+  <p class="deck">One plumbing decision in Washington flushed $1.4 billion in short bets and drove bitcoin to its highest level since June.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Money &amp; Macro Desk</div>
+
+  <div class="lead-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260820_101811_300766f0-2362-4eea-ad2b-5fcdefc7c8cb.png" alt="Crowd on the steps of the U.S. Treasury beneath a rising sunburst, three-color linocut">
+    <div class="cap">The Treasury reached for the bond market. Bitcoin caught the updraft. &middot; Illustration: The Bitcoin Beacon</div>
+  </div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time (10:15 UTC)</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$72,176</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">963,288</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">918 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap d"><span class="kick">WASHINGTON &mdash;</span> Bitcoin climbed more than 12% in a day, briefly clearing $72,000 for the first time since June, after the U.S. Treasury said it would double its long-dated bond buybacks to at least $4 billion per operation from September 9. The plan pulled the 30-year yield off a 2007 high near 5.34%, softened the dollar, and pushed money back into risk.</p>
+    <p>On leveraged venues the rally detonated roughly $1.4 billion of short positions in about an hour &mdash; a forced-buying cascade that turned a policy headline into a violent squeeze. Ether and crypto-linked stocks rose with it; a White House meeting with industry executives the same day added fuel.</p>
+    <p><em>Why it matters: bitcoin&rsquo;s biggest moves now answer to Washington&rsquo;s debt plumbing, not to any new buyer of the coin.</em></p>
+    <p class="rd"><a href="https://thebitcoinbeacon.com/stories/2026-08-20/treasury-buyback-bitcoin-short-squeeze">Read the full dispatch &rarr;</a></p>
+
+    <div class="take">
+      <span class="tag">The Take</span>
+      <h3>Bitcoin Adoption Is Built, Not Decreed</h3>
+      <p>Five years ago El Salvador made bitcoin legal tender and waited for a country to spend it. It never did &mdash; barely 1% of a $5 billion remittance market runs on crypto. The lesson isn&rsquo;t that bitcoin failed; it&rsquo;s that a law can&rsquo;t manufacture demand. Adoption that sticks is earned one merchant at a time, not gazetted from a palace.</p>
+      <p class="rd"><a href="https://thebitcoinbeacon.com/stories/2026-08-20/adoption-built-not-decreed-take">Read the argument &rarr;</a></p>
+      <div class="sig">&mdash; The Beacon</div>
+    </div>
+
+    <span class="sub">Policy &amp; Nation-States</span>
+    <p><span class="kick">SAN SALVADOR.</span> El Salvador&rsquo;s Bitcoin Law turned five this summer, and President Nayib Bukele conceded to Time that &ldquo;bitcoin did not receive the widespread adoption we expected.&rdquo; Crypto settled just $35.4 million of over $5 billion in first-half remittances; mandatory acceptance was scrapped last year for an IMF loan. What remains is a 7,677-coin state reserve. <span class="rd"><a href="https://thebitcoinbeacon.com/stories/2026-08-20/el-salvador-bitcoin-law-five-years">Full story &rarr;</a></span></p>
+
+    <span class="sub">Markets &amp; Institutions</span>
+    <p><span class="kick">SHANGHAI.</span> A Shanghai digital-insurance broker, Zhibao, closed a $154.7 million bitcoin-funded placement and now holds 2,380 BTC &mdash; the 33rd-largest corporate stack, ahead of Core Scientific. The twist: China bans crypto trading at home, so the coins sit inside a Nasdaq-listed shell. <span class="rd"><a href="https://thebitcoinbeacon.com/stories/2026-08-20/zhibao-shanghai-bitcoin-treasury">Full story &rarr;</a></span></p>
+
+    <span class="sub">Network &amp; Mining</span>
+    <p><span class="kick">GLOBAL.</span> Bitcoin&rsquo;s reference software stops taking new features today: developers froze Bitcoin Core version 32, shifting to bug fixes ahead of a release candidate around September 10 and a final build near October 10. No single person decides what ships &mdash; that friction is the point. <span class="rd"><a href="https://thebitcoinbeacon.com/stories/2026-08-20/bitcoin-core-v32-feature-freeze">Full story &rarr;</a></span></p>
+    <p><span class="kick">GLOBAL.</span> Even after a 12% pop, mining a coin still loses money: JPMorgan pegs the average public miner&rsquo;s all-in cost near $78,000, above today&rsquo;s ~$72,000 price. VanEck counts eight of twelve capitulation signals flashing. <span class="rd"><a href="https://thebitcoinbeacon.com/stories/2026-08-20/bitcoin-miners-underwater-78000-cost">Full story &rarr;</a></span></p>
+
+    <span class="sub">Voices</span>
+    <div class="voice">
+      <div class="q">&ldquo;Bitcoin did not receive the widespread adoption we expected.&rdquo;</div>
+      <div class="who">Nayib Bukele <span>&mdash; President of El Salvador, to Time</span></div>
+    </div>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p>Whether the buyback rally holds or fades once the short squeeze clears; the July FOMC minutes and the path of global bond yields; the CLARITY Act&rsquo;s September vote in the U.S. Senate; Bitcoin Core&rsquo;s v32 release candidate around September 10; and whether more emerging-market states quietly follow El Salvador away from mandatory-tender rules.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="https://thebitcoinbeacon.com/subscribe.html">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>
