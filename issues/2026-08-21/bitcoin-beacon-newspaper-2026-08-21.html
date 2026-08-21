@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — August 21, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  /* Masthead */
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  /* Lead */
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  /* shared lead hero — same illustration used on the website article */
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  /* Columns */
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  /* keep a subhead glued to the paragraph that follows it */
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+
+  /* Markets box — full-width banner */
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  /* The Take — opinion box */
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  /* Voices / from the timeline */
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 47</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>August 21, 2026</span>
+  </div>
+
+  <h1 class="lead-head">Bitcoin Tops $79,000 in Its Best Week Since 2023</h1>
+  <p class="deck">A Treasury plumbing change lit the fuse; a wall of crushed short bets did the rest. The move is real &mdash; the demand under it is still thin.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Money &amp; Macro Desk</div>
+
+  <!-- HERO: the SAME house-style illustration used on the website article for the lead story. -->
+  <div class="lead-hero"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260821_135755_a6caba2f-6c6c-4442-8a4a-9918bf978e88.png" alt="Charging bull beneath a rising sunburst in the financial district, three-color linocut"><div class="cap">The rally ran on fiscal plumbing and forced buyers &mdash; not a new crowd of holders.</div></div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$77,353</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">963,447</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">914 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <!-- BUILD FRESH. Read _bitcoin-beacon-MEMORY.md first; use ONLY net-new, BITCOIN-ONLY stories (no altcoins/crypto-industry).
+         LEAD adoption story: place dateline in the first line, e.g. <span class="kick">NAIROBI &mdash;</span>, and END the lead on a one-line "why it matters."
+         Lead para: class="first dropcap d". Section headers: <span class="sub">TITLE</span>. Inline tags/datelines: <span class="kick">LABEL.</span>.
+         ONE <div class="take"> opinion piece. Voices: <div class="voice"><div class="q">...</div><div class="who">Name <span>@handle - context</span></div></div>.
+         Beats (use only when there's fresh news; adoption leads): On the Ground / Money & Macro / Markets & Institutions / Policy & Nation-States / Network & Mining / Voices. Drop empty sections. -->
+    <p class="first dropcap d"><span class="kick">NEW YORK &mdash;</span> Bitcoin climbed as high as <strong>$79,400</strong> on Friday and is up nearly <strong>24% since Monday</strong>, its best week since 2023. The spark was the U.S. Treasury&rsquo;s move to expand its long-dated bond buybacks &mdash; not money-printing, but a debt-management shift that eases long yields and softens the dollar.</p>
+<p>Leverage did the rest. About <strong>$3.3 billion</strong> in positions were liquidated Wednesday and another <strong>$1.24 billion</strong> over the next day, shorts making up $1.06 billion of it. Traders keep fading the move and keep being wrong; the book still leans net short. Two demand signals flicker green &mdash; spot ETFs pulled in $606 million on Aug. 20, and CryptoQuant&rsquo;s spot-demand gauge is close to turning positive for the first time since February &mdash; but the gains were built on forced buying, not fresh holders.</p>
+<p><span class="kick">Why it matters.</span> The number jumped because Washington adjusted how it buys its own bonds, not because new people chose to hold bitcoin. <a href="https://thebitcoinbeacon.com/stories/2026-08-21/bitcoin-best-week-since-2023-short-squeeze"><strong>Read the full dispatch &rarr;</strong></a></p>
+    <div class="take">
+  <div class="tag">The Take</div>
+  <h3>Now Bitcoin Companies Buy Each Other With Bitcoin</h3>
+  <p>H100&rsquo;s all-share purchase of NSD is a glimpse of the next phase: treasuries merging into bitcoin holding companies. The bull case &mdash; supply locked in vehicles that never sell &mdash; is also the bear case, because it all runs on a premium to net asset value, and premiums compress. Strip away the wrapper and you own bitcoin with extra leverage and a board of directors. <a href="https://thebitcoinbeacon.com/stories/2026-08-21/bitcoin-treasuries-conglomerates-take"><strong>Read the argument &rarr;</strong></a></p>
+  <p class="sig">&mdash; The Bitcoin Beacon</p>
+</div>
+    <span class="sub">Markets &amp; Institutions</span>
+<p><span class="kick">STOCKHOLM &mdash;</span> Sweden&rsquo;s H100 Group tripled its stack to <strong>3,506 BTC</strong> by buying Norway&rsquo;s NSD entirely in stock &mdash; 790 million new shares, no cash, no coins sold. It calls the deal the first bitcoin-for-bitcoin public acquisition and now ranks as Europe&rsquo;s second-largest corporate holder. The structure only works while the shares trade above the bitcoin behind them. <a href="https://thebitcoinbeacon.com/stories/2026-08-21/h100-bitcoin-for-bitcoin-acquisition">Full story &rarr;</a></p>
+
+<span class="sub">Network &amp; Mining</span>
+<p><span class="kick">ASUNCI&Oacute;N &mdash;</span> Paraguay&rsquo;s legal bitcoin miners fell from <strong>71 to 41</strong> in a year as industrial power tariffs doubled. The survivors reserve 943.8 MW, and four firms alone hold 730 of it. Fewer, bigger miners paying more have pushed the state utility&rsquo;s mining revenue toward <strong>$350 million</strong> &mdash; with an AI land-grab for power and a 2027 contract cliff ahead. <a href="https://thebitcoinbeacon.com/stories/2026-08-21/paraguay-bitcoin-miners-halved">Full story &rarr;</a></p>
+
+<span class="sub">Policy &amp; Nation-States</span>
+<p><span class="kick">WASHINGTON &mdash;</span> CFTC Chairman Michael Selig told staff to build a crypto market regime using existing authority, whether or not the Senate passes the Clarity Act before its Sept. 15 cloture vote. He wants rules for leveraged trading and a legal path for DeFi. Agency rules arrive faster than a statute &mdash; and are far easier to challenge or reverse. <a href="https://thebitcoinbeacon.com/stories/2026-08-21/cftc-crypto-rules-clarity-act">Full story &rarr;</a></p>
+<p><span class="kick">THIMPHU &mdash;</span> Bhutan moved another <strong>175 BTC</strong> (~$11.85M) to a wallet it has used before, extending a year-long drawdown of a stack that topped 13,000 BTC in 2024. Analysts tie the sales to the Gelephu megacity, toward which the kingdom pledged up to 10,000 BTC. Where El Salvador vows never to sell, Bhutan is quietly spending. <a href="https://thebitcoinbeacon.com/stories/2026-08-21/bhutan-bitcoin-drawdown-gelephu">Full story &rarr;</a></p>
+    
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p><strong>Ethiopia&rsquo;s national mine.</strong> State-owned Ethiopian Investment Holdings is hunting partners for a government bitcoin-mining venture on surplus hydropower &mdash; a country that legalized mining while banning trading. <strong>The September FOMC.</strong> Futures still price a small chance of a rate hike; a surprise either way lands straight on this week&rsquo;s leverage. <strong>The U.S. reserve.</strong> A White House adviser has said a Strategic Bitcoin Reserve announcement is coming &ldquo;in the near term&rdquo; &mdash; still unannounced.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="#">Unsubscribe</a> &bull; <a href="#">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>
