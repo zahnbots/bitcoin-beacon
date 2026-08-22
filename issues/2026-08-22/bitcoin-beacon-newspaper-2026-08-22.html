@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bitcoin Beacon — August 22, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
+  :root{ --ink:#1c1a17; --rule:#1c1a17; --accent:#c87a12; --paper:#f7f4ec; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e5e2da; font-family:Georgia,'Times New Roman',serif; color:var(--ink); }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--paper); padding:30px 40px 40px; box-shadow:0 2px 18px rgba(0,0,0,0.18); }
+
+  /* Masthead */
+  .rule-top{ border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead{ text-align:center; padding:14px 0 8px; }
+  .masthead img{ width:420px; max-width:88%; height:auto; display:inline-block; }
+  .dateline{ display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    padding:6px 2px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    letter-spacing:1px; text-transform:uppercase; color:#4a463f; }
+  .dateline .c{ font-weight:700; letter-spacing:2px; color:var(--ink); }
+
+  /* Lead */
+  .lead-head{ font-family:'Fraunces',Georgia,serif; text-align:center; font-size:40px; line-height:1.06; font-weight:700;
+    margin:20px 0 6px; letter-spacing:-0.5px; }
+  .deck{ font-family:'Fraunces',Georgia,serif; text-align:center; font-style:italic; font-size:16px; color:#4a463f;
+    margin:0 auto 4px; max-width:80%; line-height:1.4; }
+  /* shared lead hero — same illustration used on the website article */
+  .lead-hero{ margin:14px 0 4px; }
+  .lead-hero img{ width:100%; height:auto; display:block; border:1px solid #d8d2c2; }
+  .lead-hero .cap{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; padding:5px 2px 0; }
+  .byline{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:2px; color:#8a8578; margin:8px 0 16px; }
+  .hr-thin{ border:0; border-top:1px solid #cbc6b8; margin:14px 0; }
+  .hr-thick{ border:0; border-top:2px solid var(--ink); margin:16px 0 4px; }
+
+  /* Columns */
+  .cols{ column-count:3; column-gap:26px; column-rule:1px solid #cbc6b8; text-align:justify;
+    font-size:12.5px; line-height:1.62; hyphens:auto; }
+  .cols p{ margin:0 0 10px; }
+  .cols p.first{ margin-top:0; }
+  .dropcap:first-letter{ float:left; font-size:52px; line-height:42px; padding:2px 8px 0 0;
+    font-weight:700; color:var(--accent); }
+  .sub{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:1px; color:var(--ink); display:block;
+    margin:14px 0 4px; border-bottom:1px solid #cbc6b8; padding-bottom:3px;
+    break-after:avoid; break-inside:avoid; -webkit-column-break-after:avoid; page-break-after:avoid; }
+  /* keep a subhead glued to the paragraph that follows it */
+  .sub + p{ break-before:avoid; -webkit-column-break-before:avoid; }
+  .kick{ font-family:'Helvetica Neue',Arial,sans-serif; font-weight:800; color:var(--accent);
+    font-size:11px; letter-spacing:0.5px; }
+
+  /* Markets box — full-width banner */
+  .marketbox{ border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); margin:14px 0 4px; }
+  .marketbox .hd{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:800;
+    letter-spacing:3px; text-transform:uppercase; text-align:center; color:var(--ink); padding:6px 0 2px; }
+  .mrow{ display:table; width:100%; table-layout:fixed; border-top:1px solid #cbc6b8; }
+  .mrow .cell{ display:table-cell; width:33.33%; text-align:center; padding:9px 4px; border-right:1px solid #cbc6b8; vertical-align:middle; }
+  .mrow .cell:last-child{ border-right:0; }
+  .mrow .lbl{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:1px;
+    text-transform:uppercase; color:#8a8578; }
+  .mrow .val{ font-size:22px; font-weight:700; margin-top:3px; }
+  .up{ color:#2f7d32; } .down{ color:#b03323; }
+
+  /* The Take — opinion box */
+  .take{ break-inside:avoid; background:#f0ece1; border:1px solid #d8d2c2; padding:12px 14px; margin:6px 0 14px; }
+  .take .tag{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .take h3{ font-size:16px; line-height:1.15; margin:5px 0 8px; }
+  .take p{ font-size:12.5px; line-height:1.58; margin:0 0 8px; }
+  .take .sig{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; color:#8a8578; }
+
+  /* Voices / from the timeline */
+  .voice{ break-inside:avoid; margin:6px 0 12px; padding-left:11px; border-left:3px solid var(--accent); }
+  .voice .q{ font-style:italic; font-size:12.5px; line-height:1.5; }
+  .voice .who{ font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700;
+    color:var(--ink); margin-top:4px; text-transform:none; }
+  .voice .who span{ color:#8a8578; font-weight:400; }
+
+  .foot{ text-align:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px;
+    color:#8a8578; margin-top:20px; border-top:2px solid var(--ink); padding-top:10px; line-height:1.6; }
+  .foot a{ color:#8a8578; }
+
+  @media only screen and (max-width:640px){
+    .sheet{ padding:20px; }
+    .cols{ column-count:1; }
+    .lead-head{ font-size:30px; }
+    .dateline{ font-size:9px; letter-spacing:0.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule-top"></div>
+  <div class="masthead">
+    <img src="https://thebitcoinbeacon.com/assets/masthead-ink.png" alt="bitcoin beacon">
+  </div>
+  <div class="dateline">
+    <span>Vol. I &mdash; No. 48</span>
+    <span class="c">Bitcoin&rsquo;s Global Adoption &middot; Daily</span>
+    <span>August 22, 2026</span>
+  </div>
+
+  <h1 class="lead-head">Kazakhstan Claims a Tenth of Its Miners&rsquo; Bitcoin</h1>
+  <p class="deck">A rule in force since Aug. 1 diverts a slice of every approved miner&rsquo;s output into a state reserve &mdash; a country buying bitcoin by taxing the machines it powers.</p>
+  <div class="byline">The Bitcoin Beacon Newsroom &bull; Policy &amp; Nation-States Desk</div>
+
+  <!-- HERO: the SAME house-style illustration used on the website article for the lead story. -->
+  <div class="lead-hero"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DMGhTlA4NfPrOIBsUsGT9mqIMx/hf_20260822_105823_51bbaf5b-8c7c-477d-96d6-9cfb5d0f7e86.png" alt="A Kazakh engineer inspecting rows of mining machines on the steppe below the Astana skyline, three-color linocut"><div class="cap">Astana turns its hosted hashrate into a national ledger entry.</div></div>
+
+  <div class="marketbox">
+    <div class="hd">Vital Stats &middot; at press time</div>
+    <div class="mrow">
+      <div class="cell"><div class="lbl">BTC / USD</div><div class="val">$77,061</div></div>
+      <div class="cell"><div class="lbl">Block height</div><div class="val">963,572</div></div>
+      <div class="cell"><div class="lbl">Network hashrate</div><div class="val">918 EH/s</div></div>
+    </div>
+  </div>
+
+  <hr class="hr-thick">
+
+  <div class="cols">
+    <p class="first dropcap d"><span class="kick">ASTANA &mdash;</span> Kazakhstan has started collecting bitcoin from the miners it powers. Under Government Resolution No. 638, in force since <strong>Aug. 1</strong>, approved &ldquo;strategic&rdquo; miners must hand <strong>10% of their net mined coins</strong> each month to a state fund that routes them to the National Bank&rsquo;s investment arm.</p>
+<p>The bar is high by design: a qualifying site needs at least <strong>150 MW</strong> of capacity and rigs clearing <strong>150 TH/s</strong> each, and in return gets regulated grid access. President Kassym-Jomart Tokayev signed the enabling decree on July 7. But the reserve&rsquo;s mandate stretches past bitcoin to crypto derivatives and company equity &mdash; a diversified state portfolio, not a pure coin stack.</p>
+<p><span class="kick">Why it matters.</span> A government is accumulating bitcoin by taxing the hashrate on its soil rather than buying on the open market. <a href="https://thebitcoinbeacon.com/stories/2026-08-22/kazakhstan-mines-bitcoin-national-reserve"><strong>Read the full dispatch &rarr;</strong></a></p>
+
+    <div class="take">
+  <div class="tag">The Take</div>
+  <h3>The Register Says Bitcoin. The Settlement Says Dollars.</h3>
+  <p>The Global South&rsquo;s payment boom &mdash; Manila remittances, Nairobi tills, a miner&rsquo;s tap-to-pay &mdash; runs on apps that turn bitcoin into local cash the instant it lands. Fees fall, which is real. But a rail nobody holds a coin on is bitcoin as plumbing, not money: custodial, convertible, and one regulator&rsquo;s notice from off. Rails first, holders later is the bet. It is still only a bet. <a href="https://thebitcoinbeacon.com/stories/2026-08-22/bitcoin-payments-custodial-rails-take"><strong>Read the argument &rarr;</strong></a></p>
+  <p class="sig">&mdash; The Bitcoin Beacon</p>
+</div>
+
+    <span class="sub">On the Ground</span>
+<p><span class="kick">MANILA &mdash;</span> Filipinos working abroad can now wire money home over the Lightning Network. Pouch.ph and Neutronpay have opened corridors from <strong>Canada and Vietnam</strong> that settle to Philippine banks and e-wallets in seconds, at better rates than the banks. The recipient sees pesos, never a coin &mdash; bitcoin as the invisible rail under a <strong>$38 billion</strong>-a-year remittance flow. <a href="https://thebitcoinbeacon.com/stories/2026-08-22/philippines-pouch-lightning-remittances-ofw">Full story &rarr;</a></p>
+
+<span class="sub">Network &amp; Mining</span>
+<p><span class="kick">ADDIS ABABA &mdash;</span> Ethiopia has stopped issuing new bitcoin-mining permits, saying its grid has run out of room. The continent&rsquo;s biggest mining hub had allocated about <strong>600 MW</strong> across some two dozen firms and pulled roughly <strong>2.5% of global hashrate</strong> from its hydro dams. The freeze caps growth by physics, not politics &mdash; and pushes the next rigs toward the neighbors. <a href="https://thebitcoinbeacon.com/stories/2026-08-22/ethiopia-halts-new-bitcoin-mining-permits">Full story &rarr;</a></p>
+
+<span class="sub">Markets &amp; Institutions</span>
+<p><span class="kick">MANAMA &mdash;</span> Gulf International Bank &mdash; owned by GCC governments led by Saudi Arabia &mdash; disclosed a <strong>$2.27 million</strong> stake in Strategy, the world&rsquo;s largest corporate bitcoin holder, in its latest 13F. It is a rounding error, and the bank trimmed 365 shares last quarter. The direction, not the size, is the story. <a href="https://thebitcoinbeacon.com/stories/2026-08-22/gulf-bank-buys-into-strategy-bitcoin">Full story &rarr;</a></p>
+
+    <span class="sub">What We&rsquo;re Watching</span>
+    <p><strong>Kazakhstan&rsquo;s first haul.</strong> The reserve&rsquo;s opening monthly transfer &mdash; how many coins the 10% rule actually yields &mdash; is due to surface in filings. <strong>Pouch&rsquo;s next corridors.</strong> Manila&rsquo;s remittance rail works only if the sending countries multiply; watch for Gulf and U.S. routes. <strong>Ethiopia&rsquo;s spillover.</strong> Frozen out at home, container miners are shopping neighboring grids from Kenya to Zambia. <strong>Adopting Bitcoin, Cape Town.</strong> The African circular-economy summit lands Jan. 29 &mdash; the on-the-ground counterweight to the treasury conferences.</p>
+  </div>
+
+  <div class="foot">
+    THE BITCOIN BEACON &bull; The daily record of Bitcoin&rsquo;s global adoption &bull; Informational only, not financial advice<br>
+    You&rsquo;re receiving this because you subscribed. <a href="#">Unsubscribe</a> &bull; <a href="#">Manage preferences</a>
+  </div>
+
+</div>
+</body>
+</html>
